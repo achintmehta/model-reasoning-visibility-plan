@@ -1,0 +1,23 @@
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2026-09-22
+
+Reasoning: medium
+
+# Valid channels: analysis, commentary, final. Channel must be included for every message.
+Calls to these tools must go to the commentary channel: 'functions'.<|end|><|start|>developer<|message|># Instructions
+
+You are a software engineer. [SYSTEM]
+
+# Tools
+
+## functions
+
+namespace functions {
+
+// write a file
+type write_file = (_: {
+path?: string,
+}) => any;
+
+} // namespace functions<|end|><|start|>user<|message|>Build a message board. [TASK]<|end|><|start|>assistant<|channel|>analysis<|message|>The task needs a package.json before anything else, so write that first.<|end|><|start|>assistant to=functions.write_file<|channel|>commentary json<|message|>{"path": "package.json"}<|call|><|start|>functions.write_file to=assistant<|channel|>commentary<|message|>wrote package.json<|end|><|start|>assistant<|channel|>analysis<|message|>The server file comes next; it has to import express and listen on 3000.<|end|><|start|>assistant to=functions.write_file<|channel|>commentary json<|message|>{"path": "server.js"}<|call|><|start|>functions.write_file to=assistant<|channel|>commentary<|message|>wrote server.js<|end|><|start|>assistant

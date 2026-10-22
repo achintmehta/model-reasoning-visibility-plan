@@ -1,0 +1,15 @@
+0.00.082.261 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.082.549 W srv  llama_server: -----------------
+0.00.082.553 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.082.555 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.082.555 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.082.555 W srv  llama_server: -----------------
+0.00.090.722 I srv    load_model: loading model 'D:\llm_models\LM Studio\unsloth\Muse-Glimmer-30B-GGUF\Muse-Glimmer-30B-UD-Q4_K_XL.gguf'
+0.00.932.066 W load: setting token '<|message|>' (200023) attribute to USER_DEFINED (16), old attributes: 8
+0.00.932.916 W load: setting token '<|start|>' (200022) attribute to USER_DEFINED (16), old attributes: 8
+0.00.932.927 W load: special_eot_id is not in special_eog_ids - the tokenizer config may be incorrect
+0.06.335.006 I cmn          init: llama threadpool init, n_threads = 16
+0.06.417.013 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 131072, kv_unified = 'false'
+0.06.423.145 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+0.06.423.174 I srv  llama_server: model loaded
+0.06.423.177 I srv  llama_server: listening on http://0.0.0.0:7777

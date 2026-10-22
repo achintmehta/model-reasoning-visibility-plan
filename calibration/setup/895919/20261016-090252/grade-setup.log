@@ -1,0 +1,177 @@
+== grade_setup.sh  blind id 895919  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-16 09:02:52 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 895919: task kanban-board (use kanban-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/895919/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] no new PGlite(...) or PGlite.create(...) found in the app's code
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/6] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: kanban-board/, kanban-board/backend/, kanban-board/frontend/. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder kanban-board/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | npm error code EUSAGE
+       | npm error
+       | npm error `npm ci` can only install packages when your package.json and package-lock.json are in sync. Please update your lock file with `npm install` before continuing.
+       | npm error
+       | npm error Invalid: lock file's concurrently@10.0.5 does not satisfy concurrently@8.2.2
+       | npm error Invalid: lock file's chalk@5.6.2 does not satisfy chalk@4.1.2
+       | npm error Missing: date-fns@2.30.0 from lock file
+       | npm error Missing: lodash@4.18.1 from lock file
+       | npm error Missing: spawn-command@0.0.2 from lock file
+       | npm error Invalid: lock file's supports-color@10.2.2 does not satisfy supports-color@8.1.1
+       | npm error Invalid: lock file's yargs@18.0.0 does not satisfy yargs@17.7.3
+       | npm error Invalid: lock file's ansi-styles@6.2.3 does not satisfy ansi-styles@4.3.0
+       | npm error Missing: supports-color@7.2.0 from lock file
+       | npm error Missing: color-convert@2.0.1 from lock file
+       | npm error Missing: color-name@1.1.4 from lock file
+       | npm error Missing: @babel/runtime@7.29.7 from lock file
+       | npm error Missing: has-flag@4.0.0 from lock file
+       | npm error Invalid: lock file's cliui@9.0.1 does not satisfy cliui@8.0.1
+       | npm error Missing: require-directory@2.1.1 from lock file
+       | npm error Invalid: lock file's string-width@7.2.0 does not satisfy string-width@4.2.3
+       | npm error Invalid: lock file's yargs-parser@22.0.0 does not satisfy yargs-parser@21.1.1
+       | npm error Invalid: lock file's strip-ansi@7.2.0 does not satisfy strip-ansi@6.0.1
+       | npm error Invalid: lock file's wrap-ansi@9.0.2 does not satisfy wrap-ansi@7.0.0
+       | npm error Invalid: lock file's emoji-regex@10.6.0 does not satisfy emoji-regex@8.0.0
+       | npm error Missing: is-fullwidth-code-point@3.0.0 from lock file
+       | npm error Invalid: lock file's ansi-regex@6.3.0 does not satisfy ansi-regex@5.0.1
+       | npm error
+       | npm error Clean install a project
+       | npm error
+       | npm error Usage:
+       | npm error npm ci
+       | npm error
+       | npm error Options:
+       | npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+       | npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+       | npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+       | npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts]
+       | npm error [--allow-directory <all|none|root>] [--allow-file <all|none|root>]
+       | npm error [--allow-git <all|none|root>] [--allow-remote <all|none|root>]
+       | npm error [--allow-scripts <package-list> [--allow-scripts <package-list> ...]]
+       | npm error [--strict-allow-scripts] [--dangerously-allow-all-scripts] [--no-audit]
+       | npm error [--no-bin-links] [--no-fund] [--dry-run]
+       | npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+       | npm error [--workspaces] [--include-workspace-root] [--install-links]
+       | npm error
+       | npm error   --install-strategy
+       | npm error     Sets the strategy for installing packages in node_modules.
+       | npm error
+       | npm error   --legacy-bundling
+       | npm error     Instead of hoisting package installs in `node_modules`, install packages
+       | npm error
+       | npm error   --global-style
+       | npm error     Only install direct dependencies in the top level `node_modules`,
+       | npm error
+       | npm error   --omit
+       | npm error     Dependency types to omit from the installation tree on disk.
+       | npm error
+       | npm error   --include
+       | npm error     Option that allows for defining which types of dependencies to install.
+       | npm error
+       | npm error   --strict-peer-deps
+       | npm error     If set to `true`, and `--legacy-peer-deps` is not set, then _any_
+       | npm error
+       | npm error   --foreground-scripts
+       | npm error     Run all build scripts (ie, `preinstall`, `install`, and
+       | npm error
+       | npm error   --ignore-scripts
+       | npm error     If true, npm does not run scripts specified in package.json files.
+       | npm error
+       | npm error   --allow-directory
+       | npm error     Limits the ability for npm to install dependencies from directories.
+       | npm error
+       | npm error   --allow-file
+       | npm error     Limits the ability for npm to install dependencies from tarball files.
+       | npm error
+       | npm error   --allow-git
+       | npm error     Limits the ability for npm to fetch dependencies from git references.
+       | npm error
+       | npm error   --allow-remote
+       | npm error     Limits the ability for npm to fetch dependencies from urls.
+       | npm error
+       | npm error   --allow-scripts
+       | npm error     Comma-separated list of packages whose install-time lifecycle scripts
+       | npm error
+       | npm error   --strict-allow-scripts
+       | npm error     If `true`, turn the install-script policy from a warning into a hard
+       | npm error
+       | npm error   --dangerously-allow-all-scripts
+       | npm error     If `true`, bypass the `allowScripts` policy entirely and run every
+       | npm error
+       | npm error   --audit
+       | npm error     When "true" submit audit reports alongside the current npm command to the
+       | npm error
+       | npm error   --bin-links
+       | npm error     Tells npm to create symlinks (or `.cmd` shims on Windows) for package
+       | npm error
+       | npm error   --fund
+       | npm error     When "true" displays the message at the end of each `npm install`
+       | npm error
+       | npm error   --dry-run
+       | npm error     Indicates that you don't want npm to make any changes and that it should
+       | npm error
+       | npm error   -w|--workspace
+       | npm error     Enable running a command in the context of the configured workspaces of the
+       | npm error
+       | npm error   --workspaces
+       | npm error     Set to true to run the command in the context of **all** configured
+       | npm error
+       | npm error   --include-workspace-root
+       | npm error     Include the workspace root when workspaces are enabled for a command.
+       | npm error
+       | npm error   --install-links
+       | npm error     When set file: protocol dependencies will be packed and installed as
+       | npm error
+       | npm error
+       | npm error aliases: clean-install, ic, install-clean, isntall-clean
+       | npm error
+       | npm error Run "npm help ci" for more info
+       | npm error A complete log of this run can be found in: /home/achintmehta/.npm/_logs/2026-10-16T14_02_52_850Z-debug-0.log
+  [FAIL] kanban-board/: install stopped (exit 1, EUSAGE: the lockfile does not match package.json). L0 fails; A0 lets the rest of the card be graded
+  [INFO] why: the lockfile does not match package.json (EUSAGE)
+  [ DO ] A0: run this whole line:
+         (cd '/home/achintmehta/grading-work/895919/app/kanban-board' && set -x && npm install) 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/895919/20261016-090252/a0.log'
+  [INFO] for L0's notes: A0: npm ci in kanban-board/ stopped on EUSAGE (the lockfile does not match package.json); re-ran with npm install.
+
+  -- folder kanban-board/backend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 71 packages in 724ms
+  [ OK ] kanban-board/backend/: installed without an error
+
+  -- folder kanban-board/frontend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 15 packages in 464ms
+  [ OK ] kanban-board/frontend/: installed without an error
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/895919/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/895919/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/895919/20261016-090252 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/895919.score.json
+
+== SUMMARY  blind id 895919  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [FAIL] install: 2 of 3 folder(s) installed  ->  L0 fails; run the A0 command(s) below, then grade the rest
+  [INFO] each folder installed by this script on its own: kanban-board/ FAILED (A0 below) · kanban-board/backend/ installed · kanban-board/frontend/ installed
+  [ OK ] blank score sheet made
+
+  To do before the launch:
+    - kanban-board/: the lockfile does not match package.json (EUSAGE)
+      A0 (run this whole line):  (cd '/home/achintmehta/grading-work/895919/app/kanban-board' && set -x && npm install) 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/895919/20261016-090252/a0.log'
+      L0 notes (L0 still fails):  A0: npm ci in kanban-board/ stopped on EUSAGE (the lockfile does not match package.json); re-ran with npm install.
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/895919/app/kanban-board' && npm run dev   # the top folder has no package.json; check from the app (and its README) that kanban-board/ is the project root
+       the project root's scripts:
+         npm run dev   # concurrently "cd backend && node index.js" "cd frontend && npm run dev"

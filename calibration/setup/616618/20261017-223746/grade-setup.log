@@ -1,0 +1,56 @@
+== grade_setup.sh  blind id 616618  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-17 22:37:46 ==
+
+[1/7] Find the run
+  [ OK ] found the run for blind id 616618: task kanban-board (use kanban-board.rubric.md)
+
+[2/7] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/7] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/616618/app (without node_modules and .git)
+
+[4/7] Remove the database the app shipped with
+  [INFO] the code calls PGlite at:
+           kanban-board/backend/index.js:23: const db = new PGlite(DB_DIR);
+  [ OK ] removed the shipped database folder kanban-board/backend/data/  (39,048 KB)
+
+[5/7] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: kanban-board/, kanban-board/backend/, kanban-board/frontend/. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder kanban-board/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 29 packages in 4s
+  [ OK ] kanban-board/: installed without an error
+
+  -- folder kanban-board/backend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | up to date in 153ms
+  [ OK ] kanban-board/backend/: installed without an error
+
+  -- folder kanban-board/frontend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 15 packages in 467ms
+  [ OK ] kanban-board/frontend/: installed without an error
+
+[6/7] Launch pre-check (decides nothing: run the declared command as usual)
+  [ OK ] nothing found that would stop npm run dev
+
+[7/7] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/616618/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/616618/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/616618/20261017-223746 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/616618.score.json
+
+== SUMMARY  blind id 616618  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] shipped database removed
+  [ OK ] install: all 3 folder(s) installed without an error  ->  L0 passes
+  [INFO] each folder installed by this script on its own: kanban-board/ installed · kanban-board/backend/ installed · kanban-board/frontend/ installed
+  [ OK ] launch pre-check: nothing found that would stop npm run dev
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/616618/app/kanban-board' && npm run dev   # the top folder has no package.json; check from the app (and its README) that kanban-board/ is the project root
+       the project root's scripts:
+         npm run dev   # concurrently "cd backend && npm run start" "cd frontend && npm run dev"
+         npm run install-all   # cd backend && npm install && cd ../frontend && npm install

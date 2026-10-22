@@ -1,0 +1,60 @@
+== grade_setup.sh  blind id 581966  ·  task message-board  ·  card message-board.rubric.md  ·  2026-10-16 07:50:46 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 581966: task message-board (use message-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/581966/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] no new PGlite(...) or PGlite.create(...) found in the app's code
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/6] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: ./, backend/, frontend/. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder ./: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | added 29 packages in 5s
+  [ OK ] ./: installed without an error
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.json in the run's log folder)
+
+  -- folder backend/: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | added 71 packages in 1s
+  [ OK ] backend/: installed without an error
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.backend.json in the run's log folder)
+
+  -- folder frontend/: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | added 11 packages in 2s
+       | npm warn install-scripts 1 package had install scripts blocked because they are not covered by allowScripts:
+       | npm warn install-scripts   esbuild@0.21.5 (postinstall: node install.js)
+       | npm warn install-scripts
+       | npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+  [ OK ] frontend/: installed without an error (4 npm warnings, which do not count)
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.frontend.json in the run's log folder)
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/581966/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/581966/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/581966/20261016-075045 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/581966.score.json
+
+== SUMMARY  blind id 581966  ·  message-board ==
+  [ OK ] run found: task message-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [ OK ] install: all 3 folder(s) installed without an error  ->  L0 passes
+  [INFO] each folder installed by this script on its own: ./ installed · backend/ installed · frontend/ installed
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/581966/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:server" "npm run dev:frontend"
+         npm run dev:server   # cd backend && node server.js
+         npm run dev:frontend   # cd frontend && npm run dev
+         npm run build   # cd frontend && npm run build

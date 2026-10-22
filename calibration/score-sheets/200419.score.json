@@ -1,0 +1,350 @@
+{
+  "blind_id": "200419",
+  "task": "kanban-board",
+  "card_version": "2.2 (2026-10-18)",
+  "graded_on": "2026-10-15",
+  "grader": "Achint Mehta",
+  "accommodations": [],
+  "card_notes": [
+    "**Cards:** step 4 creates six cards through A's interface: `apple`, `banana`, `cherry` and `date` in column 1, then `elder` and `fig` in column 2. The later steps refer to them by name. Before typing each text, clear the input if it still holds anything, so that a leftover text does not run into the next card.",
+    "**Windows:** A and B are two separate browser windows, each showing the app's address: the page URL the app gives you: the Local address its dev server prints (for example `http://localhost:5173/`), or the backend's own address when the backend serves the page. Every window uses the same address. Open each window's DevTools before entering the address.",
+    "**Reloads:** steps 6 to 14 each begin by reloading both windows, so that every step starts from the board the server stored. A window that missed an update, or shows a move the server did not store, does not carry it into later steps, and each item judges only its own step. Score a step's items before you start the next step, and note anything D6 or D7 will need, such as a blank card text or a ghost left after a drop: the next step's opening reload clears it. A reload later in a step is part of what that step checks, and when an item speaks of \"the reload\" or \"reloading\", it means that later one, never the step's opening reload. Do not reload anywhere else.",
+    "**Order:** the spec orders the board by `position`: `GET /api/board` returns the columns and each column's cards ordered by it (tasks 2.3, 2.4), a new card goes at the end of its column (3.1, 4.6), and a moved card takes a position between the neighbours it was dropped between (3.2). On screen that means:",
+    "- **Columns** run left to right. \"Column 1\", \"column 2\" and \"column 3\" are the first three.",
+    "- **Cards** in a column run top to bottom. The \"top\" or \"first\" card is the topmost; the \"end\" or \"bottom\" of a column is below its last card.",
+    "- If an app lays a column out some other way, read its order the way the app presents it and say so in the notes.",
+    "**Dependencies:**",
+    "- **Drag items.** Every drag item (D1–D9, R3, R4, C1, C2, S1) fails if no card can be dragged at all, or if no drop ever moves a card (the card can be picked up but always goes back where it was). There is then no moved card to judge, and nothing passes by default.",
+    "- **F4** depends on F3.",
+    "- **Seeding fallback.** If the interface cannot create a card, or cannot create one in the column needed, create the missing cards with `python3 seed_card.py <backend-port> <column-number> <text>...` and grade the rest on them. If `seed_card.py` cannot create a card either, every item that needs that card fails. A placement warning from `seed_card.py` is noted, not failed.",
+    "- **A card stored twice.** If a card was stored twice (F5 fails), read every later \"exactly once\" as \"no more often than at the start of the step\", and drag the first copy."
+  ],
+  "steps": [
+    {
+      "step": "0",
+      "do": "Run `grade_setup.sh` (README, \"Before each app\") and read its install output.",
+      "then_score": "L0",
+      "items": {
+        "KB-L0": {
+          "goal": "Check if the app installs without an accommodation",
+          "criterion": "Installing the app's dependencies from its own files completes without an error, in every folder that has a `package.json` (README, \"Before each app\"). Warnings do not count.",
+          "fails_when": "The install stops with an error: a package or version that does not exist, a dependency conflict npm refuses, or a lockfile that does not match its `package.json` (even if A0 then gets it installed).",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "1",
+      "do": "Run the declared command. Open window A: a new browser window, open its DevTools, then go to the app's address. In A's Network panel, find the request for the board.",
+      "then_score": "L1, L2, L3. If the page doesn't work, use the accommodations in the README.",
+      "items": {
+        "KB-L1": {
+          "goal": "Check if the backend boots with the declared command",
+          "criterion": "The backend starts with the declared command, with no accommodation, and keeps running: it has started (see \"Started\" in the README) and is still running when the page is opened.",
+          "fails_when": "The backend throws an exception or exits while starting, never starts, or starts only with an accommodation (A1, A5, A6, A7 or A8).",
+          "weight": 3,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-L2": {
+          "goal": "Check if the frontend boots and its page loads cleanly",
+          "criterion": "The frontend starts with the declared command, with no accommodation, and its page loads: while it loads, the Console shows no error from the app's own source files, and all of the page's own scripts and styles load. An app with no Vite dev server, whose backend serves the page, is judged on that page.",
+          "fails_when": "The frontend's code fails as it loads, some of the page's own files fail to load, or the frontend starts only with an accommodation (A2, A3, A5, A6, A7 or A8).",
+          "weight": 3,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-L3": {
+          "goal": "Check if the frontend can talk to the backend",
+          "criterion": "On the launch where the backend runs and the page's scripts load (the declared command if they do there, otherwise the first accommodated launch where they do), the page's request for the board returns 200 with a JSON body (check the Response tab). No A4 or A7 accommodation.",
+          "fails_when": "The page cannot reach the backend: its request fails, returns an error, or returns something other than the backend's JSON, such as the page's own HTML.",
+          "weight": 2,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "2",
+      "do": "Look at the board in A and reload it once. Ten seconds after the reload, find the event-stream request (Type `event-stream`; README, \"Browser\").",
+      "then_score": "F1, R1",
+      "items": {
+        "KB-F1": {
+          "goal": "Check if the board shows its columns",
+          "criterion": "At least three columns are shown side by side, each with its title, in the same order after the reload.",
+          "fails_when": "Fewer than three columns, no titles, or the column order changes on reload.",
+          "weight": 2,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-R1": {
+          "goal": "Check if the page opens a live-update stream",
+          "criterion": "Ten seconds after the reload, A's Network panel shows a request to the backend's event stream (Type `event-stream`; README, \"Browser\") that is still open.",
+          "fails_when": "No event stream is opened, or it has closed with an error.",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "3",
+      "do": "Open window B: a new browser window, open its DevTools, then go to the app's address, the same one as A. Do not reload or navigate B except where a step tells you to, or where the README's crash and stuck-interface rules require it.",
+      "then_score": "—",
+      "items": {}
+    },
+    {
+      "step": "4",
+      "do": "Using A's interface, create six cards, one at a time and in this order: `apple`, `banana`, `cherry` and `date` in column 1, then `elder` and `fig` in column 2. Watch B as you go, and A's Network panel for each card's `POST /api/cards`. Column 1 should now read `apple`, `banana`, `cherry`, `date` from the top, and column 2 `elder`, `fig`.",
+      "then_score": "F2, F3, F4, R2",
+      "items": {
+        "KB-F2": {
+          "goal": "Check if the page can create a card",
+          "criterion": "The interface offers a control for creating a card in a chosen column, and submitting it sends `POST /api/cards` with that column's id and the card's text to the backend (check A's Network panel).",
+          "fails_when": "The interface cannot add a card: there is no control for creating one, or submitting sends no request, or a request other than `POST /api/cards` with the column's id and the text. Fails whenever any card of step 4 had to be created with `seed_card.py`.",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-F3": {
+          "goal": "Check if a new card shows up at once, in its column",
+          "criterion": "Each card submitted from the interface appears in A within 2 seconds, without a reload, at the end of the column it was created in. Depends on F2. Only cards added through the interface count: cards created with `seed_card.py` never pass F3 (they are judged in R2 and F5).",
+          "fails_when": "Any card of step 4 had to be created with `seed_card.py` (the interface could not add it); or a submitted card does not appear, for example because the backend rejects the request; or it appears in another column or somewhere other than the end of its column.",
+          "weight": 2,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-F4": {
+          "goal": "Check if a new card is not shown twice",
+          "criterion": "Two seconds after each creation, the new card is shown exactly once in A. Depends on F3.",
+          "fails_when": "The creating window shows a new card twice. Fails whenever any card of step 4 had to be created with `seed_card.py` (as F3 then fails).",
+          "weight": 1,
+          "result": "fail",
+          "notes": "banana showed up twice in window A"
+        },
+        "KB-R2": {
+          "goal": "Check if new cards reach the other window live",
+          "criterion": "Each new card, created via the interface or `seed_card.py`, appears in B within 2 seconds, without a reload, and two seconds after each creation it is shown exactly once in B. For a seeded card, it must appear in both A and B within 2 seconds, exactly once in each.",
+          "fails_when": "B shows new cards only after a reload, or shows a new card twice.",
+          "weight": 3,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "5",
+      "do": "Reload A.",
+      "then_score": "F5",
+      "items": {
+        "KB-F5": {
+          "goal": "Check if new cards survive a page reload",
+          "criterion": "After reloading A, each of the six cards is there exactly once, in the column and order it was created in.",
+          "fails_when": "A card was stored twice, so the copy survives the reload, or a card was lost.",
+          "weight": 2,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "6",
+      "do": "Reload A and B. Then, in A, drag `apple` with the mouse into column 2 and drop it between `elder` and `fig`. Watch B. Then reload A.",
+      "then_score": "D2, R3 (before the reload), D1 (after it)",
+      "items": {
+        "KB-D2": {
+          "goal": "Check if a card dragged to another column lands where dropped",
+          "criterion": "`apple` lands between `elder` and `fig`, where it was dropped.",
+          "fails_when": "Dropped cards always go to the bottom of the column, or land somewhere else.",
+          "weight": 2,
+          "result": "fail",
+          "notes": "Apple ended up at the bottom"
+        },
+        "KB-R3": {
+          "goal": "Check if a move to another column reaches the other window live",
+          "criterion": "Within 2 seconds, without a reload, B shows `apple` in the same column and position as A shows it, and in exactly one place.",
+          "fails_when": "B does not update, or shows the card in both columns or in a different place from A.",
+          "weight": 3,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-D1": {
+          "goal": "Check if a move to another column is saved",
+          "criterion": "After the reload of A that follows the drag in step 6 (not the step's opening reload), `apple` is in column 2, between `elder` and `fig` where it was dropped, and nowhere in column 1.",
+          "fails_when": "Drag and drop does not work at all, cards cannot be dropped into another column, a cross-column move fails with a server error, or the reload shows the card somewhere in column 2 other than where it was dropped (for example at the bottom).",
+          "weight": 3,
+          "result": "fail",
+          "notes": "apple is at the bottom"
+        }
+      }
+    },
+    {
+      "step": "7",
+      "do": "Reload A and B. Then, in A, drag the last card of column 1 (`date`) to the top of column 1. Watch B. Then reload A.",
+      "then_score": "D3, R4",
+      "items": {
+        "KB-D3": {
+          "goal": "Check if reordering inside a column works and is saved",
+          "criterion": "The dragged card is first in column 1, and the other cards keep their relative order, both before and after reloading A.",
+          "fails_when": "Cards cannot be reordered within a column, or the order does not survive the reload.",
+          "weight": 3,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-R4": {
+          "goal": "Check if a reorder reaches the other window live",
+          "criterion": "Within 2 seconds, without a reload, B shows column 1 in the same order as A, with the dragged card in the slot A shows it in (whether or not that is where it was dropped: D3 judges that) and every card of the column shown exactly once in both windows. Fails if A's order did not change: a card that vanishes from the column has not been reordered.",
+          "fails_when": "A reorder within a column does not reach the other window; or the dragged card disappears, even if it disappears from both windows alike.",
+          "weight": 2,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "8",
+      "do": "Reload A and B. Then, in A, drag `fig` into column 3, which is empty at this point. Release it inside the column's outline, below its title and as low as the outline allows.",
+      "then_score": "D4",
+      "items": {
+        "KB-D4": {
+          "goal": "Check if a card can be dropped into an empty column",
+          "criterion": "`fig` lands in column 3.",
+          "fails_when": "The drop works only on an exact spot, such as the middle of the column or onto a card.",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "9",
+      "do": "Reload A and B. Then pause the backend (`backend.sh pause`). In A, drag the last card of column 1 into the slot between the first two cards. After 1 second, check where it is. Resume it (`backend.sh resume`) and watch A for 5 seconds. Then reload A: the reloaded board is the one the server stored.",
+      "then_score": "D5",
+      "items": {
+        "KB-D5": {
+          "goal": "Check if a drag shows at once and then settles on what the server saved",
+          "criterion": "One second after the drop, while the backend is still paused, the card is in its new slot: it moved without waiting for the server (spec 4.3). Within 5 seconds of resuming, A shows the card where the reload then shows it: the slot the server stored, whichever that is (spec 4.5). It never shows in two places at once (spec 4.4).",
+          "fails_when": "The card waits for the server before it moves; after resuming it stays somewhere other than where the reload shows it; or it shows in two places.",
+          "weight": 2,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "10",
+      "do": "Reload A and B. Then, in A, pick up the second card of column 1, move it over column 2, then carry it outside every column (for example over the page heading) and release it there. Note the board as A shows it. Then reload A.",
+      "then_score": "D9",
+      "items": {
+        "KB-D9": {
+          "goal": "Check if a drop outside every column leaves the board as the server has it",
+          "criterion": "The board A showed just before the reload is the board it shows after it: A's own view matched what the server stored.",
+          "fails_when": "A shows the card moved, but the server never stored the move, so a reload or another window shows it elsewhere.",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "11",
+      "do": "Reload A and B. Then pause the backend (`backend.sh pause`). In B, drag the last card of column 1 to the top of column 1. In A, drag the first card of column 1 to the bottom of column 1. Resume it (`backend.sh resume`), wait 5 seconds and compare A with B. Then reload both windows and compare again.",
+      "then_score": "C1",
+      "items": {
+        "KB-C1": {
+          "goal": "Check if two windows reordering at once end up agreeing",
+          "criterion": "After resuming and waiting, A and B show column 1 in the same order, each card as often as at the start of the step, and that order is unchanged after reloading both. Fails if neither drag took effect: judged after resuming, not during the pause (a window showing its own drag while paused does not count), so it fails when, after resuming and after reloading, column 1 is back in the order it had at the start of the step.",
+          "fails_when": "The windows settle on different orders, the order changes on reload, or a card is duplicated or lost.",
+          "weight": 2,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "12",
+      "do": "Reload A and B. Then pause the backend (`backend.sh pause`). In B, drag `elder` into column 3. In A, drag `elder` to the top of column 1. Resume it (`backend.sh resume`), wait 5 seconds and compare. Then reload both windows and compare again.",
+      "then_score": "C2",
+      "items": {
+        "KB-C2": {
+          "goal": "Check if two windows moving the same card at once end up agreeing",
+          "criterion": "`elder` appears exactly once in each window, in the same column and position in both, before and after reloading both, and no other card is missing or duplicated. Fails if neither drag took effect: judged after resuming, not during the pause (a window showing its own drag while paused does not count), so it fails when, after resuming and after reloading, `elder` is back where it started, in column 2.",
+          "fails_when": "The card ends up in two places, in different places in the two windows, or is lost.",
+          "weight": 2,
+          "result": "fail",
+          "notes": "Neither drag took effect"
+        }
+      }
+    },
+    {
+      "step": "13",
+      "do": "Reload A and B. Then, in A, drag the last card of column 1 into the slot between the first two cards, then drag the same card back to the bottom. Do this four times, then drag it into the slot between the first two cards once more (nine drags, all in A, with the backend running; the last one leaves it second). Then reload A and B. If column 1 has fewer than three cards at the start, S1 fails.",
+      "then_score": "S1",
+      "items": {
+        "KB-S1": {
+          "goal": "Check if many quick drags in a row stay accurate and are saved",
+          "criterion": "Every drag lands the card where it was dropped: each \"between\" drag visibly puts it second in column 1, between the cards that were first and second, and each drag back puts it last. After the reloads, A and B both show column 1 as A showed it after the ninth drag: the same cards, each as often as at the start of the step, with the dragged card second and the others in their order from the start of the step. The ninth drag leaves the card where only a move the server stored can keep it, so S1 fails if the reload puts it back at the bottom.",
+          "fails_when": "A drag lands the card somewhere other than where it was dropped (for example third instead of second), a card is lost or duplicated, the reload shows the dragged card anywhere but second (for example back at the bottom, because the server never stored the moves or an earlier move won), the order differs between A and B, or repeated moves between the same two neighbours scramble it.",
+          "weight": 2,
+          "result": "fail",
+          "notes": "drag down put the card into top"
+        }
+      }
+    },
+    {
+      "step": "14",
+      "do": "Reload A and B. Then write down the whole board as A shows it. Kill the backend (`backend.sh kill`) and Ctrl-C the rest of the app. Check that its ports are free. Start it again with the same command, wait until it has started (see \"Started\" in the README), and reload A and B.",
+      "then_score": "P1",
+      "items": {
+        "KB-P1": {
+          "goal": "Check if the board survives a backend restart",
+          "criterion": "After the restart, A and B both show exactly the board you wrote down: the same columns, and the same cards in the same order. Fails if there were no cards to write down (nothing passes by default).",
+          "fails_when": "Cards or their order are lost when the process is killed, or the app does not start a second time.",
+          "weight": 3,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "15",
+      "do": "Look back over every drop in steps 6–13, and over the whole card.",
+      "then_score": "D6, D7, U1",
+      "items": {
+        "KB-D6": {
+          "goal": "Check if dragged cards keep their text",
+          "criterion": "After every drop in steps 6–13, the moved card shows its own text.",
+          "fails_when": "A dragged card's text shows as `undefined` or blank until a reload. Fails if no drop in steps 6–13 ever moves a card on the page (it can be picked up but always goes back where it was): there is no moved card to judge (Dependencies). A drop that moves the card on the page counts even if a reload later puts it back.",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-D7": {
+          "goal": "Check if drags leave no ghost copies behind",
+          "criterion": "After every drop in steps 6–13, no copy, placeholder or \"ghost\" of the card is left on the page.",
+          "fails_when": "A ghost card is left floating after a drop. Fails if no drop in steps 6–13 ever moves a card on the page (it can be picked up but always goes back where it was): there is no moved card to judge (Dependencies). A drop that moves the card on the page counts even if a reload later puts it back.",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        },
+        "KB-U1": {
+          "goal": "Check if the board's layout is readable",
+          "criterion": "Columns sit side by side, every card's full text is visible, and no card overlaps another card or a column edge.",
+          "fails_when": "Overlapping or clipped cards or columns, or two cards in the same slot.",
+          "weight": 1,
+          "result": "pass",
+          "notes": ""
+        }
+      }
+    },
+    {
+      "step": "16",
+      "do": "With the score sheet complete and the app still running, run the API probe (README, \"API probe\"). Do not change any score afterwards.",
+      "then_score": "— (recorded apart from the score)",
+      "items": {}
+    }
+  ],
+  "notes": ""
+}

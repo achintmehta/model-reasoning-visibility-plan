@@ -1,0 +1,145 @@
+{
+  "probe_version": "1.0.0",
+  "task": "message-board",
+  "blind_id": "544924",
+  "host": "127.0.0.1",
+  "port": 3001,
+  "started_at": "2026-10-15T14:39:26+00:00",
+  "checks": [
+    {
+      "id": "MB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/messages answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "MB-API2",
+      "spec": "3.1",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "MB-API3",
+      "spec": "3.2",
+      "asks": "POST /api/messages stores the message (it then appears in GET /api/messages)",
+      "result": "pass",
+      "detail": "201; body field text"
+    },
+    {
+      "id": "MB-API4",
+      "spec": "3.3",
+      "asks": "the new message is broadcast on the event stream within 2 s",
+      "result": "pass",
+      "detail": "event 'message' after 0.02 s"
+    }
+  ],
+  "observations": {
+    "messages_shape": "array of 3 objects, keys ['created_at', 'id', 'text']",
+    "post_attempts": [
+      {
+        "fields": [
+          "text"
+        ],
+        "status": 201,
+        "stored": true
+      }
+    ],
+    "post_body_field": "text",
+    "post_response": "object, keys ['created_at', 'id', 'text']",
+    "broadcast_event": {
+      "event": "message",
+      "data": "{\"id\":34,\"text\":\"api-probe 39b889 message 1\",\"created_at\":\"2026-10-15T14:39:26.406Z\"}"
+    },
+    "empty_message": [
+      {
+        "body": {
+          "text": ""
+        },
+        "status": 400,
+        "answer": "refused (4xx)",
+        "stored": false
+      }
+    ]
+  },
+  "summary": {
+    "pass": 4,
+    "fail": 0,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 1,
+    "event_names": [
+      "message"
+    ],
+    "first_events": [
+      "{\"id\":34,\"text\":\"api-probe 39b889 message 1\",\"created_at\":\"2026-10-15T14:39:26.406Z\"}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha1\",\"created_at\":\"2026-10-15T14:36:52.611Z\"},{\"id\":2,\"text\":\"bravo2\",\"created_at\":\"2026-10-15T14:37:50.152Z\"},{\"id\":3,\"text\":\"charlie 3\",\"created_at\":\"2026-10-15T14:38:20.008Z\"}]",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "text": "api-probe 39b889 message 1"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":34,\"text\":\"api-probe 39b889 message 1\",\"created_at\":\"2026-10-15T14:39:26.406Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha1\",\"created_at\":\"2026-10-15T14:36:52.611Z\"},{\"id\":2,\"text\":\"bravo2\",\"created_at\":\"2026-10-15T14:37:50.152Z\"},{\"id\":3,\"text\":\"charlie 3\",\"created_at\":\"2026-10-15T14:38:20.008Z\"},{\"id\":34,\"text\":\"api-probe 39b889 message 1\",\"created_at\":\"2026-10-15T14:39:26.406Z\"}]",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha1\",\"created_at\":\"2026-10-15T14:36:52.611Z\"},{\"id\":2,\"text\":\"bravo2\",\"created_at\":\"2026-10-15T14:37:50.152Z\"},{\"id\":3,\"text\":\"charlie 3\",\"created_at\":\"2026-10-15T14:38:20.008Z\"},{\"id\":34,\"text\":\"api-probe 39b889 message 1\",\"created_at\":\"2026-10-15T14:39:26.406Z\"}]",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "text": ""
+      },
+      "status": 400,
+      "content_type": "text/html; charset=utf-8",
+      "response": "Text is required",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha1\",\"created_at\":\"2026-10-15T14:36:52.611Z\"},{\"id\":2,\"text\":\"bravo2\",\"created_at\":\"2026-10-15T14:37:50.152Z\"},{\"id\":3,\"text\":\"charlie 3\",\"created_at\":\"2026-10-15T14:38:20.008Z\"},{\"id\":34,\"text\":\"api-probe 39b889 message 1\",\"created_at\":\"2026-10-15T14:39:26.406Z\"}]",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-15T14:39:36+00:00"
+}

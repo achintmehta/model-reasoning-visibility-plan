@@ -1,0 +1,28 @@
+scenario,measure,true_value,grids,coverage95,coverage90,mc_se95
+failure 0% vs 2%,failure,0.02,2000,0.9995,0.9895,0.000499875
+failure 0% vs 2%,steps,1,2000,0.948,0.8965,0.00496468
+failure 0% vs 2%,quality,0,2000,0.948,0.903,0.00496468
+failure 1% vs 1%,failure,0,2000,0.995,0.982,0.00157718
+failure 1% vs 1%,steps,1,2000,0.957,0.9135,0.00453602
+failure 1% vs 1%,quality,0,2000,0.944,0.891,0.00514121
+failure 2% vs 2%,failure,0,2000,0.9775,0.9475,0.00331615
+failure 2% vs 2%,steps,1,2000,0.9425,0.895,0.00520547
+failure 2% vs 2%,quality,0,2000,0.9545,0.908,0.00465992
+failure 2% vs 5%,failure,0.03,2000,0.97,0.9075,0.00381445
+failure 2% vs 5%,steps,1,2000,0.947,0.887,0.00500954
+failure 2% vs 5%,quality,0,2000,0.9385,0.89,0.00537205
+failure 5% vs 5%,failure,0,2000,0.9575,0.9115,0.00451075
+failure 5% vs 5%,steps,1,2000,0.944,0.894,0.00514121
+failure 5% vs 5%,quality,0,2000,0.9425,0.8855,0.00520547
+failure 2% vs 10%,failure,0.08,2000,0.9635,0.908,0.00419331
+failure 2% vs 10%,steps,1,2000,0.9545,0.9025,0.00465992
+failure 2% vs 10%,quality,0,2000,0.95,0.9035,0.0048734
+failure 10% vs 10%,failure,0,2000,0.961,0.9085,0.00432891
+failure 10% vs 10%,steps,1,2000,0.9455,0.8935,0.00507591
+failure 10% vs 10%,quality,0,2000,0.9535,0.907,0.00470838
+steps ratio 1.22 (0.4 SD),failure,0,2000,0.981,0.9465,0.00305279
+steps ratio 1.22 (0.4 SD),steps,1.2214,2000,0.9495,0.901,0.00489641
+steps ratio 1.22 (0.4 SD),quality,0,2000,0.953,0.901,0.00473239
+quality shift 24 points,failure,0,2000,0.9795,0.9485,0.00316858
+quality shift 24 points,steps,1,2000,0.945,0.9005,0.00509779
+quality shift 24 points,quality,24,2000,0.9395,0.887,0.00533103

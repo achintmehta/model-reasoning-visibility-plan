@@ -1,0 +1,145 @@
+{
+  "probe_version": "1.0.0",
+  "task": "message-board",
+  "blind_id": "663442",
+  "host": "127.0.0.1",
+  "port": 3001,
+  "started_at": "2026-10-16T12:40:56+00:00",
+  "checks": [
+    {
+      "id": "MB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/messages answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "MB-API2",
+      "spec": "3.1",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "MB-API3",
+      "spec": "3.2",
+      "asks": "POST /api/messages stores the message (it then appears in GET /api/messages)",
+      "result": "pass",
+      "detail": "201; body field text"
+    },
+    {
+      "id": "MB-API4",
+      "spec": "3.3",
+      "asks": "the new message is broadcast on the event stream within 2 s",
+      "result": "pass",
+      "detail": "event 'message' after 0.00 s"
+    }
+  ],
+  "observations": {
+    "messages_shape": "array of 1 objects, keys ['created_at', 'id', 'text']",
+    "post_attempts": [
+      {
+        "fields": [
+          "text"
+        ],
+        "status": 201,
+        "stored": true
+      }
+    ],
+    "post_body_field": "text",
+    "post_response": "object, keys ['created_at', 'id', 'text']",
+    "broadcast_event": {
+      "event": "message",
+      "data": "{\"id\":2,\"text\":\"api-probe de0463 message 1\",\"created_at\":\"2026-10-16T12:40:56.186Z\"}"
+    },
+    "empty_message": [
+      {
+        "body": {
+          "text": ""
+        },
+        "status": 400,
+        "answer": "refused (4xx)",
+        "stored": false
+      }
+    ]
+  },
+  "summary": {
+    "pass": 4,
+    "fail": 0,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 1,
+    "event_names": [
+      "message"
+    ],
+    "first_events": [
+      "{\"id\":2,\"text\":\"api-probe de0463 message 1\",\"created_at\":\"2026-10-16T12:40:56.186Z\"}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha 1\",\"created_at\":\"2026-10-16T12:40:07.308Z\"}]",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "text": "api-probe de0463 message 1"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":2,\"text\":\"api-probe de0463 message 1\",\"created_at\":\"2026-10-16T12:40:56.186Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha 1\",\"created_at\":\"2026-10-16T12:40:07.308Z\"},{\"id\":2,\"text\":\"api-probe de0463 message 1\",\"created_at\":\"2026-10-16T12:40:56.186Z\"}]",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha 1\",\"created_at\":\"2026-10-16T12:40:07.308Z\"},{\"id\":2,\"text\":\"api-probe de0463 message 1\",\"created_at\":\"2026-10-16T12:40:56.186Z\"}]",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "text": ""
+      },
+      "status": 400,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"error\":\"Message text is required\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":1,\"text\":\"alpha 1\",\"created_at\":\"2026-10-16T12:40:07.308Z\"},{\"id\":2,\"text\":\"api-probe de0463 message 1\",\"created_at\":\"2026-10-16T12:40:56.186Z\"}]",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-16T12:41:06+00:00"
+}

@@ -1,0 +1,15 @@
+0.00.084.900 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.085.178 W srv  llama_server: -----------------
+0.00.085.183 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.085.184 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.085.184 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.085.185 W srv  llama_server: -----------------
+0.00.099.953 I srv    load_model: loading model 'D:\llm_models\LM Studio\unsloth\gemma-4-31B-it-GGUF\gemma-4-31B-it-Q4_K_M.gguf'
+0.01.198.459 W load: control-looking token:      1 '<eos>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.198.613 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.198.868 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.223.981 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.07.238.112 I cmn          init: llama threadpool init, n_threads = 16
+0.07.351.604 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 65536, kv_unified = 'false'
+0.07.359.089 I srv  llama_server: model loaded
+0.07.359.096 I srv  llama_server: listening on http://0.0.0.0:7777

@@ -1,0 +1,12 @@
+[gMASK]<sop><|system|>
+# Tools
+
+You may call one or more functions to assist with the user query.
+
+You are provided with function signatures within <tools></tools> XML tags:
+<tools>
+{"type": "function", "function": {"name": "write_file", "description": "write a file", "parameters": {"type": "object", "properties": {"path": {"type": "string"}}}}}
+</tools>
+
+For each function call, output the function name and arguments within the following XML format:
+<tool_call>{function-name}<arg_key>{arg-key-1}</arg_key><arg_value>{arg-value-1}</arg_value><arg_key>{arg-key-2}</arg_key><arg_value>{arg-value-2}</arg_value>...</tool_call><|system|>You are a software engineer. [SYSTEM]<|user|>Build a message board. [TASK]<|assistant|></think>Starting with the manifest.<tool_call>write_file<arg_key>path</arg_key><arg_value>package.json</arg_value></tool_call><|observation|><tool_response>wrote package.json</tool_response><|assistant|></think>Now the server.<tool_call>write_file<arg_key>path</arg_key><arg_value>server.js</arg_value></tool_call><|observation|><tool_response>wrote server.js</tool_response><|assistant|><think>

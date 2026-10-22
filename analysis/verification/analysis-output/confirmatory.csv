@@ -1,0 +1,16 @@
+test_id,analysis,model,family,measure,arm_a,arm_b,n_a,n_b,mean_a,mean_b,scale,estimate,ci95_lo,ci95_hi,ci90_lo,ci90_hi,interval,alternative,p,p_holm,verdict,x
+confirmatory|gemma-q4|H1|failure,confirmatory,gemma-q4,H1,failure,unseen,seen,12,12,0.5,0.166667,difference,-0.333333,-0.607107,0.0405508,-0.574311,-0.0169945,newcombe,,0.185381,0.185381,undetermined,0.574311
+confirmatory|gemma-q4|H1|steps,confirmatory,gemma-q4,H1,steps,unseen,seen,6,10,4.32271,3.60803,ratio,0.48935,0.32062,0.746876,0.32628,0.733919,bootstrap,,0.0329967,0.0989901,undetermined,3.06485
+confirmatory|gemma-q4|H1|quality,confirmatory,gemma-q4,H1,quality,unseen,seen,12,12,48.475,83.6558,difference,35.1808,11.9143,58.6804,14.168,56.2201,bootstrap,,0.0386961,0.0989901,undetermined,56.2201
+confirmatory|gemma-q4|H2|failure,confirmatory,gemma-q4,H2,failure,off,unseen,12,12,0.166667,0.5,difference,0.333333,-0.0405508,0.607107,0.0169945,0.574311,newcombe,,0.219078,0.657234,undetermined,0.574311
+confirmatory|gemma-q4|H2|steps,confirmatory,gemma-q4,H2,steps,off,unseen,10,6,4.20003,4.32271,ratio,1.13052,0.659517,1.9379,0.684148,1.85492,bootstrap,,0.680432,0.920308,undetermined,1.85492
+confirmatory|gemma-q4|H2|quality,confirmatory,gemma-q4,H2,quality,off,unseen,12,12,59,48.475,difference,-10.525,-33.8613,12.2683,-31.3022,9.97992,bootstrap,,0.460154,0.920308,undetermined,31.3022
+confirmatory|gemma-q4|H3-H5|H3,confirmatory,gemma-q4,H3-H5,H3,unseen,seen,12,12,0.728676,0.982931,difference,0.254255,0.215932,0.292613,0.22216,0.28728,bootstrap,greater,9.999e-05,0.00029997,supported,
+confirmatory|gemma-q4|H3-H5|H4,confirmatory,gemma-q4,H3-H5,H4,unseen,seen,12,12,5.96446,4.95087,ratio,0.362912,0.330099,0.399696,0.334832,0.39398,bootstrap,less,9.999e-05,0.00029997,supported,
+confirmatory|gemma-q4|H3-H5|H5,confirmatory,gemma-q4,H3-H5,H5,unseen,seen,12,12,0.25,0,difference,-0.25,-0.532305,0.0411067,-0.487338,-0.0155326,newcombe,less,0.123488,0.123488,not supported,
+confirmatory|gptoss-20b|H1|failure,confirmatory,gptoss-20b,H1,failure,unseen,seen,12,12,0.166667,0,difference,-0.166667,-0.448031,0.103762,-0.399207,0.0476323,newcombe,,0.505749,0.505749,undetermined,0.399207
+confirmatory|gptoss-20b|H1|steps,confirmatory,gptoss-20b,H1,steps,unseen,seen,10,12,4.0928,3.67068,ratio,0.655654,0.502117,0.854026,0.522968,0.818443,bootstrap,,0.060194,0.120388,undetermined,1.91216
+confirmatory|gptoss-20b|H1|quality,confirmatory,gptoss-20b,H1,quality,unseen,seen,12,12,38.0742,84.6725,difference,46.5983,26.5168,66.7827,27.8635,65.336,bootstrap,,0.0125987,0.0377962,different,
+confirmatory|gptoss-20b|H3-H5|H3,confirmatory,gptoss-20b,H3-H5,H3,unseen,seen,12,12,0.717156,0.98899,difference,0.271834,0.233465,0.309645,0.239077,0.304006,bootstrap,greater,0.00019998,0.00039996,supported,
+confirmatory|gptoss-20b|H3-H5|H4,confirmatory,gptoss-20b,H3-H5,H4,unseen,seen,12,12,6.02773,5.0366,ratio,0.371155,0.338545,0.405843,0.343361,0.400485,bootstrap,less,9.999e-05,0.00029997,supported,
+confirmatory|gptoss-20b|H3-H5|H5,confirmatory,gptoss-20b,H3-H5,H5,unseen,seen,12,12,0.666667,0,difference,-0.666667,-0.86188,-0.299238,-0.840515,-0.368076,newcombe,less,0.00179982,0.00179982,supported,

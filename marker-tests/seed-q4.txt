@@ -1,0 +1,11 @@
+server : http://192.168.1.110:7777/v1
+model  : seed-oss-36b   (key seed-q4, from the wrapper)
+body   : (none -- template defaults)
+replay : field, max_tokens 4096
+probe  : assistant turn carrying the reasoning + tool_calls, then a user question
+
+HTTP 200. Model replied: 'ZQ7-KESTREL-4419'
+          and reasoned:  "Got it, let's see. The user is asking for the working codeword I noted earlier. From the previous thinking, I remember I said my working codeword for this task is ZQ7-KESTREL-4419. The user wants me t"
+
+ACCEPTED — the nonce came back, so the replayed reasoning demonstrably
+reached the prompt. Replay works on this server and template.

@@ -1,0 +1,10 @@
+test_id,analysis,model,family,measure,arm_a,arm_b,n_a,n_b,mean_a,mean_b,scale,estimate,ci95_lo,ci95_hi,ci90_lo,ci90_hi,interval,alternative,p,p_holm,verdict,x
+no-nudge|gemma-q4|H1|failure,no-nudge,gemma-q4,H1,failure,unseen,seen,10,10,0.4,0.2,difference,-0.2,-0.521086,0.186962,-0.480999,0.130955,newcombe,,0.620938,0.620938,undetermined,0.480999
+no-nudge|gemma-q4|H1|steps,no-nudge,gemma-q4,H1,steps,unseen,seen,6,8,4.32271,3.62151,ratio,0.49599,0.32149,0.765206,0.328058,0.749885,bootstrap,,0.0451955,0.0908909,undetermined,3.04824
+no-nudge|gemma-q4|H1|quality,no-nudge,gemma-q4,H1,quality,unseen,seen,10,10,39.77,82.787,difference,43.017,25.5345,60.6268,26.6956,59.5789,bootstrap,,0.030297,0.0908909,undetermined,59.5789
+substituted-0|gemma-q4|H1|quality,substituted-0,gemma-q4,H1,quality,unseen,seen,12,12,41.1417,53.6242,difference,12.4825,-23.0407,47.4972,-19.3373,43.8309,bootstrap,,0.580042,0.580042,undetermined,43.8309
+substituted-0|gemma-q4|H2|quality,substituted-0,gemma-q4,H2,quality,off,unseen,12,12,48.8333,41.1417,difference,-7.69167,-41.2922,25.7427,-37.3905,20.6205,bootstrap,,0.690931,1,undetermined,37.3905
+no-nudge|gptoss-20b|H1|failure,no-nudge,gptoss-20b,H1,failure,unseen,seen,10,8,0.2,0,difference,-0.2,-0.509838,0.154655,-0.459207,0.0848618,newcombe,,0.506349,0.771523,undetermined,0.459207
+no-nudge|gptoss-20b|H1|steps,no-nudge,gptoss-20b,H1,steps,unseen,seen,8,8,3.98976,3.75796,ratio,0.793104,0.626408,1.00416,0.641622,0.980351,bootstrap,,0.385761,0.771523,undetermined,1.55855
+no-nudge|gptoss-20b|H1|quality,no-nudge,gptoss-20b,H1,quality,unseen,seen,10,8,41.896,81.1112,difference,39.2152,13.6084,64.7514,13.962,64.3978,bootstrap,,0.059994,0.179982,undetermined,64.3978
+substituted-0|gptoss-20b|H1|quality,substituted-0,gptoss-20b,H1,quality,unseen,seen,12,12,38.0742,77.0058,difference,38.9317,11.3348,66.8671,17.7432,60.3547,bootstrap,,0.0368963,0.110689,undetermined,60.3547

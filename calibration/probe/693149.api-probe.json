@@ -1,0 +1,91 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "693149",
+  "host": null,
+  "port": 3000,
+  "started_at": "2026-10-15T18:33:55+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    }
+  ],
+  "observations": {},
+  "no_backend": true,
+  "summary": {
+    "pass": 0,
+    "fail": 10,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": null,
+  "requests": [],
+  "finished_at": "2026-10-15T18:33:55+00:00"
+}

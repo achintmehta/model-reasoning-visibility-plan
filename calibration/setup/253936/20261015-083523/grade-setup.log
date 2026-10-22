@@ -1,0 +1,56 @@
+== grade_setup.sh  blind id 253936  ·  task message-board  ·  card message-board.rubric.md  ·  2026-10-15 08:35:23 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 253936: task message-board (use message-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/253936/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] the code calls PGlite at:
+         
+  [ OK ] removed the shipped database folder data/messages.db/  (27,103 KB)
+  [ OK ] removed the folder it left empty: data/
+
+[5/6] Install the dependencies (this decides L0)
+
+  -- folder ./: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 29 packages in 5s
+  [ OK ] ./: installed without an error
+
+  -- folder client/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 11 packages in 353ms
+       | npm warn install-scripts 1 package had install scripts blocked because they are not covered by allowScripts:
+       | npm warn install-scripts   esbuild@0.21.5 (postinstall: node install.js)
+       | npm warn install-scripts
+       | npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+  [ OK ] client/: installed without an error (4 npm warnings, which do not count)
+
+  -- folder server/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 71 packages in 699ms
+  [ OK ] server/: installed without an error
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/253936/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/253936/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/253936/20261015-083523 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/253936.score.json
+
+== SUMMARY  blind id 253936  ·  message-board ==
+  [ OK ] run found: task message-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] shipped database removed
+  [ OK ] install: all 3 folder(s) installed without an error  ->  L0 passes
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/253936/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:server" "npm run dev:client"
+         npm run dev:server   # node server/index.js
+         npm run dev:client   # npm run dev --prefix client

@@ -1,0 +1,65 @@
+blind_id,label,started_at,agent_rc,manifest,manifest_status,void_cause,needs_rerun,role,slot_empty
+444173,gemma-q4/kanban-board/execution/off/r01,2027-01-15T10:36:02+00:00,0,1,finished,,,analysed run of its slot,0
+750607,gemma-q4/kanban-board/execution/off/r02,2027-01-15T10:47:38+00:00,0,1,finished,,,analysed run of its slot,0
+232514,gemma-q4/kanban-board/execution/seen/r01,2027-01-15T10:43:36+00:00,0,1,finished,,,analysed run of its slot,0
+207060,gemma-q4/kanban-board/execution/seen/r02,2027-01-15T10:57:54+00:00,0,1,finished,,,analysed run of its slot,0
+492366,gemma-q4/kanban-board/execution/unseen/r01,2027-01-15T10:39:38+00:00,0,1,finished,,,analysed run of its slot,0
+990307,gemma-q4/kanban-board/execution/unseen/r02,2027-01-15T10:51:48+00:00,0,1,truncated_tool_args,,,analysed run of its slot,0
+627658,gemma-q4/kanban-board/interactive/off/r01,2027-01-15T11:00:25+00:00,0,1,finished,,,analysed run of its slot,0
+605277,gemma-q4/kanban-board/interactive/off/r02,2027-01-15T11:13:41+00:00,0,1,finished,,,analysed run of its slot,0
+284989,gemma-q4/kanban-board/interactive/seen/r01,2027-01-15T11:09:05+00:00,0,1,finished,,,analysed run of its slot,0
+106538,gemma-q4/kanban-board/interactive/seen/r02,2027-01-15T11:23:39+00:00,0,1,finished,,,analysed run of its slot,0
+780140,gemma-q4/kanban-board/interactive/unseen/r01,2027-01-15T11:03:06+00:00,0,1,budget_exhausted,,,analysed run of its slot,0
+705500,gemma-q4/kanban-board/interactive/unseen/r02,2027-01-15T11:20:35+00:00,0,1,finished,,,analysed run of its slot,0
+496239,gemma-q4/kanban-board/no_verification/off/r01,2027-01-15T10:03:03+00:00,0,1,finished,,,analysed run of its slot,0
+153476,gemma-q4/kanban-board/no_verification/off/r02,2027-01-15T10:20:17+00:00,0,1,truncated_tool_args,,,analysed run of its slot,0
+936589,gemma-q4/kanban-board/no_verification/seen/r01,2027-01-15T10:17:05+00:00,0,1,budget_exhausted,,,analysed run of its slot,0
+322790,gemma-q4/kanban-board/no_verification/seen/r02,2027-01-15T10:32:20+00:00,0,1,finished,,,analysed run of its slot,0
+978461,gemma-q4/kanban-board/no_verification/unseen/r01,2027-01-15T10:10:46+00:00,0,1,truncated_no_tool_call,,,analysed run of its slot,0
+238292,gemma-q4/kanban-board/no_verification/unseen/r02,2027-01-15T10:27:21+00:00,0,1,runaway_no_tool_call,,,analysed run of its slot,0
+507403,gemma-q4/message-board/execution/off/r01,2027-01-15T08:48:49+00:00,0,1,finished,,,analysed run of its slot,0
+139551,gemma-q4/message-board/execution/off/r02,2027-01-15T09:06:12+00:00,0,1,finished,,,analysed run of its slot,0
+279563,gemma-q4/message-board/execution/seen/r01,2027-01-15T09:00:49+00:00,0,1,budget_exhausted,,,analysed run of its slot,0
+660737,gemma-q4/message-board/execution/seen/r02,2027-01-15T09:20:40+00:00,0,1,finished,,,analysed run of its slot,0
+611235,gemma-q4/message-board/execution/unseen/r01,2027-01-15T08:56:23+00:00,0,1,truncated_no_tool_call,,,analysed run of its slot,0
+219323,gemma-q4/message-board/execution/unseen/r02,2027-01-15T09:12:04+00:00,0,1,finished,,,analysed run of its slot,0
+447712,gemma-q4/message-board/interactive/off/r01,2027-01-15T09:25:21+00:00,0,1,finished,,,analysed run of its slot,0
+761158,gemma-q4/message-board/interactive/off/r02,2027-01-15T09:52:16+00:00,0,1,finished,,,analysed run of its slot,0
+237308,gemma-q4/message-board/interactive/seen/r01,2027-01-15T09:49:00+00:00,0,1,finished,,,analysed run of its slot,0
+419260,gemma-q4/message-board/interactive/seen/r02,2027-01-15T10:00:44+00:00,0,1,finished,,,analysed run of its slot,0
+184345,gemma-q4/message-board/interactive/unseen/r01,2027-01-15T09:36:13+00:00,1,1,api_error,runner failed (exit code 1),,void attempt: runner failed (exit code 1),0
+727961,gemma-q4/message-board/interactive/unseen/r01,2027-01-15T09:40:34+00:00,0,1,finished,,,analysed run of its slot,0
+585892,gemma-q4/message-board/interactive/unseen/r02,2027-01-15T09:56:37+00:00,0,1,stopped_no_tool_call,,,analysed run of its slot,0
+462617,gemma-q4/message-board/no_verification/off/r01,2027-01-15T08:00:00+00:00,0,1,context_overflow,,,analysed run of its slot,0
+466517,gemma-q4/message-board/no_verification/off/r02,2027-01-15T08:27:03+00:00,0,1,finished,,,analysed run of its slot,0
+456084,gemma-q4/message-board/no_verification/seen/r01,2027-01-15T08:23:29+00:00,0,1,finished,,,analysed run of its slot,0
+411973,gemma-q4/message-board/no_verification/seen/r02,2027-01-15T08:45:29+00:00,0,1,finished,,,analysed run of its slot,0
+818793,gemma-q4/message-board/no_verification/unseen/r01,2027-01-15T08:08:38+00:00,0,1,finished,,,analysed run of its slot,0
+365762,gemma-q4/message-board/no_verification/unseen/r02,2027-01-15T08:33:17+00:00,1,1,api_error,runner failed (exit code 1),,void attempt: runner failed (exit code 1),0
+724351,gemma-q4/message-board/no_verification/unseen/r02,2027-01-15T08:40:53+00:00,0,1,finished,,,analysed run of its slot,0
+596254,gptoss-20b/kanban-board/execution/seen/r01,2027-01-15T12:52:49+00:00,0,1,finished,,,analysed run of its slot,0
+864447,gptoss-20b/kanban-board/execution/seen/r02,2027-01-15T13:03:10+00:00,0,1,finished,,,analysed run of its slot,0
+150751,gptoss-20b/kanban-board/execution/unseen/r01,2027-01-15T12:48:59+00:00,0,1,finished,,,analysed run of its slot,0
+243511,gptoss-20b/kanban-board/execution/unseen/r02,2027-01-15T12:56:06+00:00,0,1,finished,,,analysed run of its slot,0
+877272,gptoss-20b/kanban-board/interactive/seen/r01,2027-01-15T13:15:43+00:00,0,1,finished,,,analysed run of its slot,0
+530030,gptoss-20b/kanban-board/interactive/seen/r02,2027-01-15T13:26:23+00:00,0,1,finished,,,analysed run of its slot,0
+354311,gptoss-20b/kanban-board/interactive/unseen/r01,2027-01-15T13:08:30+00:00,0,1,stuck_blocked_tool,,,analysed run of its slot,0
+957859,gptoss-20b/kanban-board/interactive/unseen/r02,2027-01-15T13:18:13+00:00,0,1,finished,,,analysed run of its slot,0
+519780,gptoss-20b/kanban-board/no_verification/seen/r01,2027-01-15T12:36:40+00:00,0,1,finished,,,analysed run of its slot,0
+541866,gptoss-20b/kanban-board/no_verification/seen/r02,2027-01-15T12:44:13+00:00,0,1,finished,,,analysed run of its slot,0
+648182,gptoss-20b/kanban-board/no_verification/unseen/r01,2027-01-15T12:30:17+00:00,0,1,finished,,,analysed run of its slot,0
+812837,gptoss-20b/kanban-board/no_verification/unseen/r02,2027-01-15T12:39:21+00:00,0,1,finished,,,analysed run of its slot,0
+558095,gptoss-20b/message-board/execution/seen/r01,2027-01-15T12:03:36+00:00,0,1,finished,,,analysed run of its slot,0
+351804,gptoss-20b/message-board/execution/seen/r02,2027-01-15T12:11:03+00:00,0,1,finished,,,analysed run of its slot,0
+170540,gptoss-20b/message-board/execution/unseen/r01,2027-01-15T11:58:08+00:00,0,1,finished,,,analysed run of its slot,0
+816501,gptoss-20b/message-board/execution/unseen/r02,2027-01-15T12:06:56+00:00,0,1,finished,,,analysed run of its slot,0
+753038,gptoss-20b/message-board/interactive/seen/r01,2027-01-15T12:16:25+00:00,0,1,finished,,,analysed run of its slot,0
+566854,gptoss-20b/message-board/interactive/seen/r02,2027-01-15T12:25:24+00:00,0,1,finished,,,analysed run of its slot,0
+545638,gptoss-20b/message-board/interactive/unseen/r01,2027-01-15T12:14:30+00:00,0,1,finished,,,analysed run of its slot,0
+927045,gptoss-20b/message-board/interactive/unseen/r02,2027-01-15T12:19:29+00:00,0,1,runaway_no_tool_call,,,analysed run of its slot,0
+885043,gptoss-20b/message-board/no_verification/seen/r01,2027-01-15T11:35:20+00:00,0,1,finished,,,analysed run of its slot,0
+820666,gptoss-20b/message-board/no_verification/seen/r02,2027-01-15T11:52:06+00:00,1,1,api_error,runner failed (exit code 1),,void attempt: runner failed (exit code 1),0
+293761,gptoss-20b/message-board/no_verification/seen/r02,2027-01-15T11:54:21+00:00,0,1,finished,,,analysed run of its slot,0
+401052,gptoss-20b/message-board/no_verification/unseen/r01,2027-01-15T11:27:46+00:00,0,1,finished,,,analysed run of its slot,0
+131152,gptoss-20b/message-board/no_verification/unseen/r02,2027-01-15T11:38:26+00:00,1,1,api_error,runner failed (exit code 1),,void attempt: runner failed (exit code 1),0
+203642,gptoss-20b/message-board/no_verification/unseen/r02,2027-01-15T11:46:54+00:00,0,1,finished,,,analysed run of its slot,0

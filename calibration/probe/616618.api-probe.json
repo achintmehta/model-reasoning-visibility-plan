@@ -1,0 +1,333 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "616618",
+  "host": "127.0.0.1",
+  "port": 3001,
+  "started_at": "2026-10-18T05:02:21+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "pass",
+      "detail": "3 columns; columns each hold their cards"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "pass",
+      "detail": "201; body fields columnId/text"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "pass",
+      "detail": "last of 5 cards"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'message' after 0.02 s"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "pass",
+      "detail": "object, keys ['column_id', 'id', 'position', 'text']"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "pass",
+      "detail": "card 7 of 8, between its neighbours"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'message' after 0.01 s"
+    }
+  ],
+  "observations": {
+    "board_shape": "array of 3 objects, keys ['cards', 'id', 'position', 'title']",
+    "columns": [
+      {
+        "id": "col-1",
+        "title": "To Do",
+        "cards": 4
+      },
+      {
+        "id": "col-2",
+        "title": "In Progress",
+        "cards": 1
+      },
+      {
+        "id": "col-3",
+        "title": "Done",
+        "cards": 2
+      }
+    ],
+    "card_keys": [
+      "column_id",
+      "created_at",
+      "id",
+      "position",
+      "text"
+    ],
+    "cards_listed_in_position_order": true,
+    "create_attempts": [
+      {
+        "fields": [
+          "columnId",
+          "text"
+        ],
+        "status": 201,
+        "found_in_columns": [
+          "col-1"
+        ]
+      }
+    ],
+    "create_response": "object, keys ['column_id', 'id', 'position', 'text']",
+    "create_event": {
+      "event": "message",
+      "data": "{\"type\":\"CARD_CREATED\",\"data\":{\"id\":\"card-1792299744157-ybb4oktng\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 card 1\",\"position\":5}}"
+    },
+    "move_setup": "probe's own cards",
+    "move_event": {
+      "event": "message",
+      "data": "{\"type\":\"CARD_MOVED\",\"data\":{\"id\":\"card-1792299744174-i42qpns5y\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 move-m\",\"position\":6.5}}"
+    },
+    "move_with_missing_neighbours": {
+      "body": "afterId = the column's last card or null; beforeId null, then left out",
+      "null": {
+        "status": 200,
+        "landed_at_end": false
+      },
+      "omitted": {
+        "status": 200,
+        "landed_at_end": false
+      }
+    }
+  },
+  "summary": {
+    "pass": 10,
+    "fail": 0,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 7,
+    "event_names": [
+      "message"
+    ],
+    "first_events": [
+      "{\"type\":\"CARD_CREATED\",\"data\":{\"id\":\"card-1792299744157-ybb4oktng\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 card 1\",\"position\":5}}",
+      "{\"type\":\"CARD_CREATED\",\"data\":{\"id\":\"card-1792299744167-x9knp7v60\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 move-x\",\"position\":6}}",
+      "{\"type\":\"CARD_CREATED\",\"data\":{\"id\":\"card-1792299744170-nufuy13hl\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 move-y\",\"position\":7}}",
+      "{\"type\":\"CARD_CREATED\",\"data\":{\"id\":\"card-1792299744174-i42qpns5y\",\"column_id\":\"col-2\",\"text\":\"api-probe b4f807 move-m\",\"position\":3}}",
+      "{\"type\":\"CARD_MOVED\",\"data\":{\"id\":\"card-1792299744174-i42qpns5y\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 move-m\",\"position\":6.5}}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-1",
+        "text": "api-probe b4f807 card 1"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"card-1792299744157-ybb4oktng\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 card 1\",\"position\":5}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-1",
+        "text": "api-probe b4f807 move-x"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"card-1792299744167-x9knp7v60\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 move-x\",\"position\":6}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-1",
+        "text": "api-probe b4f807 move-y"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"card-1792299744170-nufuy13hl\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 move-y\",\"position\":7}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-2",
+        "text": "api-probe b4f807 move-m"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"card-1792299744174-i42qpns5y\",\"column_id\":\"col-2\",\"text\":\"api-probe b4f807 move-m\",\"position\":3}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/card-1792299744174-i42qpns5y/move",
+      "body": {
+        "columnId": "col-1",
+        "afterId": "card-1792299744167-x9knp7v60",
+        "beforeId": "card-1792299744170-nufuy13hl"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"card-1792299744174-i42qpns5y\",\"column_id\":\"col-1\",\"text\":\"api-probe b4f807 move-m\",\"position\":6.5}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/card-1792299744174-i42qpns5y/move",
+      "body": {
+        "columnId": "col-2",
+        "afterId": "card-1792296406155-0b8u43rhv",
+        "beforeId": null
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"card-1792299744174-i42qpns5y\",\"column_id\":\"col-2\",\"text\":\"api-probe b4f807 move-m\",\"position\":1}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/card-1792299744174-i42qpns5y/move",
+      "body": {
+        "columnId": "col-2",
+        "afterId": "card-1792296406155-0b8u43rhv"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"card-1792299744174-i42qpns5y\",\"column_id\":\"col-2\",\"text\":\"api-probe b4f807 move-m\",\"position\":1}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"card-1792296416013-ee14zqzg0\",\"column_id\":\"col-1\",\"text\":\"date\",\"position\":1,\"created_at\":\"2026-10-18T03:06:56.013Z\"},{\"id\":\"card-1792296488886-fsphmat3i\",\"column_id\":\"col-1\",\"text\":\"two\",\"position\":2,\"created_at\":\"2026-10-18T03:08:08.886Z\"},{\"id\":\"card-1792296413908-sxhqbulco\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":3,\"created_at\"...",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-18T05:02:31+00:00"
+}

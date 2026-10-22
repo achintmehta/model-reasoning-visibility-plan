@@ -1,0 +1,51 @@
+== grade_setup.sh  blind id 415995  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-13 18:35:10 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 415995: task kanban-board (use kanban-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/415995/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] the code calls PGlite at:
+         
+  [ OK ] removed the shipped database folder backend/data/  (27,293 KB)
+
+[5/6] Install the dependencies (this decides L0)
+
+  -- folder ./: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 29 packages in 4s
+  [ OK ] ./: installed without an error
+
+  -- folder backend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 99 packages in 804ms
+  [ OK ] backend/: installed without an error
+
+  -- folder frontend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 15 packages in 457ms
+  [ OK ] frontend/: installed without an error
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/415995/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/415995/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/415995/20261013-183510 (an A0 command writes its output there too, as a0.log)
+  [INFO] a score sheet for 415995 already exists, so none was made; it is kept as it is
+
+== SUMMARY  blind id 415995  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] shipped database removed
+  [ OK ] install: all 3 folder(s) installed without an error  ->  L0 passes
+  [ OK ] score sheet already exists (kept)
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/415995/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev:backend   # cd backend && npm run dev
+         npm run dev:frontend   # cd frontend && npm run dev
+         npm run dev   # concurrently "npm run dev:backend" "npm run dev:frontend"

@@ -1,0 +1,60 @@
+== grade_setup.sh  blind id 842377  ·  task message-board  ·  card message-board.rubric.md  ·  2026-10-14 21:22:20 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 842377: task message-board (use message-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/842377/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] no new PGlite(...) or PGlite.create(...) found in the app's code
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/6] Install the dependencies (this decides L0)
+
+  -- folder ./: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | added 40 packages in 6s
+       | npm warn install-scripts 1 package had install scripts blocked because they are not covered by allowScripts:
+       | npm warn install-scripts   esbuild@0.21.5 (postinstall: node install.js)
+       | npm warn install-scripts
+       | npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+  [ OK ] ./: installed without an error (4 npm warnings, which do not count)
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.json in the run's log folder)
+
+  -- folder server/: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | npm error code ETARGET
+       | npm error notarget No matching version found for @electric-sql/pglite@^0.1.20 with a date before 9/21/2026, 7:00:00 PM.
+       | npm error notarget In most cases you or one of your dependencies are requesting a package version that doesn't exist.
+       | npm error A complete log of this run can be found in: /home/achintmehta/.npm/_logs/2026-10-15T02_22_26_906Z-debug-0.log
+  [FAIL] server/: install stopped (exit 1, ETARGET: no published version matches @electric-sql/pglite@^0.1.20). L0 fails; A0 lets the rest of the card be graded
+  [ DO ] A0: run this whole line, then write "A0" and the command in L0's notes:
+         (cd '/home/achintmehta/grading-work/842377/app/server' && set -x && npm install --no-save '@electric-sql/pglite@latest') 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/842377/20261014-212220/a0.log'
+  [INFO] If that stops on ETARGET for another package, add it to the same command: npm install --no-save '@electric-sql/pglite@latest' '<that package>@latest'
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/842377/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/842377/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/842377/20261014-212220 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/842377.score.json
+
+== SUMMARY  blind id 842377  ·  message-board ==
+  [ OK ] run found: task message-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [FAIL] install: 1 of 2 folder(s) installed  ->  L0 fails; run the A0 command(s) below, then grade the rest
+  [ OK ] blank score sheet made
+
+  To do before the launch:
+    - A0 for server/:  (cd '/home/achintmehta/grading-work/842377/app/server' && set -x && npm install --no-save '@electric-sql/pglite@latest') 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/842377/20261014-212220/a0.log'
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/842377/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:server" "npm run dev:client"
+         npm run dev:server   # node server/index.js
+         npm run dev:client   # vite client --port 5173

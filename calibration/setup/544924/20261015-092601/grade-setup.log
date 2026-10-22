@@ -1,0 +1,57 @@
+== grade_setup.sh  blind id 544924  ·  task message-board  ·  card message-board.rubric.md  ·  2026-10-15 09:26:02 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 544924: task message-board (use message-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/544924/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] the code calls PGlite at:
+         
+  [ OK ] removed the shipped database folder backend/pgdata/  (27,103 KB)
+
+[5/6] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: ./, backend/, frontend/. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder ./: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 29 packages in 4s
+  [ OK ] ./: installed without an error
+
+  -- folder backend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 71 packages in 682ms
+  [ OK ] backend/: installed without an error
+
+  -- folder frontend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 11 packages in 344ms
+       | npm warn install-scripts 1 package had install scripts blocked because they are not covered by allowScripts:
+       | npm warn install-scripts   esbuild@0.21.5 (postinstall: node install.js)
+       | npm warn install-scripts
+       | npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+  [ OK ] frontend/: installed without an error (4 npm warnings, which do not count)
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/544924/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/544924/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/544924/20261015-092601 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/544924.score.json
+
+== SUMMARY  blind id 544924  ·  message-board ==
+  [ OK ] run found: task message-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] shipped database removed
+  [ OK ] install: all 3 folder(s) installed without an error  ->  L0 passes
+  [INFO] each folder installed by this script on its own: ./ installed · backend/ installed · frontend/ installed
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/544924/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:backend" "npm run dev:frontend"
+         npm run dev:backend   # cd backend && npm install && npm start
+         npm run dev:frontend   # cd frontend && npm install && npm run dev

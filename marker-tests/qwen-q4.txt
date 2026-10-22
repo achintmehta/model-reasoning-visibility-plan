@@ -1,0 +1,11 @@
+server : http://192.168.1.110:7777/v1
+model  : qwen3.6-27b   (key qwen-q4, from the wrapper)
+body   : {"chat_template_kwargs": {"enable_thinking": true, "preserve_thinking": true}}
+replay : field, max_tokens 4096
+probe  : assistant turn carrying the reasoning + tool_calls, then a user question
+
+HTTP 200. Model replied: ''
+          and reasoned:  'The user is asking me to recall a "working codeword" that I supposedly noted earlier.\nLooking back at my internal thought process in the previous turn, I generated a random codeword "ZQ7-KESTREL-4419"'
+
+ACCEPTED — the nonce came back, so the replayed reasoning demonstrably
+reached the prompt. Replay works on this server and template.

@@ -1,0 +1,115 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "730011",
+  "host": "127.0.0.1",
+  "port": 3000,
+  "started_at": "2026-10-14T19:09:17+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "fail",
+      "detail": "no list of columns found"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "fail",
+      "detail": "not run: KB-API1 (no columns to create in) failed"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "fail",
+      "detail": "not run: KB-API4 failed"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "fail",
+      "detail": "not run: KB-API4 failed"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "fail",
+      "detail": "not run: KB-API4 (and no cards on the board to use instead) failed"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "fail",
+      "detail": "not run: KB-API4 (and no cards on the board to use instead) failed"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "fail",
+      "detail": "not run: KB-API4 (and no cards on the board to use instead) failed"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "fail",
+      "detail": "not run: KB-API4 (and no cards on the board to use instead) failed"
+    }
+  ],
+  "observations": {
+    "board_shape": "array (empty)",
+    "create_attempts": [],
+    "move_setup": "none possible"
+  },
+  "summary": {
+    "pass": 2,
+    "fail": 8,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 1,
+    "event_names": [
+      "init"
+    ],
+    "first_events": [
+      "{\"type\": \"init\"}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[]",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-14T19:09:27+00:00"
+}

@@ -1,0 +1,54 @@
+== grade_setup.sh  blind id 283743  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-17 22:11:21 ==
+
+[1/7] Find the run
+  [ OK ] found the run for blind id 283743: task kanban-board (use kanban-board.rubric.md)
+
+[2/7] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/7] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/283743/app (without node_modules and .git)
+
+[4/7] Remove the database the app shipped with
+  [INFO] no new PGlite(...) or PGlite.create(...) found in the app's code
+  [ OK ] removed the shipped database folder server/pglite-data/  (27,103 KB)
+
+[5/7] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: ./, client/. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder ./: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 100 packages in 5s
+  [ OK ] ./: installed without an error
+
+  -- folder client/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 11 packages in 400ms
+  [ OK ] client/: installed without an error
+
+[6/7] Launch pre-check (decides nothing: run the declared command as usual)
+  [ OK ] nothing found that would stop npm run dev
+
+[7/7] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/283743/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/283743/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/283743/20261017-221121 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/283743.score.json
+
+== SUMMARY  blind id 283743  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] shipped database removed
+  [ OK ] install: all 2 folder(s) installed without an error  ->  L0 passes
+  [INFO] each folder installed by this script on its own: ./ installed · client/ installed
+  [ OK ] launch pre-check: nothing found that would stop npm run dev
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/283743/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:server" "npm run dev:client"
+         npm run dev:server   # node server/index.js
+         npm run dev:client   # cd client && npx vite --host
+         npm run build   # cd client && npx vite build
+         npm run start   # node server/index.js

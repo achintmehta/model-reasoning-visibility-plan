@@ -1,0 +1,41 @@
+<seed:bos>system
+You are a software engineer. [SYSTEM]
+
+Function:
+def write_file(path: str):
+    """
+    write a file
+
+    Args:
+    - path (str) [选填]: 
+
+    """
+工具调用请遵循如下格式:
+<seed:tool_call>
+<function=example_function_name>
+<parameter=example_parameter_1>value_1</parameter>
+<parameter=example_parameter_2>This is the value for the second parameter
+that can span
+multiple lines</parameter>
+</function>
+</seed:tool_call>
+<seed:eos><seed:bos>user
+Build a message board. [TASK]<seed:eos><seed:bos>assistant
+<seed:think>The task needs a package.json before anything else, so write that first.</seed:think>
+Starting with the manifest.
+
+<seed:tool_call>
+<function=write_file>
+<parameter=path>package.json</parameter>
+</function>
+</seed:tool_call><seed:eos><seed:bos>tool
+wrote package.json<seed:eos><seed:bos>assistant
+<seed:think>The server file comes next; it has to import express and listen on 3000.</seed:think>
+Now the server.
+
+<seed:tool_call>
+<function=write_file>
+<parameter=path>server.js</parameter>
+</function>
+</seed:tool_call><seed:eos><seed:bos>tool
+wrote server.js<seed:eos><seed:bos>assistant

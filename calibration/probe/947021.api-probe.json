@@ -1,0 +1,309 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "947021",
+  "host": "127.0.0.1",
+  "port": 3000,
+  "started_at": "2026-10-16T13:11:58+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "pass",
+      "detail": "3 columns; columns each hold their cards"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "pass",
+      "detail": "201; body fields columnId/text"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "pass",
+      "detail": "last of 5 cards"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'cardCreated' after 0.02 s"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "pass",
+      "detail": "object, keys ['columnId', 'id', 'position']"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "pass",
+      "detail": "card 7 of 8, between its neighbours"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'cardMoved' after 0.01 s"
+    }
+  ],
+  "observations": {
+    "board_shape": "array of 3 objects, keys ['cards', 'id', 'position', 'title']",
+    "columns": [
+      {
+        "id": "todo",
+        "title": "To Do",
+        "cards": 4
+      },
+      {
+        "id": "inprogress",
+        "title": "In Progress",
+        "cards": 1
+      },
+      {
+        "id": "done",
+        "title": "Done",
+        "cards": 1
+      }
+    ],
+    "card_keys": [
+      "column_id",
+      "created_at",
+      "id",
+      "position",
+      "text"
+    ],
+    "cards_listed_in_position_order": true,
+    "create_attempts": [
+      {
+        "fields": [
+          "columnId",
+          "text"
+        ],
+        "status": 201,
+        "found_in_columns": [
+          "todo"
+        ]
+      }
+    ],
+    "create_response": "object, keys ['columnId', 'id', 'position', 'text']",
+    "create_event": {
+      "event": "cardCreated",
+      "data": "{\"id\":\"phvll62\",\"columnId\":\"todo\",\"text\":\"api-probe 47305b card 1\",\"position\":4000}"
+    },
+    "move_setup": "probe's own cards",
+    "move_event": {
+      "event": "cardMoved",
+      "data": "{\"id\":\"i06cls7\",\"columnId\":\"todo\",\"position\":5500}"
+    },
+    "move_with_missing_neighbours": {
+      "body": "afterId = the column's last card or null; beforeId null, then left out",
+      "null": {
+        "status": 200,
+        "landed_at_end": true
+      }
+    }
+  },
+  "summary": {
+    "pass": 10,
+    "fail": 0,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 6,
+    "event_names": [
+      "cardCreated",
+      "cardMoved"
+    ],
+    "first_events": [
+      "{\"id\":\"phvll62\",\"columnId\":\"todo\",\"text\":\"api-probe 47305b card 1\",\"position\":4000}",
+      "{\"id\":\"9v5vxfc\",\"columnId\":\"todo\",\"text\":\"api-probe 47305b move-x\",\"position\":5000}",
+      "{\"id\":\"h78q2kf\",\"columnId\":\"todo\",\"text\":\"api-probe 47305b move-y\",\"position\":6000}",
+      "{\"id\":\"i06cls7\",\"columnId\":\"inprogress\",\"text\":\"api-probe 47305b move-m\",\"position\":2500}",
+      "{\"id\":\"i06cls7\",\"columnId\":\"todo\",\"position\":5500}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "todo",
+        "text": "api-probe 47305b card 1"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"phvll62\",\"columnId\":\"todo\",\"text\":\"api-probe 47305b card 1\",\"position\":4000}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "todo",
+        "text": "api-probe 47305b move-x"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"9v5vxfc\",\"columnId\":\"todo\",\"text\":\"api-probe 47305b move-x\",\"position\":5000}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "todo",
+        "text": "api-probe 47305b move-y"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"h78q2kf\",\"columnId\":\"todo\",\"text\":\"api-probe 47305b move-y\",\"position\":6000}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "inprogress",
+        "text": "api-probe 47305b move-m"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"i06cls7\",\"columnId\":\"inprogress\",\"text\":\"api-probe 47305b move-m\",\"position\":2500}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/i06cls7/move",
+      "body": {
+        "columnId": "todo",
+        "afterId": "9v5vxfc",
+        "beforeId": "h78q2kf"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"i06cls7\",\"columnId\":\"todo\",\"position\":5500}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/i06cls7/move",
+      "body": {
+        "columnId": "inprogress",
+        "afterId": "pz8so2i",
+        "beforeId": null
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"i06cls7\",\"columnId\":\"inprogress\",\"position\":2500}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"todo\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"d0dcgbd\",\"column_id\":\"todo\",\"text\":\"elder\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:15.621Z\"},{\"id\":\"eglzo0l\",\"column_id\":\"todo\",\"text\":\"banana\",\"position\":2000,\"created_at\":\"2026-10-16T17:59:04.304Z\"},{\"id\":\"fwbnpvw\",\"column_id\":\"todo\",\"text\":\"cherry\",\"position\":2250,\"created_at\":\"2026-10-16T17:59:07.848Z\"},{\"id\":\"6x2lwn2\",\"column_i...",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-16T13:12:08+00:00"
+}

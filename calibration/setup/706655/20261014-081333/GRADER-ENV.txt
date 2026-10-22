@@ -1,0 +1,12 @@
+blind_id: 706655
+task: kanban-board
+set_up_at: 2026-10-14T08:13:40-05:00
+grader: Achint Mehta
+node: v24.21.0
+npm: 12.0.2
+npm_before: Mon Sep 21 2026 19:00:00 GMT-0500 (Central Daylight Time)
+lockfile_sha256[.]: 7a362e54c9364631
+lockfile_sha256[client]: b0c2ca90c0eee134
+lockfile_sha256[server]: 64593b28b89cf124
+os: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64
+browser: Chromium <your version>

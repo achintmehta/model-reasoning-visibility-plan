@@ -1,0 +1,59 @@
+== grade_setup.sh  blind id 948020  ·  task message-board  ·  card message-board.rubric.md  ·  2026-10-17 12:05:27 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 948020: task message-board (use message-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/948020/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] no new PGlite(...) or PGlite.create(...) found in the app's code
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/6] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: ./. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder ./: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | npm error code ETARGET
+       | npm error notarget No matching version found for @electric-sql/pglite@^0.8.4 with a date before 9/21/2026, 7:00:00 PM.
+       | npm error notarget In most cases you or one of your dependencies are requesting a package version that doesn't exist.
+       | npm error A complete log of this run can be found in: /home/achintmehta/.npm/_logs/2026-10-17T17_05_27_736Z-debug-0.log
+  [FAIL] ./: install stopped (exit 1, ETARGET: no published version matches @electric-sql/pglite@^0.8.4). L0 fails; A0 lets the rest of the card be graded
+  [INFO] why: no published version matches @electric-sql/pglite@^0.8.4 (ETARGET)
+  [ DO ] A0: run this whole line:
+         (cd '/home/achintmehta/grading-work/948020/app' && set -x && npm install --no-save '@electric-sql/pglite@latest') 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/948020/20261017-120527/a0.log'
+  [INFO] If that stops on ETARGET for another package, add it to the same command: npm install --no-save '@electric-sql/pglite@latest' '<that package>@latest'
+  [INFO] for L0's notes: A0 ETARGET: in ./ no version published before the before date matches @electric-sql/pglite@^0.8.4; re-ran with npm install --no-save @electric-sql/pglite@latest.
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/948020/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/948020/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/948020/20261017-120527 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/948020.score.json
+
+== SUMMARY  blind id 948020  ·  message-board ==
+  [ OK ] run found: task message-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [FAIL] install: 0 of 1 folder(s) installed  ->  L0 fails; run the A0 command(s) below, then grade the rest
+  [INFO] each folder installed by this script on its own: ./ FAILED (A0 below)
+  [ OK ] blank score sheet made
+
+  To do before the launch:
+    - ./: no published version matches @electric-sql/pglite@^0.8.4 (ETARGET)
+      A0 (run this whole line):  (cd '/home/achintmehta/grading-work/948020/app' && set -x && npm install --no-save '@electric-sql/pglite@latest') 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/948020/20261017-120527/a0.log'
+      L0 notes (L0 still fails):  A0 ETARGET: in ./ no version published before the before date matches @electric-sql/pglite@^0.8.4; re-ran with npm install --no-save @electric-sql/pglite@latest.
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/948020/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:server" "npm run dev:client"
+         npm run dev:server   # node server.js
+         npm run dev:client   # vite
+         npm run build   # vite build
+         npm run preview   # vite preview

@@ -1,0 +1,227 @@
+{
+  "probe_version": "1.0.0",
+  "task": "message-board",
+  "blind_id": "784336",
+  "host": "127.0.0.1",
+  "port": 3000,
+  "started_at": "2026-10-17T00:25:54+00:00",
+  "checks": [
+    {
+      "id": "MB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/messages answers with data (JSON)",
+      "result": "fail",
+      "detail": "404 text/html; charset=utf-8"
+    },
+    {
+      "id": "MB-API2",
+      "spec": "3.1",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "MB-API3",
+      "spec": "3.2",
+      "asks": "POST /api/messages stores the message (it then appears in GET /api/messages)",
+      "result": "fail",
+      "detail": "no such route: 404 text/html; charset=utf-8, 404 text/html; charset=utf-8, 404 text/html; charset=utf-8, 404 text/html; charset=utf-8"
+    },
+    {
+      "id": "MB-API4",
+      "spec": "3.3",
+      "asks": "the new message is broadcast on the event stream within 2 s",
+      "result": "fail",
+      "detail": "not run: MB-API3 failed"
+    }
+  ],
+  "observations": {
+    "post_attempts": [
+      {
+        "fields": [
+          "text"
+        ],
+        "status": 404,
+        "stored": false
+      },
+      {
+        "fields": [
+          "message"
+        ],
+        "status": 404,
+        "stored": false
+      },
+      {
+        "fields": [
+          "content"
+        ],
+        "status": 404,
+        "stored": false
+      },
+      {
+        "fields": [
+          "text",
+          "message",
+          "content",
+          "body",
+          "msg"
+        ],
+        "status": 404,
+        "stored": false
+      }
+    ],
+    "empty_message": [
+      {
+        "body": {
+          "text": ""
+        },
+        "status": 404,
+        "answer": "no such route (404)",
+        "stored": null
+      }
+    ]
+  },
+  "summary": {
+    "pass": 1,
+    "fail": 3,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 1,
+    "event_names": [
+      "initialBoard"
+    ],
+    "first_events": [
+      "{\"columns\":[]}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "text": "api-probe 7bde2d message 1"
+      },
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "message": "api-probe 7bde2d message 2"
+      },
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "content": "api-probe 7bde2d message 3"
+      },
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "text": "api-probe 7bde2d message 4",
+        "message": "api-probe 7bde2d message 4",
+        "content": "api-probe 7bde2d message 4",
+        "body": "api-probe 7bde2d message 4",
+        "msg": "api-probe 7bde2d message 4"
+      },
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/messages",
+      "body": {
+        "text": ""
+      },
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/messages",
+      "body": null,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/messages</pre>\n</body>\n</html>\n",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-17T00:26:04+00:00"
+}

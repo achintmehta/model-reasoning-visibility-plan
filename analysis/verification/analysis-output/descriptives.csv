@@ -1,0 +1,179 @@
+id,interval,model,arm,quantity,what,protocol,n,mean,ci95_lo,ci95_hi
+describe|gemma-q4|off|failed,wilson,gemma-q4,off,failed,share of runs not finished,6.1,12,0.166667,0.0469651,0.448031
+describe|gemma-q4|off|steps,bootstrap,gemma-q4,off,steps,steps per run,6.1,12,80.3333,61.1236,99.5431
+describe|gemma-q4|off|reasoning_rate,bootstrap,gemma-q4,off,reasoning_rate,share of steps with reasoning,"6.3, 6.4 (3)",12,0,0,0
+describe|gemma-q4|off|reasoning_chars_per_step,bootstrap,gemma-q4,off,reasoning_chars_per_step,reasoning characters per step,6.4 (2),12,0,0,0
+describe|gemma-q4|off|replayed_turns,bootstrap,gemma-q4,off,replayed_turns,turns of reasoning replayed (SEEN),6.4 (2),12,0,0,0
+describe|gemma-q4|off|replayed_chars,bootstrap,gemma-q4,off,replayed_chars,characters of reasoning replayed (SEEN),6.4 (2),12,0,0,0
+describe|gemma-q4|off|call_as_text_steps,bootstrap,gemma-q4,off,call_as_text_steps,"tool calls written as text, per run",6.4 (4),12,0,0,0
+describe|gemma-q4|off|silent_turns,bootstrap,gemma-q4,off,silent_turns,silent turns per run,6.4 (5),12,0.166667,-0.0690356,0.402369
+describe|gemma-q4|off|prose_turns,bootstrap,gemma-q4,off,prose_turns,turns of prose alone per run,6.4 (5),12,0,0,0
+describe|gemma-q4|off|finish_nudges,bootstrap,gemma-q4,off,finish_nudges,finish nudges per run,6.4 (5),12,0.25,-0.103553,0.603553
+describe|gemma-q4|off|nudged,wilson,gemma-q4,off,nudged,share of runs nudged,8.3,12,0.166667,0.0469651,0.448031
+describe|gemma-q4|off|self_check,wilson,gemma-q4,off,self_check,share of runs checking their own work (feedback conditions),6.4 (6),8,0.875,0.529112,0.977583
+describe|gemma-q4|off|file_state_count,bootstrap,gemma-q4,off,file_state_count,file-state notes per run,6.4 (7),12,1.16667,0.341709,1.99162
+describe|gemma-q4|off|file_state_writes,bootstrap,gemma-q4,off,file_state_writes,"of them, on writes",6.4 (7),12,0.416667,-0.0547379,0.888071
+describe|gemma-q4|off|file_state_edits,bootstrap,gemma-q4,off,file_state_edits,"of them, on edits",6.4 (7),12,0.75,0.0428932,1.45711
+describe|gemma-q4|off|file_state_reverts,bootstrap,gemma-q4,off,file_state_reverts,reverts per run,6.4 (7),12,0.666667,0.313113,1.02022
+describe|gemma-q4|off|file_state_max_times,bootstrap,gemma-q4,off,file_state_max_times,most calls leaving one file with one content,6.4 (7),12,1.66667,1.31311,2.02022
+describe|gemma-q4|off|max_prompt_tokens,bootstrap,gemma-q4,off,max_prompt_tokens,largest prompt of the run (tokens),6.4 (9),12,36272.2,26129.2,46441.4
+describe|gemma-q4|off|machine_s,bootstrap,gemma-q4,off,machine_s,machine time per run (seconds),"6.2, 6.4 (10)",12,339.333,262.966,415.347
+describe|gemma-q4|off|tokens_total,bootstrap,gemma-q4,off,tokens_total,tokens per run,6.2,12,478154,343778,613231
+describe|gemma-q4|off|quality,bootstrap,gemma-q4,off,quality,quality score (sampled apps),6.1,12,59,48.8023,69.1977
+describe|gemma-q4|off|api_conformance,bootstrap,gemma-q4,off,api_conformance,API conformance (sampled apps),6.5,12,0.666667,0.548816,0.784518
+,wilson,gemma-q4,off,status:finished,share of runs ending finished,6.4 (1),12,0.833333,0.551969,0.953035
+,wilson,gemma-q4,off,status:stuck_looping,share of runs ending stuck_looping,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,off,status:stuck_blocked_tool,share of runs ending stuck_blocked_tool,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,off,status:stopped_no_tool_call,share of runs ending stopped_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,off,status:runaway_no_tool_call,share of runs ending runaway_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,off,status:truncated_no_tool_call,share of runs ending truncated_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,off,status:truncated_tool_args,share of runs ending truncated_tool_args,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gemma-q4,off,status:context_overflow,share of runs ending context_overflow,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gemma-q4,off,status:token_budget_exhausted,share of runs ending token_budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,off,status:budget_exhausted,share of runs ending budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,off,canary:runs_over,share of runs with a reasoning step over 200 characters by the OFF canary's rule,6.4 (3),12,0,0,0.242494
+,,gemma-q4,off,canary:longest,longest reasoning step in the arm by the OFF canary's rule (characters),6.4 (3),12,0,,
+,,gemma-q4,off,median_of_run_medians,median over runs of the run's median reasoning characters (H4),6.3,0,,,
+,,gemma-q4,off,within_10pct_of_window,"runs whose largest prompt came within 10% of the 65,536-token window",6.4 (9),12,1,,
+describe|gemma-q4|unseen|failed,wilson,gemma-q4,unseen,failed,share of runs not finished,6.1,12,0.5,0.253782,0.746218
+describe|gemma-q4|unseen|steps,bootstrap,gemma-q4,unseen,steps,steps per run,6.1,12,80.6667,51.086,110.365
+describe|gemma-q4|unseen|reasoning_rate,bootstrap,gemma-q4,unseen,reasoning_rate,share of steps with reasoning,"6.3, 6.4 (3)",12,0.728676,0.694073,0.763125
+describe|gemma-q4|unseen|reasoning_chars_per_step,bootstrap,gemma-q4,unseen,reasoning_chars_per_step,reasoning characters per step,6.4 (2),12,349.57,335.72,363.868
+describe|gemma-q4|unseen|replayed_turns,bootstrap,gemma-q4,unseen,replayed_turns,turns of reasoning replayed (SEEN),6.4 (2),12,0,0,0
+describe|gemma-q4|unseen|replayed_chars,bootstrap,gemma-q4,unseen,replayed_chars,characters of reasoning replayed (SEEN),6.4 (2),12,0,0,0
+describe|gemma-q4|unseen|call_as_text_steps,bootstrap,gemma-q4,unseen,call_as_text_steps,"tool calls written as text, per run",6.4 (4),12,0,0,0
+describe|gemma-q4|unseen|silent_turns,bootstrap,gemma-q4,unseen,silent_turns,silent turns per run,6.4 (5),12,0.25,0.0142977,0.485702
+describe|gemma-q4|unseen|prose_turns,bootstrap,gemma-q4,unseen,prose_turns,turns of prose alone per run,6.4 (5),12,0,0,0
+describe|gemma-q4|unseen|finish_nudges,bootstrap,gemma-q4,unseen,finish_nudges,finish nudges per run,6.4 (5),12,0.166667,-0.0690356,0.402369
+describe|gemma-q4|unseen|nudged,wilson,gemma-q4,unseen,nudged,share of runs nudged,8.3,12,0.166667,0.0469651,0.448031
+describe|gemma-q4|unseen|self_check,wilson,gemma-q4,unseen,self_check,share of runs checking their own work (feedback conditions),6.4 (6),8,0.5,0.215216,0.784784
+describe|gemma-q4|unseen|file_state_count,bootstrap,gemma-q4,unseen,file_state_count,file-state notes per run,6.4 (7),12,1.91667,1.32741,2.38807
+describe|gemma-q4|unseen|file_state_writes,bootstrap,gemma-q4,unseen,file_state_writes,"of them, on writes",6.4 (7),12,1.41667,0.827411,2.00592
+describe|gemma-q4|unseen|file_state_edits,bootstrap,gemma-q4,unseen,file_state_edits,"of them, on edits",6.4 (7),12,0.5,0.146447,0.853553
+describe|gemma-q4|unseen|file_state_reverts,bootstrap,gemma-q4,unseen,file_state_reverts,reverts per run,6.4 (7),12,0.416667,0.0631133,0.77022
+describe|gemma-q4|unseen|file_state_max_times,bootstrap,gemma-q4,unseen,file_state_max_times,most calls leaving one file with one content,6.4 (7),12,2.41667,2.18096,2.65237
+describe|gemma-q4|unseen|max_prompt_tokens,bootstrap,gemma-q4,unseen,max_prompt_tokens,largest prompt of the run (tokens),6.4 (9),12,32270.6,25405.9,38952.9
+describe|gemma-q4|unseen|machine_s,bootstrap,gemma-q4,unseen,machine_s,machine time per run (seconds),"6.2, 6.4 (10)",12,341,220.674,459.558
+describe|gemma-q4|unseen|tokens_total,bootstrap,gemma-q4,unseen,tokens_total,tokens per run,6.2,12,446397,310550,580538
+describe|gemma-q4|unseen|quality,bootstrap,gemma-q4,unseen,quality,quality score (sampled apps),6.1,12,48.475,26.8257,70.2904
+describe|gemma-q4|unseen|api_conformance,bootstrap,gemma-q4,unseen,api_conformance,API conformance (sampled apps),6.5,12,0.591667,0.473816,0.709518
+,wilson,gemma-q4,unseen,status:finished,share of runs ending finished,6.4 (1),12,0.5,0.253782,0.746218
+,wilson,gemma-q4,unseen,status:stuck_looping,share of runs ending stuck_looping,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,unseen,status:stuck_blocked_tool,share of runs ending stuck_blocked_tool,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,unseen,status:stopped_no_tool_call,share of runs ending stopped_no_tool_call,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gemma-q4,unseen,status:runaway_no_tool_call,share of runs ending runaway_no_tool_call,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gemma-q4,unseen,status:truncated_no_tool_call,share of runs ending truncated_no_tool_call,6.4 (1),12,0.166667,0.0469651,0.448031
+,wilson,gemma-q4,unseen,status:truncated_tool_args,share of runs ending truncated_tool_args,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gemma-q4,unseen,status:context_overflow,share of runs ending context_overflow,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,unseen,status:token_budget_exhausted,share of runs ending token_budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,unseen,status:budget_exhausted,share of runs ending budget_exhausted,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gemma-q4,unseen,canary:runs_over,share of runs with a reasoning step over 200 characters by the OFF canary's rule,6.4 (3),12,1,0.757506,1
+,,gemma-q4,unseen,canary:longest,longest reasoning step in the arm by the OFF canary's rule (characters),6.4 (3),12,3287,,
+,,gemma-q4,unseen,median_of_run_medians,median over runs of the run's median reasoning characters (H4),6.3,12,388.75,,
+,,gemma-q4,unseen,within_10pct_of_window,"runs whose largest prompt came within 10% of the 65,536-token window",6.4 (9),12,0,,
+describe|gemma-q4|seen|failed,wilson,gemma-q4,seen,failed,share of runs not finished,6.1,12,0.166667,0.0469651,0.448031
+describe|gemma-q4|seen|steps,bootstrap,gemma-q4,seen,steps,steps per run,6.1,12,40.0833,36.0764,44.0903
+describe|gemma-q4|seen|reasoning_rate,bootstrap,gemma-q4,seen,reasoning_rate,share of steps with reasoning,"6.3, 6.4 (3)",12,0.982931,0.969181,0.996681
+describe|gemma-q4|seen|reasoning_chars_per_step,bootstrap,gemma-q4,seen,reasoning_chars_per_step,reasoning characters per step,6.4 (2),12,165.396,156.409,174.382
+describe|gemma-q4|seen|replayed_turns,bootstrap,gemma-q4,seen,replayed_turns,turns of reasoning replayed (SEEN),6.4 (2),12,39.3333,35.7978,42.8689
+describe|gemma-q4|seen|replayed_chars,bootstrap,gemma-q4,seen,replayed_chars,characters of reasoning replayed (SEEN),6.4 (2),12,6648.25,5873.14,7423.36
+describe|gemma-q4|seen|call_as_text_steps,bootstrap,gemma-q4,seen,call_as_text_steps,"tool calls written as text, per run",6.4 (4),12,0,0,0
+describe|gemma-q4|seen|silent_turns,bootstrap,gemma-q4,seen,silent_turns,silent turns per run,6.4 (5),12,0,0,0
+describe|gemma-q4|seen|prose_turns,bootstrap,gemma-q4,seen,prose_turns,turns of prose alone per run,6.4 (5),12,0.0833333,-0.0345178,0.201184
+describe|gemma-q4|seen|finish_nudges,bootstrap,gemma-q4,seen,finish_nudges,finish nudges per run,6.4 (5),12,0.166667,-0.0690356,0.402369
+describe|gemma-q4|seen|nudged,wilson,gemma-q4,seen,nudged,share of runs nudged,8.3,12,0.166667,0.0469651,0.448031
+describe|gemma-q4|seen|self_check,wilson,gemma-q4,seen,self_check,share of runs checking their own work (feedback conditions),6.4 (6),8,0.375,0.136844,0.694258
+describe|gemma-q4|seen|file_state_count,bootstrap,gemma-q4,seen,file_state_count,file-state notes per run,6.4 (7),12,1.5,1.0286,1.9714
+describe|gemma-q4|seen|file_state_writes,bootstrap,gemma-q4,seen,file_state_writes,"of them, on writes",6.4 (7),12,0.916667,0.327411,1.50592
+describe|gemma-q4|seen|file_state_edits,bootstrap,gemma-q4,seen,file_state_edits,"of them, on edits",6.4 (7),12,0.583333,-0.00592232,1.17259
+describe|gemma-q4|seen|file_state_reverts,bootstrap,gemma-q4,seen,file_state_reverts,reverts per run,6.4 (7),12,0.416667,0.180964,0.652369
+describe|gemma-q4|seen|file_state_max_times,bootstrap,gemma-q4,seen,file_state_max_times,most calls leaving one file with one content,6.4 (7),12,2.16667,1.69526,2.63807
+describe|gemma-q4|seen|max_prompt_tokens,bootstrap,gemma-q4,seen,max_prompt_tokens,largest prompt of the run (tokens),6.4 (9),12,27823.8,20983.8,34482.8
+describe|gemma-q4|seen|machine_s,bootstrap,gemma-q4,seen,machine_s,machine time per run (seconds),"6.2, 6.4 (10)",12,180.667,161.81,199.405
+describe|gemma-q4|seen|tokens_total,bootstrap,gemma-q4,seen,tokens_total,tokens per run,6.2,12,249027,194873,302671
+describe|gemma-q4|seen|quality,bootstrap,gemma-q4,seen,quality,quality score (sampled apps),6.1,12,83.6558,72.4824,94.8647
+describe|gemma-q4|seen|api_conformance,bootstrap,gemma-q4,seen,api_conformance,API conformance (sampled apps),6.5,12,0.675,0.551256,0.810529
+,wilson,gemma-q4,seen,status:finished,share of runs ending finished,6.4 (1),12,0.833333,0.551969,0.953035
+,wilson,gemma-q4,seen,status:stuck_looping,share of runs ending stuck_looping,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:stuck_blocked_tool,share of runs ending stuck_blocked_tool,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:stopped_no_tool_call,share of runs ending stopped_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:runaway_no_tool_call,share of runs ending runaway_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:truncated_no_tool_call,share of runs ending truncated_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:truncated_tool_args,share of runs ending truncated_tool_args,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:context_overflow,share of runs ending context_overflow,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:token_budget_exhausted,share of runs ending token_budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gemma-q4,seen,status:budget_exhausted,share of runs ending budget_exhausted,6.4 (1),12,0.166667,0.0469651,0.448031
+,wilson,gemma-q4,seen,canary:runs_over,share of runs with a reasoning step over 200 characters by the OFF canary's rule,6.4 (3),12,1,0.757506,1
+,,gemma-q4,seen,canary:longest,longest reasoning step in the arm by the OFF canary's rule (characters),6.4 (3),12,842,,
+,,gemma-q4,seen,median_of_run_medians,median over runs of the run's median reasoning characters (H4),6.3,12,144.5,,
+,,gemma-q4,seen,within_10pct_of_window,"runs whose largest prompt came within 10% of the 65,536-token window",6.4 (9),12,1,,
+describe|gptoss-20b|unseen|failed,wilson,gptoss-20b,unseen,failed,share of runs not finished,6.1,12,0.166667,0.0469651,0.448031
+describe|gptoss-20b|unseen|steps,bootstrap,gptoss-20b,unseen,steps,steps per run,6.1,12,69.9167,56.4816,83.3517
+describe|gptoss-20b|unseen|reasoning_rate,bootstrap,gptoss-20b,unseen,reasoning_rate,share of steps with reasoning,"6.3, 6.4 (3)",12,0.717156,0.680369,0.753943
+describe|gptoss-20b|unseen|reasoning_chars_per_step,bootstrap,gptoss-20b,unseen,reasoning_chars_per_step,reasoning characters per step,6.4 (2),12,345.586,314.033,376.605
+describe|gptoss-20b|unseen|replayed_turns,bootstrap,gptoss-20b,unseen,replayed_turns,turns of reasoning replayed (SEEN),6.4 (2),12,0,0,0
+describe|gptoss-20b|unseen|replayed_chars,bootstrap,gptoss-20b,unseen,replayed_chars,characters of reasoning replayed (SEEN),6.4 (2),12,0,0,0
+describe|gptoss-20b|unseen|call_as_text_steps,bootstrap,gptoss-20b,unseen,call_as_text_steps,"tool calls written as text, per run",6.4 (4),12,0,0,0
+describe|gptoss-20b|unseen|silent_turns,bootstrap,gptoss-20b,unseen,silent_turns,silent turns per run,6.4 (5),12,0.666667,0.313113,1.02022
+describe|gptoss-20b|unseen|prose_turns,bootstrap,gptoss-20b,unseen,prose_turns,turns of prose alone per run,6.4 (5),12,0.0833333,-0.0345178,0.201184
+describe|gptoss-20b|unseen|finish_nudges,bootstrap,gptoss-20b,unseen,finish_nudges,finish nudges per run,6.4 (5),12,0.25,-0.103553,0.603553
+describe|gptoss-20b|unseen|nudged,wilson,gptoss-20b,unseen,nudged,share of runs nudged,8.3,12,0.166667,0.0469651,0.448031
+describe|gptoss-20b|unseen|self_check,wilson,gptoss-20b,unseen,self_check,share of runs checking their own work (feedback conditions),6.4 (6),8,0.5,0.215216,0.784784
+describe|gptoss-20b|unseen|file_state_count,bootstrap,gptoss-20b,unseen,file_state_count,file-state notes per run,6.4 (7),12,1.58333,0.876227,2.29044
+describe|gptoss-20b|unseen|file_state_writes,bootstrap,gptoss-20b,unseen,file_state_writes,"of them, on writes",6.4 (7),12,0.916667,0.20956,1.62377
+describe|gptoss-20b|unseen|file_state_edits,bootstrap,gptoss-20b,unseen,file_state_edits,"of them, on edits",6.4 (7),12,0.666667,0.077411,1.25592
+describe|gptoss-20b|unseen|file_state_reverts,bootstrap,gptoss-20b,unseen,file_state_reverts,reverts per run,6.4 (7),12,0.333333,0.0976311,0.569036
+describe|gptoss-20b|unseen|file_state_max_times,bootstrap,gptoss-20b,unseen,file_state_max_times,most calls leaving one file with one content,6.4 (7),12,2.08333,1.61193,2.55474
+describe|gptoss-20b|unseen|max_prompt_tokens,bootstrap,gptoss-20b,unseen,max_prompt_tokens,largest prompt of the run (tokens),6.4 (9),12,30322.1,19687.4,41233
+describe|gptoss-20b|unseen|machine_s,bootstrap,gptoss-20b,unseen,machine_s,machine time per run (seconds),"6.2, 6.4 (10)",12,297.5,243.748,351.712
+describe|gptoss-20b|unseen|tokens_total,bootstrap,gptoss-20b,unseen,tokens_total,tokens per run,6.2,12,423537,315907,531788
+describe|gptoss-20b|unseen|quality,bootstrap,gptoss-20b,unseen,quality,quality score (sampled apps),6.1,12,38.0742,21.0506,55.0978
+describe|gptoss-20b|unseen|api_conformance,bootstrap,gptoss-20b,unseen,api_conformance,API conformance (sampled apps),6.5,12,0.7375,0.625541,0.849459
+,wilson,gptoss-20b,unseen,status:finished,share of runs ending finished,6.4 (1),12,0.833333,0.551969,0.953035
+,wilson,gptoss-20b,unseen,status:stuck_looping,share of runs ending stuck_looping,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,unseen,status:stuck_blocked_tool,share of runs ending stuck_blocked_tool,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gptoss-20b,unseen,status:stopped_no_tool_call,share of runs ending stopped_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,unseen,status:runaway_no_tool_call,share of runs ending runaway_no_tool_call,6.4 (1),12,0.0833333,0.0148651,0.35388
+,wilson,gptoss-20b,unseen,status:truncated_no_tool_call,share of runs ending truncated_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,unseen,status:truncated_tool_args,share of runs ending truncated_tool_args,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,unseen,status:context_overflow,share of runs ending context_overflow,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,unseen,status:token_budget_exhausted,share of runs ending token_budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,unseen,status:budget_exhausted,share of runs ending budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,unseen,canary:runs_over,share of runs with a reasoning step over 200 characters by the OFF canary's rule,6.4 (3),12,1,0.757506,1
+,,gptoss-20b,unseen,canary:longest,longest reasoning step in the arm by the OFF canary's rule (characters),6.4 (3),12,2394,,
+,,gptoss-20b,unseen,median_of_run_medians,median over runs of the run's median reasoning characters (H4),6.3,12,423.75,,
+describe|gptoss-20b|seen|failed,wilson,gptoss-20b,seen,failed,share of runs not finished,6.1,12,0,0,0.242494
+describe|gptoss-20b|seen|steps,bootstrap,gptoss-20b,seen,steps,steps per run,6.1,12,41.25,32.529,49.971
+describe|gptoss-20b|seen|reasoning_rate,bootstrap,gptoss-20b,seen,reasoning_rate,share of steps with reasoning,"6.3, 6.4 (3)",12,0.98899,0.97674,1.00124
+describe|gptoss-20b|seen|reasoning_chars_per_step,bootstrap,gptoss-20b,seen,reasoning_chars_per_step,reasoning characters per step,6.4 (2),12,180.637,171.203,190.259
+describe|gptoss-20b|seen|replayed_turns,bootstrap,gptoss-20b,seen,replayed_turns,turns of reasoning replayed (SEEN),6.4 (2),12,40.75,32.3826,49.1174
+describe|gptoss-20b|seen|replayed_chars,bootstrap,gptoss-20b,seen,replayed_chars,characters of reasoning replayed (SEEN),6.4 (2),12,7466.75,5912.18,9037.35
+describe|gptoss-20b|seen|call_as_text_steps,bootstrap,gptoss-20b,seen,call_as_text_steps,"tool calls written as text, per run",6.4 (4),12,0,0,0
+describe|gptoss-20b|seen|silent_turns,bootstrap,gptoss-20b,seen,silent_turns,silent turns per run,6.4 (5),12,0,0,0
+describe|gptoss-20b|seen|prose_turns,bootstrap,gptoss-20b,seen,prose_turns,turns of prose alone per run,6.4 (5),12,0,0,0
+describe|gptoss-20b|seen|finish_nudges,bootstrap,gptoss-20b,seen,finish_nudges,finish nudges per run,6.4 (5),12,0.5,0.0285955,0.971405
+describe|gptoss-20b|seen|nudged,wilson,gptoss-20b,seen,nudged,share of runs nudged,8.3,12,0.333333,0.13812,0.609378
+describe|gptoss-20b|seen|self_check,wilson,gptoss-20b,seen,self_check,share of runs checking their own work (feedback conditions),6.4 (6),8,0.625,0.305742,0.863156
+describe|gptoss-20b|seen|file_state_count,bootstrap,gptoss-20b,seen,file_state_count,file-state notes per run,6.4 (7),12,1.33333,0.744078,1.92259
+describe|gptoss-20b|seen|file_state_writes,bootstrap,gptoss-20b,seen,file_state_writes,"of them, on writes",6.4 (7),12,0.833333,0.244078,1.42259
+describe|gptoss-20b|seen|file_state_edits,bootstrap,gptoss-20b,seen,file_state_edits,"of them, on edits",6.4 (7),12,0.5,0.146447,0.853553
+describe|gptoss-20b|seen|file_state_reverts,bootstrap,gptoss-20b,seen,file_state_reverts,reverts per run,6.4 (7),12,0.333333,-0.0202201,0.686887
+describe|gptoss-20b|seen|file_state_max_times,bootstrap,gptoss-20b,seen,file_state_max_times,most calls leaving one file with one content,6.4 (7),12,1.83333,1.47978,2.18689
+describe|gptoss-20b|seen|max_prompt_tokens,bootstrap,gptoss-20b,seen,max_prompt_tokens,largest prompt of the run (tokens),6.4 (9),12,30310.8,24482.2,36139.3
+describe|gptoss-20b|seen|machine_s,bootstrap,gptoss-20b,seen,machine_s,machine time per run (seconds),"6.2, 6.4 (10)",12,181.167,148.05,214.283
+describe|gptoss-20b|seen|tokens_total,bootstrap,gptoss-20b,seen,tokens_total,tokens per run,6.2,12,236004,169942,300750
+describe|gptoss-20b|seen|quality,bootstrap,gptoss-20b,seen,quality,quality score (sampled apps),6.1,12,84.6725,72.7471,96.5987
+describe|gptoss-20b|seen|api_conformance,bootstrap,gptoss-20b,seen,api_conformance,API conformance (sampled apps),6.5,12,0.716667,0.616493,0.81684
+,wilson,gptoss-20b,seen,status:finished,share of runs ending finished,6.4 (1),12,1,0.757506,1
+,wilson,gptoss-20b,seen,status:stuck_looping,share of runs ending stuck_looping,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:stuck_blocked_tool,share of runs ending stuck_blocked_tool,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:stopped_no_tool_call,share of runs ending stopped_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:runaway_no_tool_call,share of runs ending runaway_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:truncated_no_tool_call,share of runs ending truncated_no_tool_call,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:truncated_tool_args,share of runs ending truncated_tool_args,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:context_overflow,share of runs ending context_overflow,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:token_budget_exhausted,share of runs ending token_budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,status:budget_exhausted,share of runs ending budget_exhausted,6.4 (1),12,0,0,0.242494
+,wilson,gptoss-20b,seen,canary:runs_over,share of runs with a reasoning step over 200 characters by the OFF canary's rule,6.4 (3),12,1,0.757506,1
+,,gptoss-20b,seen,canary:longest,longest reasoning step in the arm by the OFF canary's rule (characters),6.4 (3),12,1481,,
+,,gptoss-20b,seen,median_of_run_medians,median over runs of the run's median reasoning characters (H4),6.3,12,157.5,,

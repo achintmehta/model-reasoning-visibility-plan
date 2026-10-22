@@ -1,0 +1,70 @@
+== grade_setup.sh  blind id 706154  ·  task message-board  ·  card message-board.rubric.md  ·  2026-10-15 08:57:15 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 706154: task message-board (use message-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/706154/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] the code calls PGlite at:
+         
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/6] Install the dependencies (this decides L0)
+
+  -- folder ./: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | npm notice run realtime-message-board@1.0.0 install
+       | npm notice run cd backend && npm install && cd frontend && npm install
+       | added 99 packages, and audited 100 packages in 707ms
+       | 22 packages are looking for funding
+       |   run `npm fund` for details
+       | 3 high severity vulnerabilities
+       | To address all issues (including breaking changes), run:
+       |   npm audit fix --force
+       | Run `npm audit` for details.
+       | sh: 1: cd: can't cd to frontend
+       | npm error code 2
+       | npm error path /home/achintmehta/grading-work/706154/app
+       | npm error command failed
+       | npm error command sh -c cd backend && npm install && cd frontend && npm install
+       | npm error A complete log of this run can be found in: /home/achintmehta/.npm/_logs/2026-10-15T13_57_16_228Z-debug-0.log
+  [FAIL] ./: install stopped (exit 2, the app's own "install" script failed). L0 fails; A0 lets the rest of the card be graded
+  [ DO ] A0: run this whole line, then write "A0" and the command in L0's notes:
+         (cd '/home/achintmehta/grading-work/706154/app' && set -x && npm install --no-audit --no-fund --ignore-scripts) 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/706154/20261015-085715/a0.log'
+
+  -- folder backend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 99 packages in 661ms
+  [ OK ] backend/: installed without an error
+
+  -- folder frontend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 44 packages in 4s
+  [ OK ] frontend/: installed without an error
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/706154/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/706154/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/706154/20261015-085715 (an A0 command writes its output there too, as a0.log)
+  [INFO] a score sheet for 706154 already exists, so none was made; it is kept as it is
+
+== SUMMARY  blind id 706154  ·  message-board ==
+  [ OK ] run found: task message-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [FAIL] install: 2 of 3 folder(s) installed  ->  L0 fails; run the A0 command(s) below, then grade the rest
+  [ OK ] score sheet already exists (kept)
+
+  To do before the launch:
+    - A0 for ./:  (cd '/home/achintmehta/grading-work/706154/app' && set -x && npm install --no-audit --no-fund --ignore-scripts) 2>&1 | tee -a '/mnt/d/model-reasoning-visibility-research/calibration/results/setup/706154/20261015-085715/a0.log'
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/706154/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "cd backend && npm run dev" "cd frontend && npm run dev"
+         npm run install   # cd backend && npm install && cd frontend && npm install
+         npm run start   # cd backend && node src/server.js

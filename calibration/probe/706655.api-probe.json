@@ -1,0 +1,311 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "706655",
+  "host": "127.0.0.1",
+  "port": 3001,
+  "started_at": "2026-10-14T16:02:51+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "pass",
+      "detail": "3 columns; columns each hold their cards"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "pass",
+      "detail": "200; body fields columnId/text"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "pass",
+      "detail": "last of 6 cards"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'card-created' after 0.03 s"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "pass",
+      "detail": "object, keys ['column_id', 'created_at', 'id', 'position', 'text']"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "fail",
+      "detail": "card 7 of 9; afterId is at 8, beforeId at 9"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'column-renormalized' after 0.05 s"
+    }
+  ],
+  "observations": {
+    "board_shape": "array of 3 objects, keys ['cards', 'id', 'position', 'title']",
+    "columns": [
+      {
+        "id": "8a20eecb-0f20-4cf0-9271-22c3ff25aa3f",
+        "title": "To Do",
+        "cards": 5
+      },
+      {
+        "id": "90078a7d-76d3-4de2-afe0-8146c4cde684",
+        "title": "In Progress",
+        "cards": 1
+      },
+      {
+        "id": "1bb4a9cc-895d-48e0-a7d2-b080bdc1734f",
+        "title": "Done",
+        "cards": 1
+      }
+    ],
+    "card_keys": [
+      "column_id",
+      "created_at",
+      "id",
+      "position",
+      "text"
+    ],
+    "cards_listed_in_position_order": true,
+    "create_attempts": [
+      {
+        "fields": [
+          "columnId",
+          "text"
+        ],
+        "status": 200,
+        "found_in_columns": [
+          "8a20eecb-0f20-4cf0-9271-22c3ff25aa3f"
+        ]
+      }
+    ],
+    "create_response": "object, keys ['column_id', 'created_at', 'id', 'position', 'text']",
+    "create_event": {
+      "event": "card-created",
+      "data": "{\"id\":\"cdd97644-2aad-4373-9746-ae4bda065bed\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 card 1\",\"position\":7,\"created_at\":\"2026-10-14T16:02:51.077Z\"}"
+    },
+    "move_setup": "probe's own cards",
+    "move_event": {
+      "event": "column-renormalized",
+      "data": "{\"columnId\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf..."
+    },
+    "move_with_missing_neighbours": {
+      "body": "afterId = the column's last card or null; beforeId null, then left out",
+      "null": {
+        "status": 200,
+        "landed_at_end": true
+      }
+    }
+  },
+  "summary": {
+    "pass": 9,
+    "fail": 1,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 8,
+    "event_names": [
+      "board-sync",
+      "card-created",
+      "card-moved",
+      "column-renormalized"
+    ],
+    "first_events": [
+      "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"colum...",
+      "{\"id\":\"cdd97644-2aad-4373-9746-ae4bda065bed\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 card 1\",\"position\":7,\"created_at\":\"2026-10-14T16:02:51.077Z\"}",
+      "{\"id\":\"60d2774f-4c92-4b73-99a2-c2f662ceaa13\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 move-x\",\"position\":8,\"created_at\":\"2026-10-14T16:02:51.101Z\"}",
+      "{\"id\":\"e98b7b0c-7b88-4c76-89bf-2980a0e6f8ed\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 move-y\",\"position\":9,\"created_at\":\"2026-10-14T16:02:51.121Z\"}",
+      "{\"id\":\"ce36fcc9-c0a2-40c6-88c2-66636c09df58\",\"column_id\":\"90078a7d-76d3-4de2-afe0-8146c4cde684\",\"text\":\"api-probe 7480a6 move-m\",\"position\":2,\"created_at\":\"2026-10-14T16:02:51.137Z\"}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":3,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "8a20eecb-0f20-4cf0-9271-22c3ff25aa3f",
+        "text": "api-probe 7480a6 card 1"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"cdd97644-2aad-4373-9746-ae4bda065bed\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 card 1\",\"position\":7,\"created_at\":\"2026-10-14T16:02:51.077Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":3,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "8a20eecb-0f20-4cf0-9271-22c3ff25aa3f",
+        "text": "api-probe 7480a6 move-x"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"60d2774f-4c92-4b73-99a2-c2f662ceaa13\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 move-x\",\"position\":8,\"created_at\":\"2026-10-14T16:02:51.101Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":3,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "8a20eecb-0f20-4cf0-9271-22c3ff25aa3f",
+        "text": "api-probe 7480a6 move-y"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"e98b7b0c-7b88-4c76-89bf-2980a0e6f8ed\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 move-y\",\"position\":9,\"created_at\":\"2026-10-14T16:02:51.121Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":3,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "90078a7d-76d3-4de2-afe0-8146c4cde684",
+        "text": "api-probe 7480a6 move-m"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"ce36fcc9-c0a2-40c6-88c2-66636c09df58\",\"column_id\":\"90078a7d-76d3-4de2-afe0-8146c4cde684\",\"text\":\"api-probe 7480a6 move-m\",\"position\":2,\"created_at\":\"2026-10-14T16:02:51.137Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":3,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/ce36fcc9-c0a2-40c6-88c2-66636c09df58/move",
+      "body": {
+        "columnId": "8a20eecb-0f20-4cf0-9271-22c3ff25aa3f",
+        "afterId": "60d2774f-4c92-4b73-99a2-c2f662ceaa13",
+        "beforeId": "e98b7b0c-7b88-4c76-89bf-2980a0e6f8ed"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"ce36fcc9-c0a2-40c6-88c2-66636c09df58\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"api-probe 7480a6 move-m\",\"position\":8,\"created_at\":\"2026-10-14T16:02:51.349Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/ce36fcc9-c0a2-40c6-88c2-66636c09df58/move",
+      "body": {
+        "columnId": "90078a7d-76d3-4de2-afe0-8146c4cde684",
+        "afterId": "aa337a8b-b67a-4cd1-adfe-b974de572fcd",
+        "beforeId": null
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"ce36fcc9-c0a2-40c6-88c2-66636c09df58\",\"column_id\":\"90078a7d-76d3-4de2-afe0-8146c4cde684\",\"text\":\"api-probe 7480a6 move-m\",\"position\":2,\"created_at\":\"2026-10-14T16:02:51.407Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"title\":\"To Do\",\"position\":1,\"cards\":[{\"id\":\"61d2b64b-c18f-44ed-acbc-777b3bb1ae1c\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"apple\",\"position\":1,\"created_at\":\"2026-10-14T15:58:54.901Z\"},{\"id\":\"51680cdb-98fc-4cdd-a2c1-0e229cef502b\",\"column_id\":\"8a20eecb-0f20-4cf0-9271-22c3ff25aa3f\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-14T15...",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-14T16:03:01+00:00"
+}

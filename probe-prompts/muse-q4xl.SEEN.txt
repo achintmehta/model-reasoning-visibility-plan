@@ -1,0 +1,49 @@
+<|start|>system<|message|>You are a software engineer. [SYSTEM]
+
+Reasoning strength: high.
+
+In this environment you have access to a set of tools you can use to answer the user's question.
+
+You can invoke a function by writing a "<atem:function_calls>" block like the following:
+<atem:function_calls>
+<atem:invoke name="$FUNCTION_NAME">
+<atem:parameter name="$PARAMETER_NAME">$PARAMETER_VALUE</atem:parameter>
+...
+</atem:invoke>
+</atem:function_calls>
+
+String and scalar parameters should be specified as is, while lists and objects should use JSON format. Note that spaces for string values are not stripped. The output is not expected to be valid XML and is parsed with regular expressions.
+Here are the functions available in JSONSchema format:
+// Tool metadata
+{"name": "write_file", "description": ""}
+// Function schemas
+{"name": "write_file", "description": "write a file", "parameters": {"type": "object", "properties": {"path": {"type": "string"}}}}
+
+Here's an example of how to call a function in the tool set:
+(If the tool namespace is not specified, invoke the function directly as `example_function_name` rather than `example_tool_name.example_function_name`)
+
+to=example_tool_name.example_function_name
+
+<atem:function_calls>
+<atem:invoke name="example_tool_name.example_function_name">
+<atem:parameter name="example_parameter_1">value_1</atem:parameter>
+<atem:parameter name="example_parameter_2">This is the value for the second parameter
+that can span
+"multiple" lines
+</atem:parameter>
+</atem:invoke>
+</atem:function_calls>
+
+# Valid recipients: "self", "write_file.*", "user".<|eot|><|start|>user<|message|>Build a message board. [TASK]<|eot|><|start|>assistant to=self<|message|>The task needs a package.json before anything else, so write that first.<|eom|><|start|>assistant to=write_file<|message|><atem:function_calls>
+<atem:invoke name="write_file">
+<atem:parameter name="path">package.json</atem:parameter>
+</atem:invoke>
+</atem:function_calls><|eot|><|start|>tool write_file<|message|><tool_output name="write_file">
+wrote package.json
+</tool_output><|eot|><|start|>assistant to=self<|message|>The server file comes next; it has to import express and listen on 3000.<|eom|><|start|>assistant to=write_file<|message|><atem:function_calls>
+<atem:invoke name="write_file">
+<atem:parameter name="path">server.js</atem:parameter>
+</atem:invoke>
+</atem:function_calls><|eot|><|start|>tool write_file<|message|><tool_output name="write_file">
+wrote server.js
+</tool_output><|eot|><|start|>assistant

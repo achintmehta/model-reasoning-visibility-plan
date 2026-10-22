@@ -1,0 +1,135 @@
+scenario,measure,verdict,share,mc_se,grids,seconds
+null: all measures equal,failure,different,0.002,0.000998999,2000,36.8
+null: all measures equal,failure,equivalent,0.9955,0.00149662,2000,36.8
+null: all measures equal,failure,undetermined,0.0025,0.00111664,2000,36.8
+null: all measures equal,steps,different,0.018,0.00297288,2000,36.8
+null: all measures equal,steps,equivalent,0.926,0.00585338,2000,36.8
+null: all measures equal,steps,undetermined,0.056,0.00514121,2000,36.8
+null: all measures equal,quality,different,0.0135,0.00258048,2000,36.8
+null: all measures equal,quality,undetermined,0.9865,0.00258048,2000,36.8
+null: all measures equal,family,any rejection,0.0325,0.00396508,2000,36.8
+failure 2% vs 10%,failure,different,0.495,0.0111798,2000,36.5
+failure 2% vs 10%,failure,equivalent,0.1475,0.00792918,2000,36.5
+failure 2% vs 10%,failure,undetermined,0.3575,0.0107167,2000,36.5
+failure 2% vs 10%,steps,different,0.0235,0.00338731,2000,36.5
+failure 2% vs 10%,steps,equivalent,0.897,0.00679673,2000,36.5
+failure 2% vs 10%,steps,undetermined,0.0795,0.00604896,2000,36.5
+failure 2% vs 10%,quality,different,0.024,0.00342228,2000,36.5
+failure 2% vs 10%,quality,undetermined,0.976,0.00342228,2000,36.5
+failure 2% vs 10%,family,any rejection,0.512,0.0111771,2000,36.5
+failure 2% vs 15%,failure,different,0.897,0.00679673,2000,36.3
+failure 2% vs 15%,failure,equivalent,0.007,0.00186427,2000,36.3
+failure 2% vs 15%,failure,undetermined,0.096,0.00658726,2000,36.3
+failure 2% vs 15%,steps,different,0.0235,0.00338731,2000,36.3
+failure 2% vs 15%,steps,equivalent,0.896,0.00682583,2000,36.3
+failure 2% vs 15%,steps,undetermined,0.0805,0.00608357,2000,36.3
+failure 2% vs 15%,quality,different,0.0205,0.00316858,2000,36.3
+failure 2% vs 15%,quality,undetermined,0.9795,0.00316858,2000,36.3
+failure 2% vs 15%,family,any rejection,0.899,0.00673792,2000,36.3
+failure 2% vs 20%,failure,different,0.987,0.00253288,2000,36.1
+failure 2% vs 20%,failure,undetermined,0.013,0.00253288,2000,36.1
+failure 2% vs 20%,steps,different,0.0275,0.00365676,2000,36.1
+failure 2% vs 20%,steps,equivalent,0.897,0.00679673,2000,36.1
+failure 2% vs 20%,steps,undetermined,0.0755,0.00590761,2000,36.1
+failure 2% vs 20%,quality,different,0.022,0.00327994,2000,36.1
+failure 2% vs 20%,quality,undetermined,0.978,0.00327994,2000,36.1
+failure 2% vs 20%,family,any rejection,0.987,0.00253288,2000,36.1
+steps shift 0.3 SD,failure,different,0.003,0.00122291,2000,36.9
+steps shift 0.3 SD,failure,equivalent,0.995,0.00157718,2000,36.9
+steps shift 0.3 SD,failure,undetermined,0.002,0.000998999,2000,36.9
+steps shift 0.3 SD,steps,different,0.4715,0.0111622,2000,36.9
+steps shift 0.3 SD,steps,equivalent,0.294,0.0101873,2000,36.9
+steps shift 0.3 SD,steps,undetermined,0.2345,0.0094739,2000,36.9
+steps shift 0.3 SD,quality,different,0.0195,0.0030919,2000,36.9
+steps shift 0.3 SD,quality,undetermined,0.9805,0.0030919,2000,36.9
+steps shift 0.3 SD,family,any rejection,0.479,0.0111705,2000,36.9
+steps shift 0.4 SD,failure,different,0.0005,0.000499875,2000,37.1
+steps shift 0.4 SD,failure,equivalent,0.9985,0.000865376,2000,37.1
+steps shift 0.4 SD,failure,undetermined,0.001,0.000706753,2000,37.1
+steps shift 0.4 SD,steps,different,0.752,0.0096565,2000,37.1
+steps shift 0.4 SD,steps,equivalent,0.094,0.00652549,2000,37.1
+steps shift 0.4 SD,steps,undetermined,0.154,0.00807106,2000,37.1
+steps shift 0.4 SD,quality,different,0.0215,0.00324328,2000,37.1
+steps shift 0.4 SD,quality,undetermined,0.9785,0.00324328,2000,37.1
+steps shift 0.4 SD,family,any rejection,0.7555,0.0096104,2000,37.1
+steps shift 0.5 SD,failure,different,0.0015,0.000865376,2000,37
+steps shift 0.5 SD,failure,equivalent,0.9965,0.00132056,2000,37
+steps shift 0.5 SD,failure,undetermined,0.002,0.000998999,2000,37
+steps shift 0.5 SD,steps,different,0.9175,0.00615198,2000,37
+steps shift 0.5 SD,steps,equivalent,0.0185,0.00301312,2000,37
+steps shift 0.5 SD,steps,undetermined,0.064,0.00547284,2000,37
+steps shift 0.5 SD,quality,different,0.0265,0.0035915,2000,37
+steps shift 0.5 SD,quality,undetermined,0.9735,0.0035915,2000,37
+steps shift 0.5 SD,family,any rejection,0.919,0.00610078,2000,37
+quality shift 0.5 SD (20 points),failure,different,0.003,0.00122291,2000,36.7
+quality shift 0.5 SD (20 points),failure,equivalent,0.996,0.00141138,2000,36.7
+quality shift 0.5 SD (20 points),failure,undetermined,0.001,0.000706753,2000,36.7
+quality shift 0.5 SD (20 points),steps,different,0.023,0.00335194,2000,36.7
+quality shift 0.5 SD (20 points),steps,equivalent,0.9175,0.00615198,2000,36.7
+quality shift 0.5 SD (20 points),steps,undetermined,0.0595,0.0052896,2000,36.7
+quality shift 0.5 SD (20 points),quality,different,0.6395,0.0107364,2000,36.7
+quality shift 0.5 SD (20 points),quality,undetermined,0.3605,0.0107364,2000,36.7
+quality shift 0.5 SD (20 points),family,any rejection,0.6465,0.0106897,2000,36.7
+quality shift 0.6 SD (25 points),failure,different,0.0015,0.000865376,2000,36.9
+quality shift 0.6 SD (25 points),failure,equivalent,0.998,0.000998999,2000,36.9
+quality shift 0.6 SD (25 points),failure,undetermined,0.0005,0.000499875,2000,36.9
+quality shift 0.6 SD (25 points),steps,different,0.022,0.00327994,2000,36.9
+quality shift 0.6 SD (25 points),steps,equivalent,0.929,0.00574278,2000,36.9
+quality shift 0.6 SD (25 points),steps,undetermined,0.049,0.00482696,2000,36.9
+quality shift 0.6 SD (25 points),quality,different,0.7915,0.00908371,2000,36.9
+quality shift 0.6 SD (25 points),quality,undetermined,0.2085,0.00908371,2000,36.9
+quality shift 0.6 SD (25 points),family,any rejection,0.7945,0.0090352,2000,36.9
+quality shift 0.7 SD (29 points),failure,different,0.004,0.00141138,2000,36.5
+quality shift 0.7 SD (29 points),failure,equivalent,0.994,0.00172685,2000,36.5
+quality shift 0.7 SD (29 points),failure,undetermined,0.002,0.000998999,2000,36.5
+quality shift 0.7 SD (29 points),steps,different,0.0215,0.00324328,2000,36.5
+quality shift 0.7 SD (29 points),steps,equivalent,0.922,0.0059965,2000,36.5
+quality shift 0.7 SD (29 points),steps,undetermined,0.0565,0.00516274,2000,36.5
+quality shift 0.7 SD (29 points),quality,different,0.9095,0.00641521,2000,36.5
+quality shift 0.7 SD (29 points),quality,undetermined,0.0905,0.00641521,2000,36.5
+quality shift 0.7 SD (29 points),family,any rejection,0.9095,0.00641521,2000,36.5
+"equivalence: both arms at 2% failure, steps ratio 1",failure,different,0.001,0.000706753,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",failure,equivalent,0.998,0.000998999,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",failure,undetermined,0.001,0.000706753,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",steps,different,0.019,0.00305279,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",steps,equivalent,0.9205,0.00604896,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",steps,undetermined,0.0605,0.00533103,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",quality,different,0.0145,0.00267299,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",quality,undetermined,0.9855,0.00267299,2000,36.7
+"equivalence: both arms at 2% failure, steps ratio 1",family,any rejection,0.0345,0.00408104,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",failure,different,0.008,0.00199198,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",failure,equivalent,0.914,0.00626913,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",failure,undetermined,0.078,0.0059965,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",steps,different,0.0145,0.00267299,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",steps,equivalent,0.916,0.00620258,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",steps,undetermined,0.0695,0.00568638,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",quality,different,0.018,0.00297288,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",quality,undetermined,0.982,0.00297288,2000,36.7
+"equivalence: both arms at 5% failure, steps ratio 1",family,any rejection,0.039,0.00432891,2000,36.7
+mechanism null,H3,not supported,0.982,0.00297288,2000,43.5
+mechanism null,H3,supported,0.018,0.00297288,2000,43.5
+mechanism null,H4,not supported,0.9835,0.00284849,2000,43.5
+mechanism null,H4,supported,0.0165,0.00284849,2000,43.5
+mechanism null,H5,not supported,0.995,0.00157718,2000,43.5
+mechanism null,H5,supported,0.005,0.00157718,2000,43.5
+mechanism null,family,any rejection,0.0385,0.00430219,2000,43.5
+H3: reasoning rate 0.90 vs 0.97,H3,supported,1,0,2000,43.4
+H3: reasoning rate 0.90 vs 0.97,H4,not supported,0.9755,0.00345686,2000,43.4
+H3: reasoning rate 0.90 vs 0.97,H4,supported,0.0245,0.00345686,2000,43.4
+H3: reasoning rate 0.90 vs 0.97,H5,not supported,0.9875,0.00248433,2000,43.4
+H3: reasoning rate 0.90 vs 0.97,H5,supported,0.0125,0.00248433,2000,43.4
+H3: reasoning rate 0.90 vs 0.97,family,any rejection,1,0,2000,43.4
+H4: median reasoning chars ratio 0.8,H3,not supported,0.9685,0.00390562,2000,43.5
+H4: median reasoning chars ratio 0.8,H3,supported,0.0315,0.00390562,2000,43.5
+H4: median reasoning chars ratio 0.8,H4,not supported,0.227,0.00936672,2000,43.5
+H4: median reasoning chars ratio 0.8,H4,supported,0.773,0.00936672,2000,43.5
+H4: median reasoning chars ratio 0.8,H5,not supported,0.9875,0.00248433,2000,43.5
+H4: median reasoning chars ratio 0.8,H5,supported,0.0125,0.00248433,2000,43.5
+H4: median reasoning chars ratio 0.8,family,any rejection,0.7785,0.00928541,2000,43.5
+H5: silent turn 10% vs 2%,H3,not supported,0.9745,0.00352489,2000,43.6
+H5: silent turn 10% vs 2%,H3,supported,0.0255,0.00352489,2000,43.6
+H5: silent turn 10% vs 2%,H4,not supported,0.9775,0.00331615,2000,43.6
+H5: silent turn 10% vs 2%,H4,supported,0.0225,0.00331615,2000,43.6
+H5: silent turn 10% vs 2%,H5,not supported,0.365,0.0107651,2000,43.6
+H5: silent turn 10% vs 2%,H5,supported,0.635,0.0107651,2000,43.6
+H5: silent turn 10% vs 2%,family,any rejection,0.645,0.0106999,2000,43.6

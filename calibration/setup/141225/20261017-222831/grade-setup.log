@@ -1,0 +1,64 @@
+== grade_setup.sh  blind id 141225  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-17 22:28:31 ==
+
+[1/7] Find the run
+  [ OK ] found the run for blind id 141225: task kanban-board (use kanban-board.rubric.md)
+
+[2/7] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/7] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/141225/app (without node_modules and .git)
+
+[4/7] Remove the database the app shipped with
+  [INFO] no new PGlite(...) or PGlite.create(...) found in the app's code
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/7] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: ./, client/, server/. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder ./: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | added 29 packages in 5s
+  [ OK ] ./: installed without an error
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.json in the run's log folder)
+
+  -- folder client/: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | added 11 packages in 2s
+       | npm warn install-scripts 1 package had install scripts blocked because they are not covered by allowScripts:
+       | npm warn install-scripts   esbuild@0.21.5 (postinstall: node install.js)
+       | npm warn install-scripts
+       | npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+  [ OK ] client/: installed without an error (4 npm warnings, which do not count)
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.client.json in the run's log folder)
+
+  -- folder server/: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | added 71 packages in 2s
+  [ OK ] server/: installed without an error
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.server.json in the run's log folder)
+
+[6/7] Launch pre-check (decides nothing: run the declared command as usual)
+  [ OK ] nothing found that would stop npm run dev
+
+[7/7] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/141225/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/141225/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/141225/20261017-222831 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/141225.score.json
+
+== SUMMARY  blind id 141225  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [ OK ] install: all 3 folder(s) installed without an error  ->  L0 passes
+  [INFO] each folder installed by this script on its own: ./ installed · client/ installed · server/ installed
+  [ OK ] launch pre-check: nothing found that would stop npm run dev
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/141225/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:server" "npm run dev:client"
+         npm run dev:server   # npm run dev --prefix server
+         npm run dev:client   # npm run dev --prefix client
+         npm run install:all   # npm install && npm install --prefix server && npm install --prefix client

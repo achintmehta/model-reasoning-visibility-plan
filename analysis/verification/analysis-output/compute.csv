@@ -1,0 +1,11 @@
+scope,runs,machine_h,gpu_h,energy_kwh_logged,runs_with_power_log,energy_kwh_bound_unlogged,runs_without_power_log,tokens
+gemma-q4/off,12,1.13111,1.19243,0.282778,12,0,0,5.73785e+06
+gemma-q4/unseen,12,1.13667,1.27148,0.284167,12,0,0,5.35676e+06
+gemma-q4/seen,12,0.602222,0.627081,0.150556,12,0,0,2.98832e+06
+gemma-q4/all,36,2.87,3.09099,0.7175,36,0,0,1.40829e+07
+gptoss-20b/unseen,12,0.991667,1.06809,0.247917,12,0,0,5.08245e+06
+gptoss-20b/seen,12,0.603889,0.646105,0.150972,12,0,0,2.83204e+06
+gptoss-20b/all,24,1.59556,1.71419,0.398889,24,0,0,7.91449e+06
+grid,60,4.46556,4.80518,1.11639,60,0,0,2.19974e+07
+between runs (gaps under an hour),63,0.6825,,,,,,
+breaks between batches (gaps of an hour or more),0,,,,,,,

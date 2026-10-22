@@ -1,0 +1,50 @@
+== grade_setup.sh  blind id 730011  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-14 12:53:39 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 730011: task kanban-board (use kanban-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/730011/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] the code calls PGlite at:
+         
+         
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/6] Install the dependencies (this decides L0)
+
+  -- folder kanban-board/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 91 packages in 2s
+  [ OK ] kanban-board/: installed without an error
+
+  -- folder kanban-board/frontend/: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 16 packages in 604ms
+  [ OK ] kanban-board/frontend/: installed without an error
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/730011/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/730011/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/730011/20261014-125339 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/730011.score.json
+
+== SUMMARY  blind id 730011  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [ OK ] install: all 2 folder(s) installed without an error  ->  L0 passes
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/730011/app/kanban-board' && npm run dev   # the top folder has no package.json; check from the app (and its README) that kanban-board/ is the project root
+       the project root's scripts:
+         npm run test   # echo "Error: no test specified" && exit 1
+         npm run backend   # node src/server.js
+         npm run frontend   # cd frontend && npm run dev
+         npm run dev   # concurrently "npm run backend" "npm run frontend"
+         npm run start   # npm run dev

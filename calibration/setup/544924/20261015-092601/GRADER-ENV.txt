@@ -1,0 +1,12 @@
+blind_id: 544924
+task: message-board
+set_up_at: 2026-10-15T09:26:07-05:00
+grader: Achint Mehta
+node: v24.21.0
+npm: 12.0.2
+npm_before: Mon Sep 21 2026 19:00:00 GMT-0500 (Central Daylight Time)
+lockfile_sha256[.]: 0f9a37d668759b96
+lockfile_sha256[backend]: 9166de8b47ee1c0f
+lockfile_sha256[frontend]: 54e03d6f5569e861
+os: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64
+browser: Chromium <your version>

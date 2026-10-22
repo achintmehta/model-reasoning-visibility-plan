@@ -1,0 +1,8 @@
+<|turn>system
+<|think|>
+You are a software engineer. [SYSTEM]<|tool>declaration:write_file{description:<|"|>write a file<|"|>,parameters:{properties:{path:{type:<|"|>STRING<|"|>}},type:<|"|>OBJECT<|"|>}}<tool|><turn|>
+<|turn>user
+Build a message board. [TASK]<turn|>
+<|turn>model
+<|tool_call>call:write_file{path:<|"|>package.json<|"|>}<tool_call|><|tool_response>response:write_file{value:<|"|>wrote package.json<|"|>}<tool_response|>Starting with the manifest.<|tool_call>call:write_file{path:<|"|>server.js<|"|>}<tool_call|><|tool_response>response:write_file{value:<|"|>wrote server.js<|"|>}<tool_response|>Now the server.<turn|>
+<|channel>thought

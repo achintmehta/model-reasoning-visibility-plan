@@ -1,0 +1,11 @@
+server : http://192.168.1.110:7777/v1
+model  : gpt-oss-20b   (key gptoss-20b, from the wrapper)
+body   : {"chat_template_kwargs": {"reasoning_effort": "medium"}}
+replay : field, max_tokens 4096
+probe  : assistant turn carrying the reasoning + tool_calls, then a user question
+
+HTTP 200. Model replied: 'ZQ7-KESTREL-4419'
+          and reasoned:  'The user wants the codeword. The codeword is "ZQ7-KESTREL-4419".'
+
+ACCEPTED — the nonce came back, so the replayed reasoning demonstrably
+reached the prompt. Replay works on this server and template.

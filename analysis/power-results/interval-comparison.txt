@@ -1,0 +1,10 @@
+95% coverage and mean width, 2000 simulated grids per scenario, 2000 resamples
+scenario                    percentile  rescaled     BCa  Newcombe   mean widths
+failure 0% vs 2%                 0.911     0.911   0.902     0.998   percentile 0.04245, rescaled 0.04364, bca 0.05205, newcombe 0.07709   (11 s)
+failure 1% vs 1%                 0.982     0.982   0.925     0.995   percentile 0.04292, rescaled 0.04399, bca 0.04975, newcombe 0.07725   (11 s)
+failure 2% vs 2%                 0.951     0.951   0.908     0.976   percentile 0.06623, rescaled 0.06796, bca 0.06877, newcombe 0.09061   (11 s)
+failure 2% vs 5%                 0.933     0.933   0.913     0.972   percentile 0.08877, rescaled 0.09109, bca 0.09022, newcombe 0.1071   (11 s)
+failure 5% vs 5%                 0.963     0.962   0.943     0.970   percentile 0.1059, rescaled 0.1084, bca 0.1059, newcombe 0.1208   (11 s)
+failure 2% vs 10%                0.934     0.932   0.933     0.961   percentile 0.1135, rescaled 0.1167, bca 0.1147, newcombe 0.1273   (11 s)
+quality shift 24 points          0.931     0.944   0.927         -   percentile 27.7, rescaled 29.17, bca 27.71   (8 s)
+steps shift 0.4 SD               0.933     0.941   0.931         -   percentile 0.2479, rescaled 0.2544, bca 0.248   (11 s)

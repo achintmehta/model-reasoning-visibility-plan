@@ -1,0 +1,11 @@
+server : http://192.168.1.110:7777/v1
+model  : gemma-4-31b   (key gemma-q4, from the wrapper)
+body   : {"chat_template_kwargs": {"enable_thinking": true, "preserve_thinking": true}}
+replay : field, max_tokens 4096
+probe  : assistant turn carrying the reasoning + tool_calls, then a user question
+
+HTTP 200. Model replied: 'ZQ7-KESTREL-4419'
+          and reasoned:  'The user is asking for the working codeword I noted to myself in the previous turn.\nThe codeword I noted was "ZQ7-KESTREL-4419".\nThe user requested that I reply with that codeword and nothing else.'
+
+ACCEPTED — the nonce came back, so the replayed reasoning demonstrably
+reached the prompt. Replay works on this server and template.

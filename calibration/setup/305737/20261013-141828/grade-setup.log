@@ -1,0 +1,20 @@
+[grade-setup] blind id: 305737
+[grade-setup] task: message-board  (card: message-board.rubric.md)
+[grade-setup] node: v24.21.0, as the run's
+[grade-setup] copied the app to /home/achintmehta/grading-work/305737/app (without node_modules and .git)
+[grade-setup] -- removing the database the app shipped with
+  no new PGlite(...) or PGlite.create(...) found in the app's code
+  no PGlite data folder in the app: nothing removed
+[grade-setup] -- installing the dependencies
+[grade-setup] == .: npm install --no-audit --no-fund
+
+added 71 packages in 1s
+[grade-setup] saved this install's lockfile for later gradings (grading-lock.json in the run's log folder)
+[grade-setup] -- install results (L0: any error fails it; warnings do not count)
+[grade-setup]   .: ok
+[grade-setup] -- the app's top folder has a package.json: that is the project root, where the declared command runs
+   npm run dev   # node backend/server.js
+[grade-setup] grader environment -> /home/achintmehta/grading-work/305737/GRADER-ENV.txt; this log -> /home/achintmehta/grading-work/305737/grade-setup.log
+[grade-setup] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/305737/20261013-141828 (an A0 command above writes its output there too, as a0.log; commit it with the score sheets)
+[grade-setup] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/305737.score.json
+[grade-setup] next: free the app's ports (ss -ltnp), then cd '/home/achintmehta/grading-work/305737/app' && npm run dev

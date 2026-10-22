@@ -1,0 +1,310 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "613054",
+  "host": "127.0.0.1",
+  "port": 3001,
+  "started_at": "2026-10-15T23:20:09+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "pass",
+      "detail": "3 columns; columns each hold their cards"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "pass",
+      "detail": "200; body fields columnId/text"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "pass",
+      "detail": "last of 6 cards"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'card-created' after 0.03 s"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "pass",
+      "detail": "object, keys ['columnId', 'createdAt', 'id', 'position', 'text']"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "pass",
+      "detail": "card 8 of 9, between its neighbours"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'card-moved' after 0.02 s"
+    }
+  ],
+  "observations": {
+    "board_shape": "object, keys ['columns']",
+    "columns": [
+      {
+        "id": "nk3qckl1u5kqnctpq2hxij",
+        "title": "To Do",
+        "cards": 5
+      },
+      {
+        "id": "eu7myoh98d9qwa6g7g20hs",
+        "title": "In Progress",
+        "cards": 2
+      },
+      {
+        "id": "e79a9c9ewyr82aux3l4o48",
+        "title": "Done",
+        "cards": 0
+      }
+    ],
+    "card_keys": [
+      "columnId",
+      "createdAt",
+      "id",
+      "position",
+      "text"
+    ],
+    "cards_listed_in_position_order": true,
+    "create_attempts": [
+      {
+        "fields": [
+          "columnId",
+          "text"
+        ],
+        "status": 200,
+        "found_in_columns": [
+          "nk3qckl1u5kqnctpq2hxij"
+        ]
+      }
+    ],
+    "create_response": "object, keys ['columnId', 'createdAt', 'id', 'position', 'text']",
+    "create_event": {
+      "event": "card-created",
+      "data": "{\"card\":{\"id\":\"eyefn3eqgpq10owxiq1cgo\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca card 1\",\"position\":300,\"createdAt\":\"2026-10-15T23:20:09.239Z\"},\"columnId\":\"nk3qckl1u5kqnctpq2hxij\"}"
+    },
+    "move_setup": "probe's own cards",
+    "move_event": {
+      "event": "card-moved",
+      "data": "{\"card\":{\"id\":\"jag9mt0fndkh3w7dvv07m\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca move-m\",\"position\":375,\"createdAt\":\"2026-10-15T23:20:09.281Z\"},\"columnId\":\"nk3qckl1u5kqnctpq2hxij\"}"
+    },
+    "move_with_missing_neighbours": {
+      "body": "afterId = the column's last card or null; beforeId null, then left out",
+      "null": {
+        "status": 200,
+        "landed_at_end": true
+      }
+    }
+  },
+  "summary": {
+    "pass": 10,
+    "fail": 0,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 7,
+    "event_names": [
+      "card-created",
+      "card-moved",
+      "columns-renormalized"
+    ],
+    "first_events": [
+      "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq...",
+      "{\"card\":{\"id\":\"eyefn3eqgpq10owxiq1cgo\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca card 1\",\"position\":300,\"createdAt\":\"2026-10-15T23:20:09.239Z\"},\"columnId\":\"nk3qckl1u5kqnctpq2hxij\"}",
+      "{\"card\":{\"id\":\"yyidbfc3r7qlhmiieb2wko\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca move-x\",\"position\":350,\"createdAt\":\"2026-10-15T23:20:09.263Z\"},\"columnId\":\"nk3qckl1u5kqnctpq2hxij\"}",
+      "{\"card\":{\"id\":\"90xds3vrehe1ebwfm4ja\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca move-y\",\"position\":400,\"createdAt\":\"2026-10-15T23:20:09.272Z\"},\"columnId\":\"nk3qckl1u5kqnctpq2hxij\"}",
+      "{\"card\":{\"id\":\"jag9mt0fndkh3w7dvv07m\",\"columnId\":\"eu7myoh98d9qwa6g7g20hs\",\"text\":\"api-probe 5165ca move-m\",\"position\":150,\"createdAt\":\"2026-10-15T23:20:09.281Z\"},\"columnId\":\"eu7myoh98d9qwa6g7g20hs\"}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "nk3qckl1u5kqnctpq2hxij",
+        "text": "api-probe 5165ca card 1"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"eyefn3eqgpq10owxiq1cgo\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca card 1\",\"position\":300,\"createdAt\":\"2026-10-15T23:20:09.239Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "nk3qckl1u5kqnctpq2hxij",
+        "text": "api-probe 5165ca move-x"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"yyidbfc3r7qlhmiieb2wko\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca move-x\",\"position\":350,\"createdAt\":\"2026-10-15T23:20:09.263Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "nk3qckl1u5kqnctpq2hxij",
+        "text": "api-probe 5165ca move-y"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"90xds3vrehe1ebwfm4ja\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca move-y\",\"position\":400,\"createdAt\":\"2026-10-15T23:20:09.272Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "eu7myoh98d9qwa6g7g20hs",
+        "text": "api-probe 5165ca move-m"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"jag9mt0fndkh3w7dvv07m\",\"columnId\":\"eu7myoh98d9qwa6g7g20hs\",\"text\":\"api-probe 5165ca move-m\",\"position\":150,\"createdAt\":\"2026-10-15T23:20:09.281Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/jag9mt0fndkh3w7dvv07m/move",
+      "body": {
+        "columnId": "nk3qckl1u5kqnctpq2hxij",
+        "afterId": "yyidbfc3r7qlhmiieb2wko",
+        "beforeId": "90xds3vrehe1ebwfm4ja"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"jag9mt0fndkh3w7dvv07m\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"api-probe 5165ca move-m\",\"position\":375,\"createdAt\":\"2026-10-15T23:20:09.281Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/jag9mt0fndkh3w7dvv07m/move",
+      "body": {
+        "columnId": "eu7myoh98d9qwa6g7g20hs",
+        "afterId": "m3sok6hvkdueuknty2owr",
+        "beforeId": null
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"jag9mt0fndkh3w7dvv07m\",\"columnId\":\"eu7myoh98d9qwa6g7g20hs\",\"text\":\"api-probe 5165ca move-m\",\"position\":150,\"createdAt\":\"2026-10-15T23:20:09.281Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"columns\":[{\"id\":\"nk3qckl1u5kqnctpq2hxij\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"yy5llzjez72i7ff3w9icr\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"Sample card - drag me around!\",\"position\":50,\"createdAt\":\"2026-10-15T23:04:00.271Z\"},{\"id\":\"o57yf0smsn0cwglptqmilc\",\"columnId\":\"nk3qckl1u5kqnctpq2hxij\",\"text\":\"apple\",\"position\":100,\"createdAt\":\"2026-10-15T23:04:52.597Z\"},{\"id\":\"79tlmtc2ov4qy52s...",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-15T23:20:19+00:00"
+}

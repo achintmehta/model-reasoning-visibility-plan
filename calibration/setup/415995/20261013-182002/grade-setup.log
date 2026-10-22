@@ -1,0 +1,30 @@
+[grade-setup] blind id: 415995
+[grade-setup] task: kanban-board  (card: kanban-board.rubric.md)
+[grade-setup] node: v24.21.0, as the run's
+[grade-setup] copied the app to /home/achintmehta/grading-work/415995/app (without node_modules and .git)
+[grade-setup] -- removing the database the app shipped with
+  the code calls PGlite at:
+    backend/index.js:26: db = new PGlite(DATA_DIR);
+  removed database folder: backend/data/  (27,293 KB)
+[grade-setup] -- installing the dependencies
+[grade-setup] == .: npm ci --no-audit --no-fund
+
+added 29 packages in 4s
+[grade-setup] == backend: npm ci --no-audit --no-fund
+
+added 99 packages in 812ms
+[grade-setup] == frontend: npm ci --no-audit --no-fund
+
+added 15 packages in 458ms
+[grade-setup] -- install results (L0: any error fails it; warnings do not count)
+[grade-setup]   .: ok
+[grade-setup]   backend: ok
+[grade-setup]   frontend: ok
+[grade-setup] -- the app's top folder has a package.json: that is the project root, where the declared command runs
+   npm run dev:backend   # cd backend && npm run dev
+   npm run dev:frontend   # cd frontend && npm run dev
+   npm run dev   # concurrently "npm run dev:backend" "npm run dev:frontend"
+[grade-setup] grader environment -> /home/achintmehta/grading-work/415995/GRADER-ENV.txt; this log -> /home/achintmehta/grading-work/415995/grade-setup.log
+[grade-setup] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/415995/20261013-182002 (an A0 command above writes its output there too, as a0.log; commit it with the score sheets)
+[grade-setup] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/415995.score.json
+[grade-setup] next: free the app's ports (ss -ltnp), then cd '/home/achintmehta/grading-work/415995/app' && npm run dev

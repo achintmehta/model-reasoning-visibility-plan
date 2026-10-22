@@ -1,0 +1,294 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "992726",
+  "host": "127.0.0.1",
+  "port": 3001,
+  "started_at": "2026-10-16T09:49:42+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "pass",
+      "detail": "3 columns; columns each hold their cards"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "pass",
+      "detail": "201; body fields column_id/text"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "pass",
+      "detail": "last of 5 cards"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'create' after 0.02 s"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "fail",
+      "detail": "400 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "fail",
+      "detail": "not run: KB-API7 failed"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "fail",
+      "detail": "not run: KB-API7 failed"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "fail",
+      "detail": "not run: KB-API7 failed"
+    }
+  ],
+  "observations": {
+    "board_shape": "array of 3 objects, keys ['cards', 'id', 'position', 'title']",
+    "columns": [
+      {
+        "id": "e5a1d72b-e627-460e-9720-5b387eddb2b8",
+        "title": "To Do",
+        "cards": 4
+      },
+      {
+        "id": "8c1a5146-bac9-47b5-ab53-73dc1cc62206",
+        "title": "In Progress",
+        "cards": 1
+      },
+      {
+        "id": "f0910930-bea5-43a1-8933-1aab571f62a2",
+        "title": "Done",
+        "cards": 1
+      }
+    ],
+    "card_keys": [
+      "column_id",
+      "created_at",
+      "id",
+      "position",
+      "text"
+    ],
+    "cards_listed_in_position_order": true,
+    "create_attempts": [
+      {
+        "fields": [
+          "columnId",
+          "text"
+        ],
+        "status": 400,
+        "found_in_columns": []
+      },
+      {
+        "fields": [
+          "column_id",
+          "text"
+        ],
+        "status": 201,
+        "found_in_columns": [
+          "e5a1d72b-e627-460e-9720-5b387eddb2b8"
+        ]
+      }
+    ],
+    "create_response": "object, keys ['column_id', 'created_at', 'id', 'position', 'text']",
+    "create_event": {
+      "event": "create",
+      "data": "{\"card\":{\"id\":\"cc9078f1-5261-4420-94cd-3a7d5fa59829\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"api-probe 7fc7f1 card 2\",\"position\":4,\"created_at\":\"2026-10-16T14:49:42.401Z\"},\"columnId\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\"}"
+    },
+    "move_setup": "probe's own cards"
+  },
+  "summary": {
+    "pass": 6,
+    "fail": 4,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 4,
+    "event_names": [
+      "create"
+    ],
+    "first_events": [
+      "{\"card\":{\"id\":\"cc9078f1-5261-4420-94cd-3a7d5fa59829\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"api-probe 7fc7f1 card 2\",\"position\":4,\"created_at\":\"2026-10-16T14:49:42.401Z\"},\"columnId\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\"}",
+      "{\"card\":{\"id\":\"8368f5a1-3970-4677-aa88-66e18bb89829\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"api-probe 7fc7f1 move-x\",\"position\":5,\"created_at\":\"2026-10-16T14:49:42.419Z\"},\"columnId\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\"}",
+      "{\"card\":{\"id\":\"9ee2125a-b742-403f-88df-73eb8f2518b8\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"api-probe 7fc7f1 move-y\",\"position\":6,\"created_at\":\"2026-10-16T14:49:42.431Z\"},\"columnId\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\"}",
+      "{\"card\":{\"id\":\"0210746b-de27-4919-92e8-44e4d118db4e\",\"column_id\":\"8c1a5146-bac9-47b5-ab53-73dc1cc62206\",\"text\":\"api-probe 7fc7f1 move-m\",\"position\":1.5,\"created_at\":\"2026-10-16T14:49:42.442Z\"},\"columnId\":\"8c1a5146-bac9-47b5-ab53-73dc1cc62206\"}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"902f264e-8991-4276-b177-b7350a9181cf\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"date\",\"position\":0,\"created_at\":\"2026-10-16T14:39:58.679Z\"},{\"id\":\"aa14eac7-c7af-4154-aed8-d4c82f57f31f\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-16T14:...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "e5a1d72b-e627-460e-9720-5b387eddb2b8",
+        "text": "api-probe 7fc7f1 card 1"
+      },
+      "status": 400,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"error\":\"column_id and text are required\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"902f264e-8991-4276-b177-b7350a9181cf\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"date\",\"position\":0,\"created_at\":\"2026-10-16T14:39:58.679Z\"},{\"id\":\"aa14eac7-c7af-4154-aed8-d4c82f57f31f\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-16T14:...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "column_id": "e5a1d72b-e627-460e-9720-5b387eddb2b8",
+        "text": "api-probe 7fc7f1 card 2"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"cc9078f1-5261-4420-94cd-3a7d5fa59829\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"api-probe 7fc7f1 card 2\",\"position\":4,\"created_at\":\"2026-10-16T14:49:42.401Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"902f264e-8991-4276-b177-b7350a9181cf\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"date\",\"position\":0,\"created_at\":\"2026-10-16T14:39:58.679Z\"},{\"id\":\"aa14eac7-c7af-4154-aed8-d4c82f57f31f\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-16T14:...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "column_id": "e5a1d72b-e627-460e-9720-5b387eddb2b8",
+        "text": "api-probe 7fc7f1 move-x"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"8368f5a1-3970-4677-aa88-66e18bb89829\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"api-probe 7fc7f1 move-x\",\"position\":5,\"created_at\":\"2026-10-16T14:49:42.419Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"902f264e-8991-4276-b177-b7350a9181cf\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"date\",\"position\":0,\"created_at\":\"2026-10-16T14:39:58.679Z\"},{\"id\":\"aa14eac7-c7af-4154-aed8-d4c82f57f31f\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-16T14:...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "column_id": "e5a1d72b-e627-460e-9720-5b387eddb2b8",
+        "text": "api-probe 7fc7f1 move-y"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"9ee2125a-b742-403f-88df-73eb8f2518b8\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"api-probe 7fc7f1 move-y\",\"position\":6,\"created_at\":\"2026-10-16T14:49:42.431Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"902f264e-8991-4276-b177-b7350a9181cf\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"date\",\"position\":0,\"created_at\":\"2026-10-16T14:39:58.679Z\"},{\"id\":\"aa14eac7-c7af-4154-aed8-d4c82f57f31f\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-16T14:...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "column_id": "8c1a5146-bac9-47b5-ab53-73dc1cc62206",
+        "text": "api-probe 7fc7f1 move-m"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"0210746b-de27-4919-92e8-44e4d118db4e\",\"column_id\":\"8c1a5146-bac9-47b5-ab53-73dc1cc62206\",\"text\":\"api-probe 7fc7f1 move-m\",\"position\":1.5,\"created_at\":\"2026-10-16T14:49:42.442Z\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"902f264e-8991-4276-b177-b7350a9181cf\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"date\",\"position\":0,\"created_at\":\"2026-10-16T14:39:58.679Z\"},{\"id\":\"aa14eac7-c7af-4154-aed8-d4c82f57f31f\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-16T14:...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/0210746b-de27-4919-92e8-44e4d118db4e/move",
+      "body": {
+        "columnId": "e5a1d72b-e627-460e-9720-5b387eddb2b8",
+        "afterId": "8368f5a1-3970-4677-aa88-66e18bb89829",
+        "beforeId": "9ee2125a-b742-403f-88df-73eb8f2518b8"
+      },
+      "status": 400,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"error\":\"column_id is required\"}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"title\":\"To Do\",\"position\":0,\"cards\":[{\"id\":\"902f264e-8991-4276-b177-b7350a9181cf\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"date\",\"position\":0,\"created_at\":\"2026-10-16T14:39:58.679Z\"},{\"id\":\"aa14eac7-c7af-4154-aed8-d4c82f57f31f\",\"column_id\":\"e5a1d72b-e627-460e-9720-5b387eddb2b8\",\"text\":\"elder\",\"position\":2,\"created_at\":\"2026-10-16T14:...",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-16T09:49:52+00:00"
+}

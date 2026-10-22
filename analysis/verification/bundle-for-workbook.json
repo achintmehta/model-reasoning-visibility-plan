@@ -1,0 +1,4467 @@
+{
+ "cards": {
+  "kanban-board": [
+   {
+    "id": "KB-L0",
+    "step": "0",
+    "weight": 1
+   },
+   {
+    "id": "KB-L1",
+    "step": "1",
+    "weight": 3
+   },
+   {
+    "id": "KB-L2",
+    "step": "1",
+    "weight": 3
+   },
+   {
+    "id": "KB-L3",
+    "step": "1",
+    "weight": 2
+   },
+   {
+    "id": "KB-F1",
+    "step": "2",
+    "weight": 2
+   },
+   {
+    "id": "KB-R1",
+    "step": "2",
+    "weight": 1
+   },
+   {
+    "id": "KB-F2",
+    "step": "4",
+    "weight": 1
+   },
+   {
+    "id": "KB-F3",
+    "step": "4",
+    "weight": 2
+   },
+   {
+    "id": "KB-F4",
+    "step": "4",
+    "weight": 1
+   },
+   {
+    "id": "KB-F5",
+    "step": "5",
+    "weight": 2
+   },
+   {
+    "id": "KB-R2",
+    "step": "4",
+    "weight": 3
+   },
+   {
+    "id": "KB-D2",
+    "step": "6",
+    "weight": 2
+   },
+   {
+    "id": "KB-R3",
+    "step": "6",
+    "weight": 3
+   },
+   {
+    "id": "KB-D1",
+    "step": "6",
+    "weight": 3
+   },
+   {
+    "id": "KB-D3",
+    "step": "7",
+    "weight": 3
+   },
+   {
+    "id": "KB-R4",
+    "step": "7",
+    "weight": 2
+   },
+   {
+    "id": "KB-D4",
+    "step": "8",
+    "weight": 1
+   },
+   {
+    "id": "KB-D5",
+    "step": "9",
+    "weight": 2
+   },
+   {
+    "id": "KB-D9",
+    "step": "10",
+    "weight": 1
+   },
+   {
+    "id": "KB-C1",
+    "step": "11",
+    "weight": 2
+   },
+   {
+    "id": "KB-C2",
+    "step": "12",
+    "weight": 2
+   },
+   {
+    "id": "KB-S1",
+    "step": "13",
+    "weight": 2
+   },
+   {
+    "id": "KB-P1",
+    "step": "14",
+    "weight": 3
+   },
+   {
+    "id": "KB-D6",
+    "step": "15",
+    "weight": 1
+   },
+   {
+    "id": "KB-D7",
+    "step": "15",
+    "weight": 1
+   },
+   {
+    "id": "KB-U1",
+    "step": "15",
+    "weight": 1
+   }
+  ],
+  "message-board": [
+   {
+    "id": "MB-L0",
+    "step": "0",
+    "weight": 1
+   },
+   {
+    "id": "MB-L1",
+    "step": "1",
+    "weight": 3
+   },
+   {
+    "id": "MB-L2",
+    "step": "1",
+    "weight": 3
+   },
+   {
+    "id": "MB-L3",
+    "step": "1",
+    "weight": 2
+   },
+   {
+    "id": "MB-R1",
+    "step": "2",
+    "weight": 1
+   },
+   {
+    "id": "MB-F1",
+    "step": "3",
+    "weight": 2
+   },
+   {
+    "id": "MB-F2",
+    "step": "3",
+    "weight": 1
+   },
+   {
+    "id": "MB-F3",
+    "step": "3",
+    "weight": 1
+   },
+   {
+    "id": "MB-F4",
+    "step": "4",
+    "weight": 2
+   },
+   {
+    "id": "MB-R2",
+    "step": "5",
+    "weight": 3
+   },
+   {
+    "id": "MB-R3",
+    "step": "6",
+    "weight": 2
+   },
+   {
+    "id": "MB-R4",
+    "step": "5, 6",
+    "weight": 1
+   },
+   {
+    "id": "MB-D1",
+    "step": "7",
+    "weight": 1
+   },
+   {
+    "id": "MB-P1",
+    "step": "8",
+    "weight": 3
+   },
+   {
+    "id": "MB-U1",
+    "step": "9",
+    "weight": 1
+   }
+  ]
+ },
+ "key": [
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "462617",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T08:08:07+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/no_verification/off/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T08:00:00+00:00",
+   "status": "context_overflow",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "818793",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T08:22:55+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/no_verification/unseen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T08:08:38+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "456084",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T08:26:21+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/no_verification/seen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T08:23:29+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "466517",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T08:32:57+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/no_verification/off/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T08:27:03+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 1,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "365762",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T08:40:04+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/no_verification/unseen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T08:33:17+00:00",
+   "status": "api_error",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "724351",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T08:44:42+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/no_verification/unseen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T08:40:53+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "411973",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T08:47:52+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/no_verification/seen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T08:45:29+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "507403",
+   "condition": "execution",
+   "ended_at": "2027-01-15T08:55:32+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/execution/off/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T08:48:49+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "611235",
+   "condition": "execution",
+   "ended_at": "2027-01-15T09:00:19+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/execution/unseen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T08:56:23+00:00",
+   "status": "truncated_no_tool_call",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "279563",
+   "condition": "execution",
+   "ended_at": "2027-01-15T09:05:20+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/execution/seen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T09:00:49+00:00",
+   "status": "budget_exhausted",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "139551",
+   "condition": "execution",
+   "ended_at": "2027-01-15T09:11:36+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/execution/off/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T09:06:12+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "219323",
+   "condition": "execution",
+   "ended_at": "2027-01-15T09:20:16+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/execution/unseen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T09:12:04+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "660737",
+   "condition": "execution",
+   "ended_at": "2027-01-15T09:24:59+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/execution/seen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T09:20:40+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "447712",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T09:35:27+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/interactive/off/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T09:25:21+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 1,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "184345",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T09:40:01+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/interactive/unseen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T09:36:13+00:00",
+   "status": "api_error",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "727961",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T09:48:08+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/interactive/unseen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T09:40:34+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "237308",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T09:51:37+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/interactive/seen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T09:49:00+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "761158",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T09:55:55+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/interactive/off/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T09:52:16+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "585892",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T10:00:10+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/interactive/unseen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T09:56:37+00:00",
+   "status": "stopped_no_tool_call",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "419260",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T10:02:14+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/message-board/interactive/seen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T10:00:44+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "496239",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T10:09:57+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/no_verification/off/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:03:03+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "978461",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T10:16:34+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/no_verification/unseen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:10:46+00:00",
+   "status": "truncated_no_tool_call",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "936589",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T10:19:35+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/no_verification/seen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T10:17:05+00:00",
+   "status": "budget_exhausted",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "153476",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T10:26:55+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/no_verification/off/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:20:17+00:00",
+   "status": "truncated_tool_args",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "238292",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T10:31:54+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/no_verification/unseen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:27:21+00:00",
+   "status": "runaway_no_tool_call",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "322790",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T10:35:27+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/no_verification/seen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T10:32:20+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "444173",
+   "condition": "execution",
+   "ended_at": "2027-01-15T10:39:12+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/execution/off/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:36:02+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "492366",
+   "condition": "execution",
+   "ended_at": "2027-01-15T10:43:07+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/execution/unseen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:39:38+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "232514",
+   "condition": "execution",
+   "ended_at": "2027-01-15T10:46:53+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/execution/seen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T10:43:36+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "750607",
+   "condition": "execution",
+   "ended_at": "2027-01-15T10:50:51+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/execution/off/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:47:38+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "990307",
+   "condition": "execution",
+   "ended_at": "2027-01-15T10:57:34+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/execution/unseen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T10:51:48+00:00",
+   "status": "truncated_tool_args",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "207060",
+   "condition": "execution",
+   "ended_at": "2027-01-15T10:59:50+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/execution/seen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T10:57:54+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "627658",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T11:02:26+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/interactive/off/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:00:25+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "780140",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T11:08:06+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/interactive/unseen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:03:06+00:00",
+   "status": "budget_exhausted",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "284989",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T11:12:42+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/interactive/seen/r01",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T11:09:05+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "off",
+   "blind_id": "605277",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T11:19:44+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/interactive/off/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:13:41+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "unseen",
+   "blind_id": "705500",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T11:22:50+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/interactive/unseen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:20:35+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gemma-q4",
+   "arm": "seen",
+   "blind_id": "106538",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T11:27:08+00:00",
+   "extra_body": null,
+   "label": "gemma-q4/kanban-board/interactive/seen/r02",
+   "model_key": "gemma-q4",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T11:23:39+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "401052",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T11:34:22+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/no_verification/unseen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:27:46+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "885043",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T11:37:58+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/no_verification/seen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T11:35:20+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 1,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "131152",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T11:46:31+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/no_verification/unseen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:38:26+00:00",
+   "status": "api_error",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "203642",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T11:51:40+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/no_verification/unseen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:46:54+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 1,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "820666",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T11:53:56+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/no_verification/seen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T11:52:06+00:00",
+   "status": "api_error",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "293761",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T11:57:11+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/no_verification/seen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T11:54:21+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "170540",
+   "condition": "execution",
+   "ended_at": "2027-01-15T12:03:05+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/execution/unseen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T11:58:08+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "558095",
+   "condition": "execution",
+   "ended_at": "2027-01-15T12:06:29+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/execution/seen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T12:03:36+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "816501",
+   "condition": "execution",
+   "ended_at": "2027-01-15T12:10:30+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/execution/unseen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T12:06:56+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "351804",
+   "condition": "execution",
+   "ended_at": "2027-01-15T12:14:01+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/execution/seen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T12:11:03+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "545638",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T12:15:53+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/interactive/unseen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T12:14:30+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "753038",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T12:18:50+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/interactive/seen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T12:16:25+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "927045",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T12:24:29+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/interactive/unseen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T12:19:29+00:00",
+   "status": "runaway_no_tool_call",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "566854",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T12:29:29+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/message-board/interactive/seen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T12:25:24+00:00",
+   "status": "finished",
+   "task": "message-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "648182",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T12:35:56+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/no_verification/unseen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T12:30:17+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "519780",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T12:38:41+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/no_verification/seen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T12:36:40+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "812837",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T12:43:19+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/no_verification/unseen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T12:39:21+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "541866",
+   "condition": "no_verification",
+   "ended_at": "2027-01-15T12:48:03+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/no_verification/seen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T12:44:13+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "150751",
+   "condition": "execution",
+   "ended_at": "2027-01-15T12:52:20+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/execution/unseen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T12:48:59+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "596254",
+   "condition": "execution",
+   "ended_at": "2027-01-15T12:55:45+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/execution/seen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T12:52:49+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "243511",
+   "condition": "execution",
+   "ended_at": "2027-01-15T13:02:26+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/execution/unseen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T12:56:06+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "864447",
+   "condition": "execution",
+   "ended_at": "2027-01-15T13:07:59+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/execution/seen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T13:03:10+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "354311",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T13:15:05+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/interactive/unseen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T13:08:30+00:00",
+   "status": "stuck_blocked_tool",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "877272",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T13:17:32+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/interactive/seen/r01",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T13:15:43+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "unseen",
+   "blind_id": "957859",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T13:25:34+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/interactive/unseen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "0",
+   "started_at": "2027-01-15T13:18:13+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  },
+  {
+   "agent_rc": 0,
+   "alias": "gptoss-20b",
+   "arm": "seen",
+   "blind_id": "530030",
+   "condition": "interactive",
+   "ended_at": "2027-01-15T13:29:23+00:00",
+   "extra_body": null,
+   "label": "gptoss-20b/kanban-board/interactive/seen/r02",
+   "model_key": "gptoss-20b",
+   "quant": "Q4_K_M",
+   "replay_reasoning": "1",
+   "started_at": "2027-01-15T13:26:23+00:00",
+   "status": "finished",
+   "task": "kanban-board"
+  }
+ ],
+ "probes": {
+  "106538": [
+   "fail",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "131152": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "139551": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "150751": [
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "153476": [
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "170540": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "184345": [
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "203642": [
+   "fail",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "207060": [
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "219323": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "232514": [
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "237308": [
+   "pass",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "238292": [
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "fail",
+   "pass",
+   "fail",
+   "fail",
+   "fail",
+   "fail"
+  ],
+  "243511": [
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "279563": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "284989": [
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "293761": [
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "322790": [
+   "pass",
+   "fail",
+   "pass",
+   "fail",
+   "pass",
+   "fail",
+   "fail",
+   "fail",
+   "fail",
+   "pass"
+  ],
+  "351804": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "354311": [
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "365762": [
+   "pass",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "401052": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "411973": [
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "419260": [
+   "pass",
+   "fail",
+   "pass",
+   "fail"
+  ],
+  "444173": [
+   "fail",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "447712": [
+   "fail",
+   "fail",
+   "fail",
+   "pass"
+  ],
+  "456084": [
+   "pass",
+   "fail",
+   "pass",
+   "fail"
+  ],
+  "462617": [
+   "pass",
+   "pass",
+   "fail",
+   "fail"
+  ],
+  "466517": [
+   "pass",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "492366": [
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "496239": [
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "fail",
+   "pass",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "507403": [
+   "fail",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "519780": [
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "530030": [
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "541866": [
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "fail"
+  ],
+  "545638": [
+   "fail",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "558095": [
+   "pass",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "566854": [
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "585892": [
+   "fail",
+   "pass",
+   "fail",
+   "fail"
+  ],
+  "596254": [
+   "fail",
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "605277": [
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "611235": [
+   "fail",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "627658": [
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "fail"
+  ],
+  "648182": [
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "660737": [
+   "pass",
+   "fail",
+   "pass",
+   "fail"
+  ],
+  "705500": [
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "pass"
+  ],
+  "724351": [
+   "fail",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "727961": [
+   "pass",
+   "fail",
+   "pass",
+   "fail"
+  ],
+  "750607": [
+   "fail",
+   "pass",
+   "fail",
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "753038": [
+   "pass",
+   "fail",
+   "fail",
+   "pass"
+  ],
+  "761158": [
+   "fail",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "780140": [
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "fail",
+   "fail",
+   "fail"
+  ],
+  "812837": [
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "fail",
+   "fail",
+   "pass",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "816501": [
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "818793": [
+   "fail",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "820666": [
+   "fail",
+   "fail",
+   "pass",
+   "pass"
+  ],
+  "864447": [
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "877272": [
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail",
+   "fail"
+  ],
+  "885043": [
+   "fail",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "927045": [
+   "pass",
+   "pass",
+   "fail",
+   "pass"
+  ],
+  "936589": [
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "957859": [
+   "pass",
+   "pass",
+   "fail",
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail"
+  ],
+  "978461": [
+   "pass",
+   "fail",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "pass"
+  ],
+  "990307": [
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "pass",
+   "pass",
+   "fail",
+   "pass",
+   "pass",
+   "fail"
+  ]
+ },
+ "sample": [
+  {
+   "blind_id": "444173",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "execution",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "750607",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "execution",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "207060",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "232514",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "990307",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "492366",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "627658",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "interactive",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "605277",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "interactive",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "284989",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "106538",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "705500",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "780140",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "496239",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "no_verification",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "153476",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "no_verification",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "936589",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "322790",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "978461",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "238292",
+   "cell": [
+    "gemma-q4",
+    "kanban-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "507403",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "execution",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "139551",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "execution",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "279563",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "660737",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "219323",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "611235",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "447712",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "interactive",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "761158",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "interactive",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "237308",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "419260",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "184345",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "585892",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "727961",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 3,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "466517",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "no_verification",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "462617",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "no_verification",
+    "off"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "411973",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "456084",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "365762",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "818793",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "724351",
+   "cell": [
+    "gemma-q4",
+    "message-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier1",
+   "rank": 3,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "596254",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "864447",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "243511",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "150751",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "877272",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "530030",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "354311",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "957859",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "519780",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "541866",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "648182",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "812837",
+   "cell": [
+    "gptoss-20b",
+    "kanban-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "351804",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "558095",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "execution",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "816501",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "170540",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "execution",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "566854",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "753038",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "interactive",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "545638",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "927045",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "interactive",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "885043",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "820666",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "293761",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "no_verification",
+    "seen"
+   ],
+   "draw": "tier3",
+   "rank": 3,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "401052",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 1,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "131152",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 2,
+   "seed": "bb696caef027c79c"
+  },
+  {
+   "blind_id": "203642",
+   "cell": [
+    "gptoss-20b",
+    "message-board",
+    "no_verification",
+    "unseen"
+   ],
+   "draw": "tier3",
+   "rank": 3,
+   "seed": "bb696caef027c79c"
+  }
+ ],
+ "sheets": {
+  "106538": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "pass",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "pass",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "pass",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "pass",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "131152": {
+   "acc": [
+    "A0"
+   ],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "fail",
+    "MB-F4": "pass",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "fail",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "A0: npm ci stopped with ETARGET, re-run with npm install --no-save pkg@latest"
+   },
+   "task": "message-board"
+  },
+  "139551": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "fail",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "150751": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "fail",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "pass",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "153476": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "pass",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "170540": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "pass",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "fail",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "184345": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "fail",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "fail",
+    "MB-P1": "pass",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "message-board"
+  },
+  "203642": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "207060": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "fail",
+    "KB-F2": "pass",
+    "KB-F3": "fail",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "fail",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "fail",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "219323": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "fail",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "pass",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "232514": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "fail",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "fail",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "fail",
+    "KB-L3": "pass",
+    "KB-P1": "fail",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "237308": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "fail",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "238292": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "pass",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "kanban-board"
+  },
+  "243511": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "pass",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "pass",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "pass",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "279563": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "fail",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "fail",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "message-board"
+  },
+  "284989": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "fail",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "fail",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "293761": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "322790": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "fail",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "fail",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "351804": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "fail",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "354311": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "pass",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "pass",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "pass",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "365762": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "401052": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "pass",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "pass",
+    "MB-L2": "fail",
+    "MB-L3": "pass",
+    "MB-P1": "fail",
+    "MB-R1": "pass",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "411973": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "fail",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "message-board"
+  },
+  "419260": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "fail",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "444173": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "pass",
+    "KB-D7": "fail",
+    "KB-D9": "pass",
+    "KB-F1": "fail",
+    "KB-F2": "pass",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "pass",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "kanban-board"
+  },
+  "447712": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "pass",
+    "MB-F2": "fail",
+    "MB-F3": "fail",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "pass",
+    "MB-L3": "fail",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "456084": {
+   "acc": [
+    "A0"
+   ],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "A0: npm ci stopped with ETARGET, re-run with npm install --no-save pkg@latest"
+   },
+   "task": "message-board"
+  },
+  "462617": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "fail",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "466517": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "fail",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "492366": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "pass",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "pass",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "496239": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "pass",
+    "KB-D9": "fail",
+    "KB-F1": "pass",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "507403": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "fail",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "message-board"
+  },
+  "519780": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "fail",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "530030": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "fail",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "541866": {
+   "acc": [
+    "A0"
+   ],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "fail",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "fail",
+    "KB-F5": "pass",
+    "KB-L0": "fail",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "fail",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "A0: npm ci stopped with ETARGET, re-run with npm install --no-save pkg@latest"
+   },
+   "task": "kanban-board"
+  },
+  "545638": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "fail",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "558095": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "fail",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "566854": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "fail",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "585892": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "596254": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "605277": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "fail",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "fail",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "fail",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "611235": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "fail",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "fail",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "627658": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "fail",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "fail",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "648182": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "pass",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "660737": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "705500": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "fail",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "724351": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "727961": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "fail",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "750607": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "fail",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "fail",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "fail",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "753038": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "fail",
+    "MB-F4": "fail",
+    "MB-L0": "pass",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "fail",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "761158": {
+   "acc": [
+    "A0"
+   ],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "pass",
+    "MB-F3": "fail",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "fail",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "A0: npm ci stopped with ETARGET, re-run with npm install --no-save pkg@latest"
+   },
+   "task": "message-board"
+  },
+  "780140": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "fail",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "fail",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "fail",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "kanban-board"
+  },
+  "812837": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "pass",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "pass",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "816501": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "fail",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "fail",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "818793": {
+   "acc": [],
+   "items": {
+    "MB-D1": "fail",
+    "MB-F1": "fail",
+    "MB-F2": "fail",
+    "MB-F3": "fail",
+    "MB-F4": "fail",
+    "MB-L0": "fail",
+    "MB-L1": "fail",
+    "MB-L2": "fail",
+    "MB-L3": "fail",
+    "MB-P1": "fail",
+    "MB-R1": "fail",
+    "MB-R2": "fail",
+    "MB-R3": "fail",
+    "MB-R4": "fail",
+    "MB-U1": "fail"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "820666": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "fail",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "fail",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "864447": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "fail",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "fail",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "877272": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "fail",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "fail",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "885043": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "fail",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "pass",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "927045": {
+   "acc": [],
+   "items": {
+    "MB-D1": "pass",
+    "MB-F1": "pass",
+    "MB-F2": "pass",
+    "MB-F3": "pass",
+    "MB-F4": "fail",
+    "MB-L0": "pass",
+    "MB-L1": "pass",
+    "MB-L2": "pass",
+    "MB-L3": "pass",
+    "MB-P1": "pass",
+    "MB-R1": "pass",
+    "MB-R2": "pass",
+    "MB-R3": "pass",
+    "MB-R4": "pass",
+    "MB-U1": "pass"
+   },
+   "l0notes": {
+    "MB-L0": "fake"
+   },
+   "task": "message-board"
+  },
+  "936589": {
+   "acc": [
+    "A8"
+   ],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "pass",
+    "KB-D4": "pass",
+    "KB-D5": "fail",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "fail",
+    "KB-L3": "pass",
+    "KB-P1": "pass",
+    "KB-R1": "pass",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "pass",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "A8: npm install --no-save concurrently, then npm run dev"
+   },
+   "task": "kanban-board"
+  },
+  "957859": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "pass",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "pass",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "fail",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "pass",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "978461": {
+   "acc": [],
+   "items": {
+    "KB-C1": "pass",
+    "KB-C2": "pass",
+    "KB-D1": "pass",
+    "KB-D2": "pass",
+    "KB-D3": "fail",
+    "KB-D4": "pass",
+    "KB-D5": "pass",
+    "KB-D6": "pass",
+    "KB-D7": "pass",
+    "KB-D9": "pass",
+    "KB-F1": "pass",
+    "KB-F2": "pass",
+    "KB-F3": "pass",
+    "KB-F4": "pass",
+    "KB-F5": "pass",
+    "KB-L0": "pass",
+    "KB-L1": "pass",
+    "KB-L2": "pass",
+    "KB-L3": "fail",
+    "KB-P1": "pass",
+    "KB-R1": "fail",
+    "KB-R2": "pass",
+    "KB-R3": "pass",
+    "KB-R4": "pass",
+    "KB-S1": "fail",
+    "KB-U1": "pass"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  },
+  "990307": {
+   "acc": [],
+   "items": {
+    "KB-C1": "fail",
+    "KB-C2": "fail",
+    "KB-D1": "fail",
+    "KB-D2": "fail",
+    "KB-D3": "fail",
+    "KB-D4": "fail",
+    "KB-D5": "fail",
+    "KB-D6": "fail",
+    "KB-D7": "fail",
+    "KB-D9": "fail",
+    "KB-F1": "fail",
+    "KB-F2": "fail",
+    "KB-F3": "fail",
+    "KB-F4": "fail",
+    "KB-F5": "fail",
+    "KB-L0": "pass",
+    "KB-L1": "fail",
+    "KB-L2": "fail",
+    "KB-L3": "fail",
+    "KB-P1": "fail",
+    "KB-R1": "fail",
+    "KB-R2": "fail",
+    "KB-R3": "fail",
+    "KB-R4": "fail",
+    "KB-S1": "fail",
+    "KB-U1": "fail"
+   },
+   "l0notes": {
+    "KB-L0": "fake"
+   },
+   "task": "kanban-board"
+  }
+ }
+}

@@ -1,0 +1,49 @@
+{
+  "probe_version": "1.0.0",
+  "task": "message-board",
+  "blind_id": "334669",
+  "host": null,
+  "port": 3001,
+  "started_at": "2026-10-15T22:54:54+00:00",
+  "checks": [
+    {
+      "id": "MB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/messages answers with data (JSON)",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "MB-API2",
+      "spec": "3.1",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "MB-API3",
+      "spec": "3.2",
+      "asks": "POST /api/messages stores the message (it then appears in GET /api/messages)",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    },
+    {
+      "id": "MB-API4",
+      "spec": "3.3",
+      "asks": "the new message is broadcast on the event stream within 2 s",
+      "result": "fail",
+      "detail": "no backend runs, even with accommodations (grader's record)"
+    }
+  ],
+  "observations": {},
+  "no_backend": true,
+  "summary": {
+    "pass": 0,
+    "fail": 4,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": null,
+  "requests": [],
+  "finished_at": "2026-10-15T22:54:54+00:00"
+}

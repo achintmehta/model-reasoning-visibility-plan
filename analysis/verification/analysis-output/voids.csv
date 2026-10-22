@@ -1,0 +1,6 @@
+model,arm,analysed_runs,void_attempts,attempts,void_rate,empty_slots,void_in_quality_sample,causes
+gemma-q4,off,12,0,12,0,0,0,none
+gemma-q4,seen,12,0,12,0,0,0,none
+gemma-q4,unseen,12,2,14,0.142857,0,2,runner failed (exit code 1): 2
+gptoss-20b,seen,12,1,13,0.0769231,0,1,runner failed (exit code 1): 1
+gptoss-20b,unseen,12,1,13,0.0769231,0,1,runner failed (exit code 1): 1

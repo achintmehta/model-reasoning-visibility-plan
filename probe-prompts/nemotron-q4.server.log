@@ -1,0 +1,12 @@
+0.00.082.600 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.082.897 W srv  llama_server: -----------------
+0.00.082.900 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.082.902 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.082.902 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.082.903 W srv  llama_server: -----------------
+0.00.090.297 I srv    load_model: loading model 'D:\llm_models\LM Studio\unsloth\Nemotron-3-Nano-30B-A3B\Nemotron-3-Nano-30B-A3B-Q4_K_M.gguf'
+0.09.366.398 I cmn          init: llama threadpool init, n_threads = 16
+0.09.498.254 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 131072, kv_unified = 'false'
+0.09.509.086 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+0.09.509.112 I srv  llama_server: model loaded
+0.09.509.117 I srv  llama_server: listening on http://0.0.0.0:7777

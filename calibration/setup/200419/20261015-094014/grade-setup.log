@@ -1,0 +1,47 @@
+== grade_setup.sh  blind id 200419  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-15 09:40:14 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 200419: task kanban-board (use kanban-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/200419/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] the code calls PGlite at:
+         
+  [ OK ] removed the shipped database folder backend/pgdata/  (39,048 KB)
+
+[5/6] Install the dependencies (this decides L0)
+  [INFO] backend/ is a workspace member of ./, installed with it
+  [INFO] frontend/ is a workspace member of ./, installed with it
+  [INFO] folders with their own package.json: ./. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder ./: npm ci --no-audit --no-fund   (from the run's own lockfile)
+       | added 117 packages in 5s
+  [ OK ] ./: installed without an error
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/200419/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/200419/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/200419/20261015-094014 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/200419.score.json
+
+== SUMMARY  blind id 200419  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] shipped database removed
+  [ OK ] install: all 1 folder(s) installed without an error  ->  L0 passes
+  [INFO] each folder installed by this script on its own: ./ installed
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/200419/app' && npm run dev   # the declared command, at the project root
+       the project root's scripts:
+         npm run dev   # concurrently "npm run dev:backend" "npm run dev:frontend"
+         npm run dev:backend   # npm run dev --workspace=backend
+         npm run dev:frontend   # npm run dev --workspace=frontend

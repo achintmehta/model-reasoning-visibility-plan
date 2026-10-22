@@ -1,0 +1,44 @@
+== grade_setup.sh  blind id 693149  ·  task kanban-board  ·  card kanban-board.rubric.md  ·  2026-10-15 13:31:26 ==
+
+[1/6] Find the run
+  [ OK ] found the run for blind id 693149: task kanban-board (use kanban-board.rubric.md)
+
+[2/6] Node is the run's
+  [ OK ] Node v24.21.0, the same as the run
+
+[3/6] Fresh copy of the app
+  [ OK ] copied the app to /home/achintmehta/grading-work/693149/app (without node_modules and .git)
+
+[4/6] Remove the database the app shipped with
+  [INFO] no new PGlite(...) or PGlite.create(...) found in the app's code
+  [ OK ] no PGlite data folder shipped with the app: nothing to remove
+
+[5/6] Install the dependencies (this decides L0)
+  [INFO] folders with their own package.json: kanban-board/. This script installs each of them itself, one after another, below (spec task 1.4: "its package.json files"): you never run npm install in them, and an install script of the app's own is not relied on to do it.
+
+  -- folder kanban-board/: npm install --no-audit --no-fund   (no lockfile: resolved by npm's before date)
+       | up to date in 137ms
+  [ OK ] kanban-board/: installed without an error
+  [ OK ] saved this install's lockfile for later gradings (grading-lock.kanban-board.json in the run's log folder)
+
+[6/6] Records
+  [ OK ] grader environment -> /home/achintmehta/grading-work/693149/GRADER-ENV.txt
+  [ OK ] this log -> /home/achintmehta/grading-work/693149/grade-setup.log
+  [ OK ] both kept with your results -> /mnt/d/model-reasoning-visibility-research/calibration/results/setup/693149/20261015-133126 (an A0 command writes its output there too, as a0.log)
+  [ OK ] blank score sheet -> /mnt/d/model-reasoning-visibility-research/calibration/results/693149.score.json
+
+== SUMMARY  blind id 693149  ·  kanban-board ==
+  [ OK ] run found: task kanban-board
+  [ OK ] Node v24.21.0, as the run
+  [ OK ] fresh copy made
+  [ OK ] no shipped database to remove
+  [ OK ] install: all 1 folder(s) installed without an error  ->  L0 passes
+  [INFO] each folder installed by this script on its own: kanban-board/ installed
+  [ OK ] blank score sheet made
+
+  Next:
+    1. ss -ltnp                      # nothing may listen on the app's ports
+    2. cd '/home/achintmehta/grading-work/693149/app/kanban-board' && npm run dev   # the top folder has no package.json; check from the app (and its README) that kanban-board/ is the project root
+       the project root's scripts:
+         npm run test   # echo "Error: no test specified" && exit 1
+         no dev script here (README, "No root dev script")

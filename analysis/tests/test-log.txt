@@ -1,0 +1,62 @@
+Full test run of the analysis code (python3 -m unittest -v tests.test_analysis, MRV_QUICK unset).
+Run in three parts, because each call of the session's shell is limited to three minutes. Together the parts are every test.
+Started 2026-10-22T17:46:13+00:00 on Python 3.10.12, numpy 2.2.6, smoke set at /sessions/rcw-01l334gmenayuzks85uryvqc/mnt/model-reasoning-visibility-research/smoke-runs
+
+test_holm (tests.test_analysis.T1NullCalibration) ... ok
+test_interval_formulas (tests.test_analysis.T1NullCalibration)
+Wilson and Newcombe against the worked examples of Newcombe (1998), Statistics in ... ok
+test_null_rates (tests.test_analysis.T1NullCalibration) ... ok
+test_rescaled_bootstrap_variance (tests.test_analysis.T1NullCalibration)
+The rescaled stratified bootstrap gives the unbiased variance of a stratified mean. ... ok
+test_unadjusted_rate_near_alpha (tests.test_analysis.T1NullCalibration)
+Before Holm, a single stratified permutation test rejects at about alpha. ... ok
+test_coverage (tests.test_analysis.T2Recovery) ... ok
+test_estimates_near_planted (tests.test_analysis.T2Recovery) ... ok
+test_found (tests.test_analysis.T2Recovery) ... ok
+test_identical (tests.test_analysis.T3Determinism) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 57.811s
+
+OK
+360 runs analysed -> /sessions/rcw-01l334gmenayuzks85uryvqc/tmp/mrv-30w8c4js/out0
+360 runs analysed -> /sessions/rcw-01l334gmenayuzks85uryvqc/tmp/mrv-30w8c4js/out1
+exit 0
+
+test_edges (tests.test_analysis.T4EdgeCases) ... ok
+test_round_trip (tests.test_analysis.T4EdgeCases) ... ok
+test_npm_unreachable_stops_until_rerun (tests.test_analysis.T4bVoidsAndOutcomes) ... NEEDS A RE-RUN: runs that are void for a cause the runner could not see, with no re-run of their slot (protocol section 9). Re-run each slot by hand under the same label, then run the analysis again:
+  gptoss-20b/message-board/no_verification/unseen/r01: npm registry unreachable during `cd backend && npm install`
+ok
+test_overflow_filed_as_error_is_an_outcome (tests.test_analysis.T4bVoidsAndOutcomes) ... ok
+test_pairs_reuse_confirmatory (tests.test_analysis.T4bVoidsAndOutcomes) ... ok
+test_statuses_energy_and_rows (tests.test_analysis.T4bVoidsAndOutcomes) ... ok
+test_wrong_model_file_stops (tests.test_analysis.T4bVoidsAndOutcomes) ... ok
+test_describe_replicates (tests.test_analysis.T7IntermediateRecord) ... ok
+test_estimates_intervals_p (tests.test_analysis.T7IntermediateRecord) ... ok
+test_holm_and_verdicts (tests.test_analysis.T7IntermediateRecord) ... ok
+test_run_table_from_steps_scores_attempts (tests.test_analysis.T7IntermediateRecord) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 49.454s
+
+OK
+240 attempts, 239 slots with an analysed run, 0 void attempts, 0 empty slots, 0 attempts after their slot's analysed run
+241 attempts, 240 slots with an analysed run, 1 void attempts, 0 empty slots, 0 attempts after their slot's analysed run
+ok: nothing needs a re-run
+180 runs analysed -> /sessions/rcw-01l334gmenayuzks85uryvqc/tmp/mrv-t7-a33lpgz4/out
+exit 0
+
+test_clean_grid_loads (tests.test_analysis.T5InputChecks) ... ok
+test_harness_git (tests.test_analysis.T5InputChecks) ... ok
+test_missing_manifest (tests.test_analysis.T5InputChecks) ... ok
+test_orphan_key_line (tests.test_analysis.T5InputChecks) ... ok
+test_run_without_key_line (tests.test_analysis.T5InputChecks) ... ok
+test_reproduces (tests.test_analysis.T6SmokeReproduction) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 55.768s
+
+OK
+exit 0
+Finished 2026-10-22T17:48:59+00:00

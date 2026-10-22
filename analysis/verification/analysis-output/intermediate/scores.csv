@@ -1,0 +1,65 @@
+blind_id,task,role,card_version,graded_on,items_pass,items_fail,items_skip,weight_passed,weight_scored,score,score_rule,accommodations,substituted,substituted_because
+106538,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,4,22,0,7,50,14.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+131152,message-board,first grading,2.2 (2026-10-18),2026-10-20,1,14,0,2,27,7.41,"round(100 x weight_passed / weight_scored, 2)",A0,1,A0 with ETARGET in the L0 notes
+139551,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,25,27,92.59,"round(100 x weight_passed / weight_scored, 2)",,0,
+150751,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,3,23,0,6,50,12.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+153476,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,1,25,0,2,50,4.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+170540,message-board,first grading,2.2 (2026-10-18),2026-10-20,1,14,0,1,27,3.7,"round(100 x weight_passed / weight_scored, 2)",,0,
+184345,message-board,first grading,2.2 (2026-10-18),2026-10-20,1,14,0,3,27,11.11,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+203642,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,26,27,96.3,"round(100 x weight_passed / weight_scored, 2)",,0,
+207060,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,22,4,0,43,50,86.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+219323,message-board,first grading,2.2 (2026-10-18),2026-10-20,2,13,0,3,27,11.11,"round(100 x weight_passed / weight_scored, 2)",,0,
+232514,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,21,5,0,40,50,80.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+237308,message-board,first grading,2.2 (2026-10-18),2026-10-20,13,2,0,23,27,85.19,"round(100 x weight_passed / weight_scored, 2)",,0,
+238292,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,1,25,0,2,50,4.0,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+243511,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,3,23,0,6,50,12.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+279563,message-board,first grading,2.2 (2026-10-18),2026-10-20,13,2,0,23,27,85.19,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+284989,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,24,2,0,45,50,90.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+293761,message-board,first grading,2.2 (2026-10-18),2026-10-20,15,0,0,27,27,100.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+322790,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,24,2,0,46,50,92.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+351804,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,26,27,96.3,"round(100 x weight_passed / weight_scored, 2)",,0,
+354311,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,3,23,0,7,50,14.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+365762,message-board,first grading,2.2 (2026-10-18),2026-10-20,11,4,0,20,27,74.07,"round(100 x weight_passed / weight_scored, 2)",,0,
+401052,message-board,first grading,2.2 (2026-10-18),2026-10-20,4,11,0,7,27,25.93,"round(100 x weight_passed / weight_scored, 2)",,0,
+411973,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,24,27,88.89,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+419260,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,26,27,96.3,"round(100 x weight_passed / weight_scored, 2)",,0,
+444173,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,6,20,0,11,50,22.0,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+447712,message-board,first grading,2.2 (2026-10-18),2026-10-20,2,13,0,5,27,18.52,"round(100 x weight_passed / weight_scored, 2)",,0,
+456084,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,26,27,96.3,"round(100 x weight_passed / weight_scored, 2)",A0,1,A0 with ETARGET in the L0 notes
+462617,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,25,27,92.59,"round(100 x weight_passed / weight_scored, 2)",,0,
+466517,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,26,27,96.3,"round(100 x weight_passed / weight_scored, 2)",,0,
+492366,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,3,23,0,7,50,14.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+496239,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,2,24,0,3,50,6.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+507403,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,26,27,96.3,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+519780,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,25,1,0,47,50,94.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+530030,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,22,4,0,41,50,82.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+541866,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,22,4,0,46,50,92.0,"round(100 x weight_passed / weight_scored, 2)",A0,1,A0 with ETARGET in the L0 notes
+545638,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,25,27,92.59,"round(100 x weight_passed / weight_scored, 2)",,0,
+558095,message-board,first grading,2.2 (2026-10-18),2026-10-20,13,2,0,25,27,92.59,"round(100 x weight_passed / weight_scored, 2)",,0,
+566854,message-board,first grading,2.2 (2026-10-18),2026-10-20,13,2,0,24,27,88.89,"round(100 x weight_passed / weight_scored, 2)",,0,
+585892,message-board,first grading,2.2 (2026-10-18),2026-10-20,15,0,0,27,27,100.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+596254,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,22,4,0,43,50,86.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+605277,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,23,3,0,45,50,90.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+611235,message-board,first grading,2.2 (2026-10-18),2026-10-20,0,15,0,0,27,0.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+627658,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,24,2,0,47,50,94.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+648182,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,2,24,0,4,50,8.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+660737,message-board,first grading,2.2 (2026-10-18),2026-10-20,15,0,0,27,27,100.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+705500,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,23,3,0,45,50,90.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+724351,message-board,first grading,2.2 (2026-10-18),2026-10-20,15,0,0,27,27,100.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+727961,message-board,first grading,2.2 (2026-10-18),2026-10-20,13,2,0,25,27,92.59,"round(100 x weight_passed / weight_scored, 2)",,0,
+750607,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,23,3,0,46,50,92.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+753038,message-board,first grading,2.2 (2026-10-18),2026-10-20,1,14,0,1,27,3.7,"round(100 x weight_passed / weight_scored, 2)",,0,
+761158,message-board,first grading,2.2 (2026-10-18),2026-10-20,1,14,0,1,27,3.7,"round(100 x weight_passed / weight_scored, 2)",A0,1,A0 with ETARGET in the L0 notes
+780140,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,22,4,0,42,50,84.0,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+812837,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,2,24,0,5,50,10.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+816501,message-board,first grading,2.2 (2026-10-18),2026-10-20,13,2,0,21,27,77.78,"round(100 x weight_passed / weight_scored, 2)",,0,
+818793,message-board,first grading,2.2 (2026-10-18),2026-10-20,0,15,0,0,27,0.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+820666,message-board,first grading,2.2 (2026-10-18),2026-10-20,13,2,0,24,27,88.89,"round(100 x weight_passed / weight_scored, 2)",,0,
+864447,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,24,2,0,46,50,92.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+877272,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,24,2,0,48,50,96.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+885043,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,25,27,92.59,"round(100 x weight_passed / weight_scored, 2)",,0,
+927045,message-board,first grading,2.2 (2026-10-18),2026-10-20,14,1,0,25,27,92.59,"round(100 x weight_passed / weight_scored, 2)",,0,
+936589,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,24,2,0,45,50,90.0,"round(100 x weight_passed / weight_scored, 2)",A8,1,A8
+957859,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,3,23,0,6,50,12.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+978461,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,22,4,0,42,50,84.0,"round(100 x weight_passed / weight_scored, 2)",,0,
+990307,kanban-board,first grading,2.2 (2026-10-18),2026-10-20,1,25,0,1,50,2.0,"round(100 x weight_passed / weight_scored, 2)",,0,

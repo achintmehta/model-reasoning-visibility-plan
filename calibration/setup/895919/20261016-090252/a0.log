@@ -1,0 +1,13 @@
++ npm install
+
+added 29 packages, and audited 30 packages in 5s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+1 critical severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.

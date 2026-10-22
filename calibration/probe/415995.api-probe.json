@@ -1,0 +1,265 @@
+{
+  "probe_version": "1.0.0",
+  "task": "kanban-board",
+  "blind_id": "415995",
+  "host": "127.0.0.1",
+  "port": 3001,
+  "started_at": "2026-10-14T13:11:53+00:00",
+  "checks": [
+    {
+      "id": "KB-API1",
+      "spec": "2.4",
+      "asks": "GET /api/board answers with data (JSON)",
+      "result": "pass",
+      "detail": "200 application/json; charset=utf-8"
+    },
+    {
+      "id": "KB-API2",
+      "spec": "2.4",
+      "asks": "the board lists the columns, each with its own cards",
+      "result": "pass",
+      "detail": "3 columns; columns each hold their cards"
+    },
+    {
+      "id": "KB-API3",
+      "spec": "3.3",
+      "asks": "GET /api/stream is an event stream that stays open",
+      "result": "pass",
+      "detail": "200 text/event-stream; open for 10 s"
+    },
+    {
+      "id": "KB-API4",
+      "spec": "3.1",
+      "asks": "POST /api/cards stores the card in the requested column",
+      "result": "pass",
+      "detail": "201; body fields columnId/text"
+    },
+    {
+      "id": "KB-API5",
+      "spec": "3.1",
+      "asks": "the new card is placed at the end of its column",
+      "result": "pass",
+      "detail": "last of 5 cards"
+    },
+    {
+      "id": "KB-API6",
+      "spec": "3.3",
+      "asks": "the create is broadcast with the card and its column id within 2 s",
+      "result": "pass",
+      "detail": "event 'message' after 0.03 s"
+    },
+    {
+      "id": "KB-API7",
+      "spec": "3.2",
+      "asks": "PATCH /api/cards/:id/move with { columnId, beforeId, afterId } is accepted",
+      "result": "fail",
+      "detail": "500 text/html; charset=utf-8"
+    },
+    {
+      "id": "KB-API8",
+      "spec": "3.2",
+      "asks": "the move answers with the moved card",
+      "result": "fail",
+      "detail": "not run: KB-API7 failed"
+    },
+    {
+      "id": "KB-API9",
+      "spec": "3.2",
+      "asks": "the card lands between afterId and beforeId, and only there",
+      "result": "fail",
+      "detail": "not run: KB-API7 failed"
+    },
+    {
+      "id": "KB-API10",
+      "spec": "3.3",
+      "asks": "the move is broadcast with the card and its column id within 2 s",
+      "result": "fail",
+      "detail": "not run: KB-API7 failed"
+    }
+  ],
+  "observations": {
+    "board_shape": "array of 3 objects, keys ['cards', 'id', 'position', 'title']",
+    "columns": [
+      {
+        "id": "col-1",
+        "title": "To Do",
+        "cards": 4
+      },
+      {
+        "id": "col-2",
+        "title": "In Progress",
+        "cards": 0
+      },
+      {
+        "id": "col-3",
+        "title": "Done",
+        "cards": 1
+      }
+    ],
+    "card_keys": [
+      "column_id",
+      "created_at",
+      "id",
+      "position",
+      "text"
+    ],
+    "cards_listed_in_position_order": true,
+    "create_attempts": [
+      {
+        "fields": [
+          "columnId",
+          "text"
+        ],
+        "status": 201,
+        "found_in_columns": [
+          "col-1"
+        ]
+      }
+    ],
+    "create_response": "object, keys ['columnId', 'id', 'position', 'text']",
+    "create_event": {
+      "event": "message",
+      "data": "{\"type\":\"CARD_CREATED\",\"payload\":{\"id\":\"0d9be76f-0e1a-4f8a-8bfc-8582025d8c23\",\"columnId\":\"col-1\",\"text\":\"api-probe 13f5c6 card 1\",\"position\":30}}"
+    },
+    "move_setup": "probe's own cards"
+  },
+  "summary": {
+    "pass": 6,
+    "fail": 4,
+    "inconclusive": 0,
+    "blocked": 0
+  },
+  "stream": {
+    "status": 200,
+    "content_type": "text/event-stream",
+    "error": null,
+    "events": 4,
+    "event_names": [
+      "message"
+    ],
+    "first_events": [
+      "{\"type\":\"CARD_CREATED\",\"payload\":{\"id\":\"0d9be76f-0e1a-4f8a-8bfc-8582025d8c23\",\"columnId\":\"col-1\",\"text\":\"api-probe 13f5c6 card 1\",\"position\":30}}",
+      "{\"type\":\"CARD_CREATED\",\"payload\":{\"id\":\"8a692e85-4ef3-4365-af5e-500f799c4a25\",\"columnId\":\"col-1\",\"text\":\"api-probe 13f5c6 move-x\",\"position\":40}}",
+      "{\"type\":\"CARD_CREATED\",\"payload\":{\"id\":\"115da3d3-d470-4fc0-bd01-bca7717b3e1a\",\"columnId\":\"col-1\",\"text\":\"api-probe 13f5c6 move-y\",\"position\":50}}",
+      "{\"type\":\"CARD_CREATED\",\"payload\":{\"id\":\"e2faa954-3805-4d30-8749-a4bf30c48ded\",\"columnId\":\"col-2\",\"text\":\"api-probe 13f5c6 move-m\",\"position\":100}}"
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":10,\"cards\":[{\"id\":\"db8860b8-8b0f-465c-8a05-b6d989b9e76d\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":0,\"created_at\":\"2026-10-14T16:47:47.914Z\"},{\"id\":\"f3c87456-2780-426b-8f9c-1039dae00159\",\"column_id\":\"col-1\",\"text\":\"apple\",\"position\":10,\"created_at\":\"2026-10-14T16:47:40.102Z\"},{\"id\":\"1aabefbf-ac45-4906-846d-3954ee2a2d11\",\"column_id\":\"col-1\",\"text\":\"ban...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-1",
+        "text": "api-probe 13f5c6 card 1"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"0d9be76f-0e1a-4f8a-8bfc-8582025d8c23\",\"columnId\":\"col-1\",\"text\":\"api-probe 13f5c6 card 1\",\"position\":30}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":10,\"cards\":[{\"id\":\"db8860b8-8b0f-465c-8a05-b6d989b9e76d\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":0,\"created_at\":\"2026-10-14T16:47:47.914Z\"},{\"id\":\"f3c87456-2780-426b-8f9c-1039dae00159\",\"column_id\":\"col-1\",\"text\":\"apple\",\"position\":10,\"created_at\":\"2026-10-14T16:47:40.102Z\"},{\"id\":\"1aabefbf-ac45-4906-846d-3954ee2a2d11\",\"column_id\":\"col-1\",\"text\":\"ban...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-1",
+        "text": "api-probe 13f5c6 move-x"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"8a692e85-4ef3-4365-af5e-500f799c4a25\",\"columnId\":\"col-1\",\"text\":\"api-probe 13f5c6 move-x\",\"position\":40}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":10,\"cards\":[{\"id\":\"db8860b8-8b0f-465c-8a05-b6d989b9e76d\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":0,\"created_at\":\"2026-10-14T16:47:47.914Z\"},{\"id\":\"f3c87456-2780-426b-8f9c-1039dae00159\",\"column_id\":\"col-1\",\"text\":\"apple\",\"position\":10,\"created_at\":\"2026-10-14T16:47:40.102Z\"},{\"id\":\"1aabefbf-ac45-4906-846d-3954ee2a2d11\",\"column_id\":\"col-1\",\"text\":\"ban...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-1",
+        "text": "api-probe 13f5c6 move-y"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"115da3d3-d470-4fc0-bd01-bca7717b3e1a\",\"columnId\":\"col-1\",\"text\":\"api-probe 13f5c6 move-y\",\"position\":50}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":10,\"cards\":[{\"id\":\"db8860b8-8b0f-465c-8a05-b6d989b9e76d\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":0,\"created_at\":\"2026-10-14T16:47:47.914Z\"},{\"id\":\"f3c87456-2780-426b-8f9c-1039dae00159\",\"column_id\":\"col-1\",\"text\":\"apple\",\"position\":10,\"created_at\":\"2026-10-14T16:47:40.102Z\"},{\"id\":\"1aabefbf-ac45-4906-846d-3954ee2a2d11\",\"column_id\":\"col-1\",\"text\":\"ban...",
+      "error": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/cards",
+      "body": {
+        "columnId": "col-2",
+        "text": "api-probe 13f5c6 move-m"
+      },
+      "status": 201,
+      "content_type": "application/json; charset=utf-8",
+      "response": "{\"id\":\"e2faa954-3805-4d30-8749-a4bf30c48ded\",\"columnId\":\"col-2\",\"text\":\"api-probe 13f5c6 move-m\",\"position\":100}",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":10,\"cards\":[{\"id\":\"db8860b8-8b0f-465c-8a05-b6d989b9e76d\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":0,\"created_at\":\"2026-10-14T16:47:47.914Z\"},{\"id\":\"f3c87456-2780-426b-8f9c-1039dae00159\",\"column_id\":\"col-1\",\"text\":\"apple\",\"position\":10,\"created_at\":\"2026-10-14T16:47:40.102Z\"},{\"id\":\"1aabefbf-ac45-4906-846d-3954ee2a2d11\",\"column_id\":\"col-1\",\"text\":\"ban...",
+      "error": null
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/cards/e2faa954-3805-4d30-8749-a4bf30c48ded/move",
+      "body": {
+        "columnId": "col-1",
+        "afterId": "8a692e85-4ef3-4365-af5e-500f799c4a25",
+        "beforeId": "115da3d3-d470-4fc0-bd01-bca7717b3e1a"
+      },
+      "status": 500,
+      "content_type": "text/html; charset=utf-8",
+      "response": "Internal Server Error",
+      "error": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/board",
+      "body": null,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response": "[{\"id\":\"col-1\",\"title\":\"To Do\",\"position\":10,\"cards\":[{\"id\":\"db8860b8-8b0f-465c-8a05-b6d989b9e76d\",\"column_id\":\"col-1\",\"text\":\"cherry\",\"position\":0,\"created_at\":\"2026-10-14T16:47:47.914Z\"},{\"id\":\"f3c87456-2780-426b-8f9c-1039dae00159\",\"column_id\":\"col-1\",\"text\":\"apple\",\"position\":10,\"created_at\":\"2026-10-14T16:47:40.102Z\"},{\"id\":\"1aabefbf-ac45-4906-846d-3954ee2a2d11\",\"column_id\":\"col-1\",\"text\":\"ban...",
+      "error": null
+    }
+  ],
+  "finished_at": "2026-10-14T13:12:03+00:00"
+}

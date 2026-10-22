@@ -1,0 +1,11 @@
+server : http://192.168.1.110:7777/v1
+model  : glm-4.7-flash   (key glm-q4, from the wrapper)
+body   : {"chat_template_kwargs": {"enable_thinking": true, "clear_thinking": false}}
+replay : field, max_tokens 4096
+probe  : assistant turn carrying the reasoning + tool_calls, then a user question
+
+HTTP 200. Model replied: 'ZQ7-KESTREL-4419'
+          and reasoned:  'The user is asking me to repeat the working codeword I noted earlier. According to my instructions, my working codeword for this task is ZQ7-KESTREL-4419. I should reply with just that codeword and no'
+
+ACCEPTED — the nonce came back, so the replayed reasoning demonstrably
+reached the prompt. Replay works on this server and template.
