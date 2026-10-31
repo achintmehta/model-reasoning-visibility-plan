@@ -1,9 +1,9 @@
-# Rubric v2 — hand grading for the model reasoning-visibility study (DRAFT for review, 2026-10-01; install item, API probe, one grader with a 14-day re-grade)
+# Rubric - hand grading for the model reasoning-visibility study
 
-These rules apply to both cards in this folder: `message-board.rubric.md` and
-`kanban-board.rubric.md`.
-The commands, in the order you run them, are in `GRADING-COMMANDS.md`: the same for a
-practice round, the calibration rounds and the grid.
+This folder contains the rules for grading the final grid runs used in this study.
+These rules apply to both cards in this folder: `message-board.rubric.md` and `kanban-board.rubric.md`.
+The commands for grading the apps, in the order the grader runs them, are in `GRADING-COMMANDS.md` and are the same
+for the practice rounds, the calibration rounds and the final grid.
 
 In this study the rubric score is the app-quality measure, given by one grader. Beside it, the API
 probe (below) records whether each app's backend follows the API the spec names. Its results
@@ -11,15 +11,40 @@ are kept apart from the score and analysed as their own outcome.
 
 ## One grader, and the re-grade
 
-- **One grader grades every app.** The score of record is an app's first grading.
-- **The re-grade.** Before each tier, a seeded draw picks four apps of every model × task ×
-  condition × arm cell, a fifth of all apps. Each gets a second blind id, and you grade it a
-  second time at least 14 days after its first grading. The two gradings measure how
-  consistently the cards are applied; the re-grade never changes the score of record.
-- **Your list.** You receive shuffled lists of blind ids. A re-grade's second id joins a list
+- **One grader grades every app of the quality sample.** The grid is run and graded in six
+  tiers, each a group of models (protocol section 5.2). Before any app of a tier is graded, a
+  seeded draw picks ten apps of every model x task x condition x arm cell, half of the cell's
+  20, and only those are graded. If time allows, more are graded, for the whole tier at once
+  and never because of results (`extend`, below). The score of record is an app's first
+  grading.
+- **The re-grade.** From each tier's sample, a second seeded draw picks two apps of every cell,
+  a fifth of the sample. Each gets a second blind id, and the grader grades it a second time at least
+  14 days after its first grading. The two gradings measure how consistently the cards are
+  applied. The re-grade never changes the score of record.
+- **How the two draws are made.** Both are made with `blind_tools.py` ("The tools around the
+  grading", below), once per tier and before any of its apps is graded, by the study lead, who
+  is also the only grader (protocol section 5.3, "Who runs the draws"). For tier 1:
+
+  ```bash
+  python3 blind_tools.py sample --state <state> --seed bb696caef027c79c --draw tier1 --per-cell 10 --models gemma-q4,qwen-q4
+  python3 blind_tools.py draw   --state <state> --seed bb696caef027c79c --draw tier1 --per-cell 2  --models gemma-q4,qwen-q4
+  ```
+
+  `<state>` is the un-blinding state folder (`blind-state/`), which lists every app's blind id
+  and cell. `sample` sorts each cell's blind ids and shuffles them with a random generator
+  seeded from the seed and the tier's name (`bb696caef027c79c:tier1:sample`). That shuffled
+  order is the cell's grading order, and its first ten apps are the sample (`extend` takes the
+  next ones). `draw` then picks two of each cell's sampled apps with a second generator,
+  seeded from the same seed and name (`bb696caef027c79c:tier1`). The seed was fixed at the
+  freeze and is published in protocol section 5.3, so anyone with the un-blinding key can
+  repeat both draws and get the same apps. The second blind ids are not drawn from the seed
+  but from the system's random source. Each other tier uses its own name (`tier2` to `tier6`)
+  and models (protocol section 5.3), and `GRADING-COMMANDS.md`, part A, gives the commands in
+  order.
+- **The grader's list.** The grader receives shuffled lists of blind ids. A re-grade's second id joins a list
   only once its 14 days have passed, mixed in among first gradings of later apps. Nothing on a
   list says which ids are re-grades, so grade every app the same way.
-- **Blind.** You see only the blind id: `grade_setup.sh` takes the id, finds the run itself,
+- **Blind.** The grader sees only the blind id: `grade_setup.sh` takes the id, finds the run itself,
   and prints and records nothing but the id. Never open `manifest.json`, the trace or the
   run's logs.
 - **No looking back.** Never look up an earlier score sheet while grading. If an app seems
@@ -29,10 +54,10 @@ are kept apart from the score and analysed as their own outcome.
 - **A fresh copy.** Start every grading, a re-grade included, from a fresh copy
   (`grade_setup.sh`). The card's script posts messages and creates kanban cards, so a copy
   already graded is not fresh.
-- **Your score sheet.** Once a score sheet is in, it changes only through a ruling in the
+- **The score sheet.** Once a score sheet is in, it changes only through a ruling in the
   precedents log.
-- **Your results folder** is `grading/` in the study's research folder (beside `smoke-runs/`),
-  outside this tagged folder and outside the runs. It holds your score sheets, the API probe's
+- **The grader's results folder** is `grading/` in the study's research folder (beside `smoke-runs/`),
+  outside this tagged folder and outside the runs. It holds the grader's score sheets, the API probe's
   files (`--out`) and the precedents log (`precedents-log.md`). It names apps only by blind
   id; the un-blinding key never goes there. Commit it to git after every session.
 - **Consistency** is measured on the re-graded apps only, in the consistency checks
@@ -41,7 +66,7 @@ are kept apart from the score and analysed as their own outcome.
     intraclass correlation (ICC) across the re-graded apps;
   - for each item: Cohen's kappa beside the raw share of apps whose item came out the same
     both times.
-- **The bar** (a draft, under review). For each task, an app's two gradings differ by no more
+- **The bar** (protocol section 6.1). For each task, an app's two gradings differ by no more
   than 5 points on average, in a check of at least 24 re-graded apps of the task.
 
 ## Before each app (grader-side, except the install, which is L0)
@@ -49,10 +74,10 @@ are kept apart from the score and analysed as their own outcome.
 1. **Copy, clean and install.** Run `grade_setup.sh <blind id>` (in this folder). Tell it once
    per session where the runs are: `GRADING_ROOTS` (folders in the blind layout,
    `<root>/<task>/runs/<id>/`) and, for re-grade ids and calibration copies, `GRADING_INDEX` (a
-   list of `<id><TAB><run folder>` lines, made by whoever makes your lists). It prints the blind id
+   list of `<id><TAB><run folder>` lines, made by whoever makes the grader's lists). It prints the blind id
    and the task, never the run's folder, and does five things, in order:
    - finds the run;
-   - checks that your Node is the run's, and stops with the `nvm` command if not;
+   - checks that the grader's Node is the run's, and stops with the `nvm` command if not;
    - copies the app to `~/grading-work/<blind id>/app` (`GRADING_WORK` to change it; never
      grade on `/mnt/d`: PGLite and npm both misbehave there);
    - removes the database directory the app shipped with (every PGlite data folder, the one
@@ -62,7 +87,7 @@ are kept apart from the score and analysed as their own outcome.
      1.4 speaks of "its package.json files"; a workspace member is installed by its workspace
      root): with `npm ci` from that folder's lockfile if the run has one, otherwise from the
      lockfile the app's first grading saved beside the run (`grading-lock*.json`), otherwise
-     with `npm install`, whose lockfile is then saved there. For that last case your npm
+     with `npm install`, whose lockfile is then saved there. For that last case the grader's npm
      `before` date must be the run's, and it stops if not.
 
    Check its log of what it removed, and read the install output and its summary: they decide
@@ -96,24 +121,24 @@ are kept apart from the score and analysed as their own outcome.
    Any other install
    error fails L0, and every item after it fails too. A registry that cannot be reached is a
    grader-side problem: retry, or `skip`. Its exit status is 3 when an install failed. The
-   copy's folder also holds `GRADER-ENV.txt` (your Node, npm, `before` date, lockfile hashes, OS
+   copy's folder also holds `GRADER-ENV.txt` (the grader's Node, npm, `before` date, lockfile hashes, OS
    and browser; set `GRADER_BROWSER` if it cannot find the browser) and `grade-setup.log`. The
-   copy is scratch, so with `GRADING_RESULTS` set both are also kept with your results, in
+   copy is scratch, so with `GRADING_RESULTS` set both are also kept with the grader's results, in
    `setup/<blind id>/<date-time>/`, one folder per run of `grade_setup.sh` (a run that stops
    early included). Each A0 command in the summary ends in `| tee -a .../a0.log`, so its output
    is kept there too: run it as printed. They are committed with the score sheets; the sheet
-   says what you decided, and these logs are the evidence behind L0. With
-   `GRADING_RESULTS` set to your results folder, it also puts a blank score sheet there,
+   says what the grader decided, and these logs are the evidence behind L0. With
+   `GRADING_RESULTS` set to the grader's results folder, it also puts a blank score sheet there,
    `<blind id>.score.json` ("Score sheets", below). With `grading-shell.sh` sourced once per
    session (`source grading-shell.sh`, "GRADING-COMMANDS.md", part B), `grade_setup.sh` also moves
-   your shell into the copy's project root once it is ready, so `npm run dev` cannot start an
-   earlier app by mistake; if it stops before the copy is ready, your shell stays where it was.
+   the grader's shell into the copy's project root once it is ready, so `npm run dev` cannot start an
+   earlier app by mistake; if it stops before the copy is ready, the grader's shell stays where it was.
    After the install it also checks the declared launch without running it (`launch_check.js`):
    it follows `npm run dev` through every command it starts and warns about what would stop
    it, such as a command that is not installed (`sh: concurrently: not found`), a `node` file
    or a script that does not exist, or `vite` started in a folder with no page (a 404 at `/`).
    **It decides nothing.** Run the declared command all the same and score L1 and L2 on what it
-   does; the warnings only tell you which accommodation you are likely to need. After an A0,
+   does; the warnings only tell the grader which accommodation is likely to be needed. After an A0,
    run it again with the command the summary prints.
 2. **Free the ports.** Make sure nothing is listening on the app's ports (`ss -ltnp`).
 3. **Browser.**
@@ -130,13 +155,13 @@ are kept apart from the score and analysed as their own outcome.
      status is in the Status column and its body in the Response tab. The event stream is the
      request whose **Type** column shows `event-stream` (a `text/event-stream` response);
      Firefox lists it under XHR and shows `(xhr)` beside its initiator even when the page opened
-     it with `EventSource`, so neither tells you how it was opened. It is still open when its
+     it with `EventSource`, so neither tells the grader how it was opened. It is still open when its
      row has no end (it keeps no final time), and it is one request, not a new one every few
      seconds, which would be polling.
-   - Open DevTools **before** you enter the app's address, so that the first requests are
+   - Open DevTools **before** the grader enters the app's address, so that the first requests are
      recorded.
 4. **Pausing, resuming and killing the backend: `backend.sh`** (in this folder; use its full
-   path, or add this folder to your PATH). Run it from the app's folder, or give the folder
+   path, or add this folder to the grader's PATH). Run it from the app's folder, or give the folder
    with `-d`.
    - `backend.sh status` shows the app's listening processes and which one it takes for the
      backend. Run it once after the app has started.
@@ -153,17 +178,17 @@ are kept apart from the score and analysed as their own outcome.
      with the backend's port, `-p <port>` (for example a backend that runs Vite inside itself
      looks like a dev server).
 
-**Grader-side problems.** A problem with your machine rather than the app is fixed and graded
+**Grader-side problems.** A problem with the grader's machine rather than the app is fixed and graded
 through. One example is a dev server that the browser can reach only with `--host`, because
 the server and the browser disagree on the interface. If a grader-side problem cannot be fixed,
 mark the affected items `skip` and say why. `skip` is never used for anything the app does.
 
 - **`EALLOWSCRIPTS` from `npm run dev`** ("--allow-scripts is not allowed in project-scoped
-  installs") is a grader-side problem. It appears when your npm configuration sets
+  installs") is a grader-side problem. It appears when the grader's npm configuration sets
   `allow-scripts` and the app's `dev` script runs `npm install` itself: npm hands its settings
   to the inner npm as environment variables, and npm 12 refuses `allow-scripts` from there. Find
   the setting, remove it, and run the declared command again (the failed attempt installed
-  nothing, so the copy is still fresh). Say in L1's notes that the first launch failed on your
+  nothing, so the copy is still fresh). Say in L1's notes that the first launch failed on the grader's
   npm setting. Check it is gone before every session ("GRADING-COMMANDS.md", part B):
 
   ```bash
@@ -222,12 +247,12 @@ minutes in total. **Do not edit any file.**
 | A8 | Install a package the app does not declare, when a part fails to start because its own code imports it or its own declared script runs it and no `package.json` of the app declares it (`Cannot find module 'X'`, `Cannot find package 'X'`, `sh: X: not found`): `npm install --no-save X@latest` in the folder that needs it, then start again. Repeat for each package named the same way. Tried after A1–A6, before A7. |
 
 - Never add a file or a config value, and never type an address, port or path that neither the
-  app nor its dev server gives you. A6 is the one exception, and only for the entry point
+  app nor its dev server gives the grader. A6 is the one exception, and only for the entry point
   or config file it corrects.
 - **A6 corrects a file reference, nothing else.** Keep the rest of the declared command as it
   is and change only which of the app's own entry point or config files it runs (for example
   `node --watch backend/server.js` becomes `node --watch backend/server.mjs`). Never edit a
-  file, and never write code or config of your own. Write the command you ran in the notes of
+  file, and never add code or config the grader wrote. Write the command the grader ran in the notes of
   the launch item it stands in for. The first time a kind of correction is used, record it in
   the precedents log, and correct the same problem the same way in every app. A part started
   by an A6 fails L1 (backend) or L2 (frontend); L3 is judged on the A6 launch like any other
@@ -250,7 +275,7 @@ minutes in total. **Do not edit any file.**
   a file, never installs anything (no `npm install <package>`, no global tool; A0's `ETARGET`
   re-run at install and A8 are the only such installs), and never runs a
   tool or script that the app's own files do not declare.
-  - **Write down exactly what you did:** the problem, the folder and the commands, in the notes
+  - **Write down exactly what the grader did:** the problem, the folder and the commands, in the notes
     of the launch item it stands in for, so that a re-grade can repeat it.
   - **It earns no launch item.** A part started by an A7 fails L1 (backend) or L2 (frontend),
     as any start that is not the declared command does, and L3 is never judged on an A7 launch,
@@ -259,7 +284,7 @@ minutes in total. **Do not edit any file.**
     precedents log: the problem and the step that got past it. Use that step for every app with
     the same problem, and no other. After the grader freeze, a new kind of A7 is a ruling
     (below).
-- Record the code of each accommodation you used in the notes of the launch item it stands in
+- Record the code of each accommodation the grader used in the notes of the launch item it stands in
   for.
 - If nothing gives a working page within 5 minutes, carry on as "When only one half of the app
   works" (Scoring) says: with no page at all, every item not yet scored fails; with a page whose
@@ -275,12 +300,12 @@ minutes in total. **Do not edit any file.**
 - **Type exactly the texts the card gives.** Before typing one, clear the input if it still
   holds anything, such as the last text when the app does not empty the input after a submit
   (the card scores that once, where it happens; it must not spoil the next text).
-- **"Within 2 seconds, without reload"** means you do not reload or navigate that window.
+- **"Within 2 seconds, without reload"** means the grader does not reload or navigate that window.
 - **No N/A.** When a part of the app does not work, every item that needs that part fails.
   `skip` stays for grader-side problems only. Each item is part of the card's total weight, so
   marking items N/A would shrink the total for a broken app and let it lose less than an app
   that works but makes mistakes.
-- **No pass by default.** An item passes only when you saw what it asks for. If what it looks
+- **No pass by default.** An item passes only when the grader saw what it asks for. If what it looks
   at never appeared (no message was posted, no card exists, nothing was dropped), it fails,
   even though nothing wrong was seen: "every message shows its full text" fails when there are
   no messages.
@@ -290,8 +315,8 @@ minutes in total. **Do not edit any file.**
     runs): judge the launch items as their rows say, and fail every other item without running
     its steps. Still run the API probe at the end, which checks the backend on its own.
   - **A page, but no backend** (the page renders, but the backend does not run or the page
-    cannot reach it): carry on through the script. Do every step the page lets you do, and
-    score each item on what you see. An item that needs only the page can pass (for example
+    cannot reach it): carry on through the script. Do every step the page lets the grader do, and
+    score each item on what the grader sees. An item that needs only the page can pass (for example
     KB-F2, a control for creating a card); an item that needs the backend's data fails. If no
     backend runs at all, run the API probe with `--no-backend`.
   - **A part that stops later,** during the script, is a crash (below), not this rule.
@@ -313,8 +338,8 @@ minutes in total. **Do not edit any file.**
 
 ## Notes
 
-Keep notes short and factual. Say what you saw, with any error message, and which
-accommodation you used.
+Keep notes short and factual. Say what the grader saw, with any error message, and which
+accommodation the grader used.
 
 Each card's "fails when" column gives examples of how an item fails. When a failure matches
 one, use the same words for it in the notes, so that notes can be counted.
@@ -325,17 +350,17 @@ The probe (`api_probe.py`, in this folder) calls the backend's API directly and 
 spec states exactly: the paths and methods it names, the move request's body, where a new or
 moved card goes, and what the event stream carries.
 
-- **When.** Run it as the card's last step, once your score sheet for the app is complete, with
+- **When.** Run it as the card's last step, once the grader's score sheet for the app is complete, with
   the app still running as the script left it. The probe adds its own messages or cards (their
   texts begin `api-probe`), so it never runs before grading ends, and nothing it shows changes a
   score.
 - **How.** Find the port the backend process listens on (`ss -ltnp`; not the Vite dev server's
   port), then run
 
-  `python3 api_probe.py <message-board|kanban-board> <backend-port> <blind id> --out <your results folder>/probe`
+  `python3 api_probe.py <message-board|kanban-board> <backend-port> <blind id> --out <results folder>/probe`
 
   It takes 10 to 15 seconds (it holds the event stream open for 10) and writes
-  `probe/<blind id>.api-probe.json` in your results folder, committed with the score sheets. You don't need to read the output: the file is the record.
+  `probe/<blind id>.api-probe.json` in the grader's results folder, committed with the score sheets. The grader does not need to read the output: the file is the record.
 - **If it refuses.**
   - *Nothing answers on port …*: check the port. If no backend runs at all, even with the
     accommodations (an install that failed with no A0 included), run it with `--no-backend`
@@ -343,7 +368,7 @@ moved card goes, and what the event stream carries.
     probe file.
   - *Port … is a Vite dev server*: give the backend's own port. Use `--allow-vite` only for an
     app that has no separate backend and serves its API from the Vite dev server itself.
-  - If it stops with a Python error, keep your copy of the app and note the blind id.
+  - If it stops with a Python error, keep the grader's copy of the app and note the blind id.
 
 **What it checks.** Each check ends `pass` or `fail`, or `inconclusive` when the spec leaves open
 a detail the probe needs (it names no body field for a new message or card, so the probe tries
@@ -377,11 +402,11 @@ two. If it cannot create cards, it moves cards already on the board instead.
 
 ## Score sheets
 
-One sheet per grading, `<blind id>.score.json` in your results folder. A re-grade has its own
+One sheet per grading, `<blind id>.score.json` in the grader's results folder. A re-grade has its own
 blind id, so its own sheet. `grade_setup.sh` makes the blank sheet; `score_sheet.py new <task>
 <blind id>` makes one by hand.
 
-- **Grade from the sheet.** It follows the card's script, so you can work through it top to
+- **Grade from the sheet.** It follows the card's script, so the grader can work through it top to
   bottom without the card open:
   - `card_notes`: the card's notes from above its script (texts to type, windows, order,
     dependencies);
@@ -391,17 +416,17 @@ blind id, so its own sheet. `grade_setup.sh` makes the blank sheet; `score_sheet
     reminder, never the test: the criterion and `fails_when` decide the result. An item checked over two steps (MB-R4) sits at the later one. A step
     with nothing to score has no items. The card stays the reference: if the copied text and
     the card ever differ, the card wins, and `refresh` (below) brings the sheet back in line.
-- **Fill it in** in any text editor, as you go through the steps:
-  - `graded_on`: the date you graded the app (YYYY-MM-DD);
+- **Fill it in** in any text editor, as the grader goes through the steps:
+  - `graded_on`: the date the grader graded the app (YYYY-MM-DD);
   - for every item, `result` (`pass`, `fail` or `skip`) and `notes`. A `skip` needs notes
     saying what the grader-side problem was. Changing the copied text changes nothing;
-  - `accommodations`: the codes you used (A0 to A8). Name each in the notes of the launch item
+  - `accommodations`: the codes the grader used (A0 to A8). Name each in the notes of the launch item
     it stands in for; an A6, an A7 or an A8 also needs its exact commands there;
-  - `notes`: anything else you noticed.
-- **Check it** before you move on: `python3 score_sheet.py check <sheet>`. It refuses a sheet
+  - `notes`: anything else the grader noticed.
+- **Check it** before the grader moves on: `python3 score_sheet.py check <sheet>`. It refuses a sheet
   with an item missing, a value other than pass, fail or skip (`partial` is not used), a skip
   without notes, an undated sheet, or a card version other than the one in use.
-- **After a card changes** (calibration only), close the sheet in your editor and run
+- **After a card changes** (calibration only), close the sheet in the grader's editor and run
   `python3 score_sheet.py refresh <sheet>`: it rewrites the steps and copied text from the
   current card and keeps every result and note. It also puts a sheet made before the sheets
   had steps into steps.
@@ -409,10 +434,11 @@ blind id, so its own sheet. `grade_setup.sh` makes the blank sheet; `score_sheet
   prints its score: the weighted share of the items scored pass or fail that pass, out of 100,
   skipped items left out (protocol §6.1).
 
-## The tools around the grading (not run by the grader)
+## The tools around the grading
 
-These read the un-blinding state, so whoever makes your lists runs them, not you (protocol
-§5.3). They keep their state in `blind-state/`, beside the harness's id ledger and key.
+These read the un-blinding state. In this study the study lead, who is also the only grader,
+runs them, and never opens the state they read: they print only counts and blind ids (protocol
+section 5.3, "Who runs the draws"). They keep their state in `blind-state/`, beside the harness's id ledger and key.
 
 - **`blind_tools.py`**
   - `calibrate`: copies calibration apps (app and `environment.txt` only) to the blind layout
@@ -428,13 +454,13 @@ These read the un-blinding state, so whoever makes your lists runs them, not you
     giving each drawn app a second id. It writes `grading-index.tsv`, which `grade_setup.sh`
     reads as `GRADING_INDEX`;
   - `fresh`: the fresh set after a check below the bar;
-  - `lists`: your next shuffled list, first gradings and the re-grades whose 14 days have
+  - `lists`: the grader's next shuffled list, first gradings and the re-grades whose 14 days have
     passed together, with nothing marking which is which.
 - **`merge_grades.py`** merges the complete score sheets into `scores.csv` and runs the
   consistency check (`consistency.md`): pairs, mean absolute difference against the bar, ICC,
   each item's kappa beside its raw agreement, and every changed item with both notes. It
-  names apps only by blind id, so you can read it. Its `--unblinded` file joins the scores of
-  record with model, condition and arm for the analysis, and is never given to you.
+  names apps only by blind id, so the grader can read it. Its `--unblinded` file joins the scores of
+  record with model, condition and arm for the analysis, and is never given to the grader.
 
 ## Calibration, consistency checks and the precedents log
 
@@ -445,15 +471,15 @@ These read the un-blinding state, so whoever makes your lists runs them, not you
     read back over the score sheets item by item and fix any wording that left a call unclear.
   - **No separate deciding round.** When the training rounds leave no call unclear, the
     cards are frozen: this folder is committed and tagged `grader-freeze`, **the grader
-    freeze**, and is not edited after it. The ambiguities the rounds settled become the
-    first entries in the precedents log, whose state then is hashed with the grader at the
+    freeze**, and is not edited after it. The calls the rounds settled are not carried into
+    the precedents log, which starts empty for the grid and is hashed with the grader at the
     registration freeze.
   - **The first test of consistency is the grid's**: its re-grade set, checked as below. The
     report says the cards were frozen before their consistency had been measured.
   - Grid runs may be made before the grader freeze, but no grid app is graded before it.
-- **Consistency checks (during the grid).** A consistency check asks whether you are still
+- **Consistency checks (during the grid).** A consistency check asks whether the grader is still
   applying a card the same way as before. It uses only the **re-graded apps**: the fifth of
-  each tier drawn for a second grading ("One grader, and the re-grade", above). The other apps,
+  each tier's sample drawn for a second grading ("One grader, and the re-grade", above). The other apps,
   graded once, play no part in it.
   - **What it compares.** For each re-graded app, the score of its first grading against the
     score of its re-grade. From those pairs it reports the mean absolute difference between the
@@ -480,9 +506,9 @@ These read the un-blinding state, so whoever makes your lists runs them, not you
 - **Rulings, after the grader freeze.** The cards never change after the grader freeze. A
   question they did not foresee is settled by a **ruling**: a written decision on how an
   existing item's criterion applies, recorded in the precedents log.
-  - **Where.** `grading/precedents-log.md` in your results folder, outside this tagged
-    folder, so that it can grow after the freeze. Its first entries are the calibration entries from the training rounds (above). Each entry follows the log's template: an id
-    (P-001, …), the date, its kind (calibration or ruling), the item, the question the card
+  - **Where.** `grading/precedents-log.md` in the grader's results folder, outside this tagged
+    folder, so that it can grow after the freeze. It starts empty for the grid. Each entry follows the log's template: an id
+    (P-001 and on), the date, the item, the question the card
     left open, the ruling, the blind ids that raised it, the blind ids re-graded because of
     it, and any entry it replaces. Entries are never edited or deleted: a new entry replaces
     an old one and says so. Commit the log after every entry; its state at the registration

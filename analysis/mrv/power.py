@@ -61,7 +61,7 @@ def simulate(a, b, rng, model="sim", arms=("unseen", "seen"), per_stratum=config
 
 
 # Protocol section 7's scenarios, plus a null (test 1 of DESIGN.md section 9.2) and H3-H5 at
-# effects of the size the pilot reported in protocol section 1.3. (name, arm a, arm b, what to count)
+# effects of the size the smoke runs reported in protocol section 1.3. (name, arm a, arm b, what to count)
 def scenarios():
     q = QUALITY_SD
     base = arm_params()

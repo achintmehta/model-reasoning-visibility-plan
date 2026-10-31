@@ -206,7 +206,7 @@ and count rejections. Scenarios:
   SD = 41 points: each with the other two measures null, so Holm is applied as in the study.
 - equivalence: both arms at 2% and at 5% failure, and steps ratio 1.0, counting how often
   "equivalent" is declared.
-- H3-H5 at effects of the size the pilot reported (protocol section 1.3), each with the other two
+- H3-H5 at effects of the size the smoke runs reported (protocol section 1.3), each with the other two
   null: reasoning rate 0.90 against 0.97, median reasoning characters 0.8 times, and a silent
   turn in 10% of runs against 2%. And a mechanism null.
 - a null with every measure equal, which is also test 1 of section 9.2.
